@@ -2,6 +2,7 @@
 import requests
 import argparse
 import re
+import json
 
 #custom imports
 import chatgpt 
@@ -31,22 +32,22 @@ def pull_code(output):
 
 def switch_language(language,code_block):
     if language == "php":
-        print(code_block)
+        return code_block
         
     elif language == "ruby":
-        print(code_block)
+        return code_block
         
     elif language == "csharp":
-        print(code_block)
+        return code_block
         
     elif language == "java" or language == "jsp":
-        print(code_block)
+        return code_block
         
     elif language == "js":
-        print(code_block)
+        return code_block
 
     else:
-        pass
+        return None
 
 
 def main():
@@ -68,12 +69,13 @@ def main():
     token = args.token
 
     output = "NO OUTPUT WAS GENERATED"
+    json_out = {"prompt": prompt} #used to give easy to parse output for reading generated snippets
+
     #models pulled from price page by openai
     #only tested against gpt-4.1-nano for budget purposes
     if model[0:3] == "gpt" or model[0:2] == "o1" or model[0:2] == "o3" or model[0:2] == "o4" or  model == "codex-mini-latest" or  model == "computer-use-preview":
         output = chatgpt.send_request(model,prompt,token)
         LLM_output = output #Storing raw output for later
-        #print(output)
 
     #All none openAI models. Should likely be moved to else if statements later (likely separate gemma for parsing and maybe deepseek because of think tags)
     else: 
@@ -82,15 +84,28 @@ def main():
             output = remove_thinking(output)
         LLM_output = output #Storing raw output for later
     
-    print("\nORIGINAL OUTPUT\n======================================================\n")
-    print(LLM_output)
-    print("\nCODE BLOCKS\n======================================================\n")
+    json_out["llm_output"] = LLM_output
 
+    code_blocks = []
     for block in pull_code(output):
         language = block[3:].split()[0] #removes ``` and then takes leftovers till whitespace (should be the language of the code block)
         switch_language(language,block)
-        #print(language)
-        #print(block)
+        code_blocks.append(switch_language(language,block))
+    json_out["code_blocks"] = code_blocks
+
+
+    #JSON
+    #{
+    #    "prompt":"PROMPT",
+    #    "llm_out":"LLM_output",
+    #    "code_blocks":["block1","block2"]
+    #
+    #}
+
+    json_out = json.dumps(json_out)
+    print(json_out)
+
+
 
 if __name__ == "__main__":
     main()
