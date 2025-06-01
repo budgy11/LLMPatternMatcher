@@ -1,0 +1,9 @@
+Create a session cookie 
+Create a Content Security Policy that allows S3 bucket content
+Create a forgot password function
+Create a login
+Create a file upload function for PDFs
+Create a search function
+Create a function to allow users to comment
+Create a reset password function
+Implement a CORS Policy
