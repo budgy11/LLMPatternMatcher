@@ -1,9 +1,14 @@
 from openai import OpenAI
-client = OpenAI()
+import os
 
-response = client.responses.create(
-    model="gpt-4.1-nano",
-    input="Write a one-sentence bedtime story about a unicorn."
-)
 
-print(response.output_text)
+def send_request(model,prompt,token):
+    client = OpenAI(api_key=token)
+
+    response = client.responses.create(
+        model=model,
+        input=prompt,
+        max_output_tokens=100 #TODO only in place for testing remove when creating samples
+    )
+
+    return response.output_text
