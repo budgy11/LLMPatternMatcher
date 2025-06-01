@@ -81,9 +81,11 @@ def main():
         if output[0:7] == '<think>':
             output = remove_thinking(output)
         LLM_output = output #Storing raw output for later
+    
+    print("\nORIGINAL OUTPUT\n======================================================\n")
+    print(LLM_output)
+    print("\nCODE BLOCKS\n======================================================\n")
 
-
-    print(LL
     for block in pull_code(output):
         language = block[3:].split()[0] #removes ``` and then takes leftovers till whitespace (should be the language of the code block)
         switch_language(language,block)
