@@ -3,8 +3,11 @@ import requests
 import argparse
 import re
 
-def send_request(url,model,prompt):
+#custom imports
+import chatgpt 
 
+def send_request(url,model,prompt):
+    #For the ollama libraries currently - chatgpt will likely need to be separated
 
     r = requests.post(url, json={
         "model": model, 
@@ -23,6 +26,7 @@ def remove_thinking(output):
     return output.split('</think>',1)[1] #feels archaic but effective
     
 def pull_code(output):
+    #gemma3 does not like to use code fences and may need additional processing
     return re.findall(r'```[a-z]*\n[\s\S]*?\n```', output)
 
 def main():
@@ -35,6 +39,7 @@ def main():
     parser.add_argument('-u', '--url', default='http://localhost:11434/api/chat')
     parser.add_argument('-m', '--model', required = True)
     parser.add_argument('-p', '--prompt', required = True)
+    parser.add_argument('-t', '--token')
 
     args = parser.parse_args()
     model = args.model
