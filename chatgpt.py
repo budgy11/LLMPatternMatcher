@@ -8,7 +8,7 @@ def send_request(model,prompt,token):
     response = client.responses.create(
         model=model,
         input=prompt,
-        max_output_tokens=100 #TODO only in place for testing remove when creating samples
+        #max_output_tokens=100 #TODO only in place for testing remove when creating samples
     )
 
     return response.output_text
