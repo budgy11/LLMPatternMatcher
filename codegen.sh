@@ -1,7 +1,7 @@
 #!/bin/bash
 
-languages=("ASP.NET" "Node.JS"  "Spring")
-models=("deepseek-r1")
+models=("gpt-4.1-nano")
+languages=("ASP.NET Node.JS Spring")
 
 
 ctr=1
@@ -11,7 +11,9 @@ do
         do
                 for j in ${models[@]}
                 do
-                        ./main.py -m "$j" -p "$line using $i" > "$i/$j-$ctr.json"
+                        ./main.py -m "$j" -p "$line using $i" -t 'TOKEN' > "$i/$j-$ctr.json"
+                        #./main.py -m "$j" -p "$line using Ruby on Rails" > "RubyOnRails/$j-$ctr.json"
+                        sleep 20
                 done
         done
         ((ctr++))
