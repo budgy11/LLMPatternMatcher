@@ -27,8 +27,11 @@ def remove_thinking(output):
     return output.split('</think>',1)[1] #feels archaic but effective
     
 def pull_code(output):
+    #Regex needs work - see deepseek-r1-1.json
     #gemma3 does not like to use code fences and may need additional processing
     return re.findall(r'```[a-z]*\n[\s\S]*?\n```', output)
+
+    
 
 def switch_language(language,code_block):
     if language == "php":
@@ -43,7 +46,7 @@ def switch_language(language,code_block):
     elif language == "java" or language == "jsp":
         return code_block
         
-    elif language == "js":
+    elif language == "js" or language == "javascript":
         return code_block
 
     else:
