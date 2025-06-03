@@ -108,7 +108,5 @@ def main():
     json_out = json.dumps(json_out)
     print(json_out)
 
-
-
 if __name__ == "__main__":
     main()
