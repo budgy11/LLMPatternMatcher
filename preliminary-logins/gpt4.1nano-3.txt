@@ -1,0 +1,49 @@
+null
+"```php
+<?php
+session_start();
+
+// Dummy user data, typically this would come from a database
+$users = [
+    'user1' => 'pass1',
+    'user2' => 'pass2'
+];
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    // Validate credentials
+    if (isset($users[$username]) && $users[$username] === $password) {
+        $_SESSION['username'] = $username;
+        echo \"Login successful! Welcome, \" . htmlspecialchars($username) . \".\";
+        // Redirect to a protected page
+        // header('Location: protected.php');
+        exit();
+    } else {
+        echo \"Invalid username or password.\";
+    }
+}
+?>
+```"
+"```php
+<?php
+session_start();
+
+if (!isset($_SESSION['username'])) {
+    header('Location: login.html');
+    exit();
+} else {
+    echo \"Hello, \" . htmlspecialchars($_SESSION['username']) . \"!\";
+    echo '<br><a href=\"logout.php\">Logout</a>';
+}
+?>
+```"
+"```php
+<?php
+session_start();
+session_destroy();
+header('Location: login.html');
+exit();
+?>
+```"

@@ -37,18 +37,18 @@ def switch_language(language,code_block):
     if language == "php":
         return code_block
         
-    elif language == "ruby":
-        return code_block
-        
-    elif language == "csharp":
-        return code_block
-        
-    elif language == "java" or language == "jsp":
-        return code_block
-        
-    elif language == "js" or language == "javascript":
-        return code_block
-
+#    elif language == "ruby":
+#        return code_block
+#        
+#    elif language == "csharp":
+#        return code_block
+#        
+#    elif language == "java" or language == "jsp":
+#        return code_block
+#        
+#    elif language == "js" or language == "javascript":
+#        return code_block
+#
     else:
         return None
 
@@ -83,8 +83,8 @@ def main():
     #All none openAI models. Should likely be moved to else if statements later (likely separate gemma for parsing and maybe deepseek because of think tags)
     else: 
         output = send_request(url, model, prompt)['message']['content']
-        if output[0:7] == '<think>':
-            output = remove_thinking(output)
+        #if output[0:7] == '<think>':
+            #output = remove_thinking(output) #this may not be a good thing
         LLM_output = output #Storing raw output for later
     
     json_out["llm_output"] = LLM_output

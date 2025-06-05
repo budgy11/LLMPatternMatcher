@@ -1,0 +1,45 @@
+null
+"```php
+<?php
+// Hardcoded credentials - in real applications, use a database!
+$valid_username = \"user1\";
+$valid_password = \"pass123\";
+
+// Check if form is submitted
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Get submitted form data
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    // Validate credentials
+    if ($username === $valid_username && $password === $valid_password) {
+        // Successful login
+        session_start();
+        $_SESSION['username'] = $username;
+        echo \"Welcome, \" . htmlspecialchars($username) . \"! You are logged in.\";
+        // Redirect to a protected page
+        // header(\"Location: protected.php\");
+        // exit();
+    } else {
+        // Invalid credentials
+        echo \"Invalid username or password.\";
+    }
+} else {
+    // If accessed directly, redirect to login form
+    header(\"Location: login.html\");
+    exit();
+}
+?>
+```"
+"```php
+<?php
+session_start();
+
+if (!isset($_SESSION['username'])) {
+    header(\"Location: login.html\");
+    exit();
+}
+
+echo \"Hello, \" . htmlspecialchars($_SESSION['username']) . \"! Welcome to the protected page.\";
+?>
+```"

@@ -1,0 +1,76 @@
+"```php
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+</head>
+<body>
+    <h2>Login</h2>
+    <form method=\"post\" action=\"authenticate.php\">
+        <label for=\"username\">Username:</label>
+        <input type=\"text\" name=\"username\" id=\"username\" required>
+        <br><br>
+        <label for=\"password\">Password:</label>
+        <input type=\"password\" name=\"password\" id=\"password\" required>
+        <br><br>
+        <input type=\"submit\" value=\"Login\">
+    </form>
+</body>
+</html>
+```"
+"```php
+<?php
+// Starting session to store user data
+session_start();
+
+// Hardcoded credentials for demonstration
+$valid_username = 'user';
+$valid_password = 'pass123';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    // Validate credentials
+    if ($username === $valid_username && $password === $valid_password) {
+        $_SESSION['loggedin'] = true;
+        $_SESSION['username'] = $username;
+        // Redirect to protected page
+        header('Location: welcome.php');
+        exit();
+    } else {
+        echo \"Invalid username or password.\";
+    }
+}
+?>
+```"
+"```php
+<?php
+session_start();
+
+// Check if the user is logged in
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    header('Location: login.php');
+    exit();
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome</title>
+</head>
+<body>
+    <h2>Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h2>
+    <a href=\"logout.php\">Logout</a>
+</body>
+</html>
+```"
+"```php
+<?php
+session_start();
+session_destroy();
+header('Location: login.php');
+exit();
+?>
+```"

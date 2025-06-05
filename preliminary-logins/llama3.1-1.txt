@@ -1,0 +1,58 @@
+null
+"```php
+<?php
+// Configuration settings
+$host = 'localhost';
+$username_db = 'your_username'; // Replace with your MySQL username
+$password_db = 'your_password'; // Replace with your MySQL password
+$dbname = 'login_system';
+
+// Connect to database
+$conn = new mysqli($host, $username_db, $password_db, $dbname);
+
+if ($conn->connect_error) {
+    die(\"Connection failed: \" . $conn->connect_error);
+}
+
+// Hashing function for passwords (using SHA-256 for simplicity)
+function hash_password($password) {
+    return sha1($password); // Note: In real-world applications, use a more secure hashing method like bcrypt or Argon2.
+}
+
+// Input form
+?>
+
+<form action=\"<?php echo $_SERVER['PHP_SELF']; ?>\" method=\"post\">
+    <label>Username:</label>
+    <input type=\"text\" name=\"username\"><br><br>
+    <label>Password:</label>
+    <input type=\"password\" name=\"password\"><br><br>
+    <input type=\"submit\" value=\"Login\">
+</form>
+
+<?php
+if (isset($_POST['username']) && isset($_POST['password'])) {
+    $username = $_POST['username'];
+    $password = hash_password($_POST['password']);
+
+    // SQL query to select user from database
+    $sql = \"SELECT username FROM users WHERE username = '$username' AND password = '$password'\";
+    
+    if ($result = mysqli_query($conn, $sql)) {
+        $rowcount = mysqli_num_rows($result);
+        
+        if ($rowcount > 0) {
+            echo 'You are logged in';
+            session_start();
+            $_SESSION['logged_in'] = true;
+            $_SESSION['username'] = $username;
+        } else {
+            echo 'Invalid username or password';
+        }
+    }
+
+    // Close the database connection
+    mysqli_close($conn);
+}
+?>
+```"

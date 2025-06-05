@@ -1,0 +1,90 @@
+null
+"```php
+<?php
+
+// Check if user is already logged in
+if (isset($_SESSION['username'])) {
+    header('Location: dashboard.php');
+    exit;
+}
+
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+
+<form action=\"login-action.php\" method=\"post\">
+    <label for=\"username\">Username:</label>
+    <input type=\"text\" id=\"username\" name=\"username\"><br><br>
+    <label for=\"password\">Password:</label>
+    <input type=\"password\" id=\"password\" name=\"password\"><br><br>
+    <button type=\"submit\" name=\"login\">Login</button>
+</form>
+
+<?php
+if (isset($_GET['error'])) {
+    echo '<p style=\"color: red;\">' . $_GET['error'] . '</p>';
+}
+?>
+
+</body>
+</html>
+```"
+"```php
+<?php
+
+// Include database connection file
+require_once 'db_connection.php';
+
+if (isset($_POST['login'])) {
+    $username = $_POST['username'];
+    $password = sha1($_POST['password']);
+
+    // Query to check if username exists in database
+    $query = \"SELECT * FROM users WHERE username = '$username'\";
+    $result = mysqli_query($conn, $query);
+
+    if ($result) {
+        $row = mysqli_fetch_assoc($result);
+        if (sha1($row['password']) == $password) {
+            // User is logged in
+            session_start();
+            $_SESSION['username'] = $row['username'];
+            header('Location: dashboard.php');
+            exit;
+        } else {
+            // Password incorrect, show error message
+            header('Location: login.php?error=Password incorrect');
+            exit;
+        }
+    } else {
+        // Username not found, show error message
+        header('Location: login.php?error=Username not found');
+        exit;
+    }
+}
+
+?>
+```"
+"```php
+<?php
+
+// Database connection settings
+$servername = \"localhost\";
+$username = \"your_username\";
+$password = \"your_password\";
+$dbname = \"your_database\";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+// Check connection
+if (!$conn) {
+    die(\"Connection failed: \" . mysqli_connect_error());
+}
+
+?>
+```"

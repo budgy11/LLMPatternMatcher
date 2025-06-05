@@ -1,0 +1,107 @@
+null
+"```php
+<?php
+session_start();
+if ($_SESSION['logged_in']) {
+    header('Location: dashboard.php'); // Redirect to dashboard if logged in
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<body>
+    <form action=\"login_process.php\" method=\"post\">
+        <label>Username:</label><br>
+        <input type=\"text\" name=\"username\"><br>
+        <label>Password:</label><br>
+        <input type=\"password\" name=\"password\"><br>
+        <button type=\"submit\">Login</button>
+    </form>
+
+    <?php if (isset($_SESSION['login_error'])): ?>
+        <p style=\"color:red;\"><?php echo $_SESSION['login_error']; unset($_SESSION['login_error']); ?></p>
+    <?php endif; ?>
+</body>
+</html>
+```"
+"```php
+<?php
+session_start();
+$host = 'localhost';
+$dbname = 'myapp';
+$username = 'root'; // Database credentials (change in production)
+$password = '';      // Change to your password
+
+try {
+    $pdo = new PDO(\"mysql:host=$host;dbname=$dbname;charset=utf8\", $username, password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $user = $_POST['username'];
+        $pass = $_POST['password'];
+
+        // Use prepared statement (insecure for production)
+        $stmt = $pdo->query(\"SELECT * FROM users WHERE username='$user'\");
+        $user_data = $stmt->fetch();
+
+        if ($user_data && password_verify($pass, $user_data['password'])) {
+            session_regenerate_id(); // Security measure
+            $_SESSION['logged_in'] = true;
+            $_SESSION['username'] = $user;
+            header('Location: dashboard.php');
+            exit();
+        } else {
+            $_SESSION['login_error'] = 'Invalid credentials';
+            header('Location: index.php'); // Redirect back to login page
+            exit();
+        }
+    }
+} catch (PDOException $e) {
+    die(\"Database connection failed: \" . $e->getMessage());
+}
+```"
+"```php
+<?php
+session_start();
+
+if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
+    header('Location: index.php');
+    exit();
+}
+
+echo \"<h1>Welcome, \" . $_SESSION['username'] . \"</h1>\";
+?>
+
+<a href=\"logout.php\">Logout</a>
+```"
+"```php
+<?php
+session_start();
+session_destroy();
+header('Location: index.php');
+exit();
+?>
+```"
+"```php
+   // Registration script:
+   $pass_hash = password_hash($_POST['password'], PASSWORD_BCRYPT);
+   ```
+
+2. **SQL Injection Protection**:
+   Use prepared statements properly (not shown above):
+   ```php
+   $stmt = $pdo->prepare(\"SELECT * FROM users WHERE username=:username\");
+   $stmt->execute([':username' => $_POST['username']]);
+   ```
+
+3. **HTTPS**: Always use SSL/TLS for transmission.
+4. **Session Security**: Use long, random session IDs and regenerate on login/logout.
+5. **Form Validation**: Validate all inputs server-side.
+
+---
+
+## Enhanced Version with Hashing
+Here's a more secure version using password hashing during registration:
+
+### `register.php`
+```"
