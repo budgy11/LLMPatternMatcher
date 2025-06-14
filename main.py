@@ -7,6 +7,7 @@ import json
 #custom imports
 #import chatgpt 
 import classifications
+from code_parser import code_parse
 
 def send_request(url,model,prompt):
     #For the ollama libraries currently - chatgpt will likely need to be separated
@@ -28,8 +29,7 @@ def remove_thinking(output):
     return output.split('</think>',1)[1] #feels archaic but effective
     
 def pull_code(output):
-    #Regex needs work - see deepseek-r1-1.json
-    #gemma3 does not like to use code fences and may need additional processing
+    #https://coderwall.com/p/r6b4xg/regex-to-match-github-s-markdown-code-blocks
     return re.findall(r'```[a-z]*\n[\s\S]*?\n```', output)
 
     
@@ -37,19 +37,7 @@ def pull_code(output):
 def switch_language(language,code_block):
     if language == "php":
         return code_block
-        
-#    elif language == "ruby":
-#        return code_block
-#        
-#    elif language == "csharp":
-#        return code_block
-#        
-#    elif language == "java" or language == "jsp":
-#        return code_block
-#        
-#    elif language == "js" or language == "javascript":
-#        return code_block
-#
+
     else:
         return None
 
@@ -94,9 +82,9 @@ def main():
     for block in pull_code(output):
         language = block[3:].split()[0] #removes ``` and then takes leftovers till whitespace (should be the language of the code block)
         switch_language(language,block)
+        code_parse(block)
         code_blocks.append(switch_language(language,block))
     json_out["code_blocks"] = code_blocks
-
 
     #JSON
     #{
