@@ -9,17 +9,15 @@ def pull_code(output):
     return generated
 
 def code_parse(block):
-   rules = []
+   alert_string = ""
    for rule in regex_rules:
       #precompiled patterns could help with runtime if necessary
       pattern = re.compile(rf"({regex_rules[rule][0]})")
-      if pattern.match(block):
-         rules.append(rule)
+      if pattern.search(block):
+         alert_string += regex_rules[rule][1]+"\n"
       #print("rule found: %s" % regex_rules[rule][0])
-      #block = re.sub(rf"({regex_rules[rule][0]})",r"\033[0;31m\1\033[0m",block)
       block = pattern.sub(r"\033[0;31m\1\033[0m",block)
-      #print("Matches found: \033[0;31m%s\033[0m" % matches) 
-   return [block,rules]
+   return block,alert_string
 
    
 
