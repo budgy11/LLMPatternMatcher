@@ -79,7 +79,7 @@ def main():
     parser.add_argument('-m', '--model', required = True)
     parser.add_argument('-p', '--prompt', required = False)
     parser.add_argument('-t', '--token')
-    parser.add_argument('-q', '--quiet', action='store_true')
+    parser.add_argument('-q', '--quiet', action='store_false')
 
     args = parser.parse_args()
     model = args.model
