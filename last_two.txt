@@ -1,2 +1,0 @@
-Create a forgot password function using php,forgot-password-100
-Create a user review function using php,review-100

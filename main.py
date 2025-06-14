@@ -5,7 +5,8 @@ import re
 import json
 
 #custom imports
-import chatgpt 
+#import chatgpt 
+import classifications
 
 def send_request(url,model,prompt):
     #For the ollama libraries currently - chatgpt will likely need to be separated
