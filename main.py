@@ -32,16 +32,6 @@ def pull_code(output):
     #https://coderwall.com/p/r6b4xg/regex-to-match-github-s-markdown-code-blocks
     return re.findall(r'```[a-z]*\n[\s\S]*?\n```', output)
 
-    
-
-def switch_language(language,code_block):
-    if language == "php":
-        return code_block
-
-    else:
-        return None
-
-
 def main():
     parser = argparse.ArgumentParser(
         prog='LLMPatternMatcher',
@@ -60,11 +50,10 @@ def main():
     prompt = args.prompt
     token = args.token
 
+    isCode = False #flag for when within PHP code block
     output = "NO OUTPUT WAS GENERATED"
-    json_out = {"prompt": prompt} #used to give easy to parse output for reading generated snippets
 
-    #models pulled from price page by openai
-    #only tested against gpt-4.1-nano for budget purposes
+    #openai models that were implemented originally but not used for research
     if model[0:3] == "gpt" or model[0:2] == "o1" or model[0:2] == "o3" or model[0:2] == "o4" or  model == "codex-mini-latest" or  model == "computer-use-preview":
         output = chatgpt.send_request(model,prompt,token)
         LLM_output = output #Storing raw output for later
@@ -72,30 +61,33 @@ def main():
     #All none openAI models. Should likely be moved to else if statements later (likely separate gemma for parsing and maybe deepseek because of think tags)
     else: 
         output = send_request(url, model, prompt)['message']['content']
-        #if output[0:7] == '<think>':
-            #output = remove_thinking(output) #this may not be a good thing
         LLM_output = output #Storing raw output for later
-    
-    json_out["llm_output"] = LLM_output
 
-    code_blocks = []
-    for block in pull_code(output):
-        language = block[3:].split()[0] #removes ``` and then takes leftovers till whitespace (should be the language of the code block)
-        switch_language(language,block)
-        code_parse(block)
-        code_blocks.append(switch_language(language,block))
-    json_out["code_blocks"] = code_blocks
+    code_blocks = pull_code(output)
 
-    #JSON
-    #{
-    #    "prompt":"PROMPT",
-    #    "llm_out":"LLM_output",
-    #    "code_blocks":["block1","block2"]
-    #
-    #}
+    isCode = False
+    for line in output.split('\n'):
+        #lines in php blocks to parse
+        if not isCode:
+            print(line)
+        if line[0:7] == '```php':
+            #print(line) #already printed from above branch
+            isCode = True
+        elif isCode and line[0:3] == '```':
+            print(line)
+            isCode = False
+        else:
+            pass
 
-    json_out = json.dumps(json_out)
-    print(json_out)
+    #json output used for analysis and debugging
+    #json_out = {"prompt": prompt} 
+    #json_out["llm_output"] = LLM_output
+    #json_out["code_blocks"] = pull_code(LLM_output)
+    #json_out = json.dumps(json_out)
+    #print(json_out)
+
+    #print("############################################################################")
+    #print(LLM_output)
 
 if __name__ == "__main__":
     main()
