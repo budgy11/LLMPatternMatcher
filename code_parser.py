@@ -8,7 +8,7 @@ def pull_code(output):
     generated = re.findall(r'```php\n[\s\S]*?\n```', output)
     return generated
 
-def code_parse(block,quiet):
+def code_parse(block):
    alert_string = ""
    for rule in regex_rules:
       #precompiled patterns could help with runtime if necessary

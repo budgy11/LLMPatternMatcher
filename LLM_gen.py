@@ -40,8 +40,8 @@ def request_output(prompt,model,url,quiet):
         #lines in php blocks to parse
         if line[0:6] == '```php':
             #print(line) #already printed from above branch
-            llm_output += code_parse(code_blocks[block_ctr],quiet)[0]
-            alert_string += code_parse(code_blocks[block_ctr],quiet)[1]
+            llm_output += code_parse(code_blocks[block_ctr])[0]
+            alert_string += code_parse(code_blocks[block_ctr])[1]
             if not quiet:
                 llm_output += "\n#####\nAlerts:\n" + alert_string + "#####\n"
             block_ctr += 1
