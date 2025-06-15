@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#TODO MISSING 404-500 DEEPSEEK PURCHASING
-
 models=("deepseek-r1:32b")
 
 while read -r line;

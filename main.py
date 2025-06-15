@@ -20,23 +20,20 @@ def main():
     parser.add_argument('-m', '--model', required = True)
     parser.add_argument('-p', '--prompt', required = False)
     parser.add_argument('-t', '--token')
-    parser.add_argument('-q', '--quiet', action='store_false')
+    parser.add_argument('-q', action="store_true")
 
     args = parser.parse_args()
     model = args.model
     url = args.url
     prompt = args.prompt
     token = args.token
-    quiet = args.quiet #TODO this doesn't seem to be parsed correctly
+    quiet = args.q
 
     isCode = False #flag for when within PHP code block
     output = "NO OUTPUT WAS GENERATED"
 
     if prompt:
-        print(request_output(prompt,model,url)[0])
-        if not quiet:
-            print("ALERTS:\n")
-            print(request_output(prompt,model,url)[1])
+        print(request_output(prompt,model,url,quiet)[0])
 
     else:
         prompt = ""
@@ -45,9 +42,6 @@ def main():
             if prompt.lower() == "exit":
                 exit()
             print(request_output(prompt,model,url)[0])
-            if not quiet:
-                print("ALERTS:")
-                print(request_output(prompt,model,url)[1])
 
     #json output used for analysis and debugging
     #json_out = {"prompt": prompt} 
