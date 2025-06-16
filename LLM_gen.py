@@ -50,6 +50,7 @@ def request_output(prompt,model,url,quiet):
             #print(line)
             print() #missing newline
             isCode = False
+            alert_string = ""
         elif not isCode:
             #print(line)
             llm_output += line + "\n"

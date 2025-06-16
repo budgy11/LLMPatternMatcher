@@ -13,7 +13,7 @@ def code_parse(block, quiet):
    for rule in regex_rules:
       #precompiled patterns could help with runtime if necessary
       pattern = re.compile(rf"({regex_rules[rule][0]})")
-      if quiet and pattern.search(block):
+      if not quiet and pattern.search(block):
          alert_string += regex_rules[rule][1]+"\n"
       #print("rule found: %s" % regex_rules[rule][0])
       block = pattern.sub(r"\033[0;31m\1\033[0m",block)

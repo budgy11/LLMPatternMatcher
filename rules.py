@@ -1,3 +1,35 @@
+#VARIABLE CLASSIFICATIONS
+#for variables that usually store sensitive data in code1
+sensitive = [
+    'db_password'
+]
+
+#for variables that usually take user input prior to or without user
+dangerous = [
+    '_POST',
+    '_GET',
+    '_REQUEST',
+    '_COOKIE',
+    '_SERVER'
+]
+
+#for variables that always use safe input or hardcoded values
+safe = []
+
+def gen_regex_var_portion(var_list):
+    var_regex = "("
+    for var in dangerous:
+        var_regex += var
+        var_regex += "|"
+    var_regex = var_regex[:-1] + ")" #replace final '|' with ')'
+    return var_regex
+
+dangerous_vars_regex = gen_regex_var_portion(dangerous)
+
+sensitive_vars_regex = gen_regex_var_portion(sensitive)
+
+
+
 regex_rules = {
     # "RULE_NAME": [
     #r"regex(python format)",
@@ -10,9 +42,18 @@ regex_rules = {
     #"find_password":   [
     #    r'\$password',
     #    "There is a password variable in use"
-    #    ],
+    #    ],:W
+
+    # Use {dangerous_vars_regex} in locations where you are checking for user input specifically and change r' to rf' to use a formatted string
+    # Note: user input may lead to false negatives but should provide less alerts than checking for any input
+
+
     # The following rules are modified from graudit at https://github.com/wireghoul/graudit/blob/master/signatures/php/default.db
     # TODO find rules that use GET|... and make sure common user variables are included
+    "secret_variables_check":   [
+        rf'${sensitive_vars_regex}',
+        "Variable may contain secrets that should not be stored in code"
+        ],
     "use_exec":   [
         r'exec\s*\([^;\)]*\$[\(\{]?[_a-zA-Z0-9][^\)]*\)\s*[\);]',
         "Exec function can lead to RCE"
@@ -74,11 +115,11 @@ regex_rules = {
         "Printing parameters may lead to XSS or database leakage"
         ],
     "use_extract_user_input":   [ 
-        r'extract\s*\(\$_(GET|POST|REQUEST|COOKIE|SERVER)', #TODO may be useful to also include user-vars here
+        rf'extract\s*\(\$_{dangerous_vars_regex}', #TODO may be useful to also include user-vars here
         "Use of extract on user input may be a sign of SQLI"
         ],
     "use_new_user_input":   [
-        r'new\s+\$_(GET|REQUEST|POST|COOKIE).*\(',
+        rf'new\s+\$_{dangerous_vars_regex}.*\(', #TODO may be useful to also include user-vars here
         "Creating a PHP class from user input using new is dangerous and could lead to RCE"
         ]
 }
@@ -104,13 +145,3 @@ regex_rules = {
 #new\s+\$_(GET|REQUEST|POST|COOKIE).*\(
 
 #https://github.com/FloeDesignTechnologies/phpcs-security-audit/tree/master/Security/Sniffs/BadFunctions - more stuff to look at
-
-#VARIABLE CLASSIFICATIONS
-#for variables that usually store sensitive data in code1
-sensitive = []
-
-#for variables that usually take user input prior to or without user
-dangerous = []
-
-#for variables that always use safe input or hardcoded values
-safe = []
