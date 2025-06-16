@@ -18,14 +18,12 @@ def main():
     parser.add_argument('-u', '--url', default='http://localhost:11434/api/chat')
     parser.add_argument('-m', '--model', required = True)
     parser.add_argument('-p', '--prompt', required = False)
-    #parser.add_argument('-t', '--token', help="Token for usage with OpenAI. To enable this feature uncomment import chatgpt in main.py and install required libraries")
     parser.add_argument('-q', action="store_true", help="This variable will mute the Alerts and can help cutdown on runtime")
 
     args = parser.parse_args()
     model = args.model
     url = args.url
     prompt = args.prompt
-    #token = args.token
     quiet = args.q
 
     isCode = False #flag for when within PHP code block
