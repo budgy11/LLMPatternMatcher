@@ -10,6 +10,8 @@ with open('dangerous_vars.txt') as fh:
 #for variables that always use safe input or hardcoded values
 safe = []
 
+#TODO check analysis for pulled functions with common names for vulnerable functions
+
 def gen_regex_var_portion(var_list):
     var_regex = "("
     for var in var_list:

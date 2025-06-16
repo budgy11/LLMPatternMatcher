@@ -15,23 +15,22 @@ def main():
         epilog=''
         )
 
-    parser.add_argument('-u', '--url', default='http://localhost:11434/api/chat')
-    parser.add_argument('-m', '--model', required = True)
-    parser.add_argument('-p', '--prompt', required = False)
-    parser.add_argument('-q', action="store_true", help="This variable will mute the Alerts and can help cutdown on runtime")
+    parser.add_argument('-u', '--url', default='http://localhost:11434/api/chat', help="The endpoint used to interact with the LLM model. Default http://localhost:11434/api/chat")
+    parser.add_argument('-m', '--model', required = True, help="The model used to generate output.")
+    parser.add_argument('-p', '--prompt', required = False, help="Prompt to send the model.")
+    parser.add_argument('-q', '--quiet', action="store_true", help="This variable will mute the Alerts and can help cutdown on runtime.")
 
     args = parser.parse_args()
     model = args.model
     url = args.url
     prompt = args.prompt
-    quiet = args.q
+    quiet = args.quiet
 
-    isCode = False #flag for when within PHP code block
-    output = "NO OUTPUT WAS GENERATED"
-
+    #One-Time Prompt from CLI
     if prompt:
         print(request_output(prompt,model,url,quiet)[0])
 
+    #Interactive Prompt
     else:
         prompt = ""
         while True:
@@ -39,16 +38,6 @@ def main():
             if prompt.lower() == "exit":
                 exit()
             print(request_output(prompt,model,url,quiet)[0])
-
-    #json output used for analysis and debugging
-    #json_out = {"prompt": prompt} 
-    #json_out["llm_output"] = output
-    #json_out["code_blocks"] = pull_code(output)
-    #json_out = json.dumps(json_out)
-    #print(json_out)
-
-    #print("############################################################################")
-    #print(output)
 
 if __name__ == "__main__":
     main()

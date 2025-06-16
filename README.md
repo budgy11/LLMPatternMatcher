@@ -1,5 +1,5 @@
 # LLM Pattern Matching Tool for PHP Code
-This tool is will highlight potentially vulnerable portions of PHP code provided when using an LLM and print out basic alerts strings. It can be used with a `-p` flag followed by the prompt string wrapped in quotes or through an interactive prompt. 
+This tool is a python tool that will highlight potentially vulnerable portions of PHP code provided when using an LLM and print out basic alerts strings. It can be used with a `-p` flag followed by the prompt string wrapped in quotes or through an interactive prompt. 
 
 ## Extensibility
 Regex rules are stored in a python dictionary located in `rules.py` with formatting information. The `sensitive_vars.txt` file contains a list of variables to mark as potential code secrets and can be added by newlines. The `dangerous_vars.txt` file includes variables commonly associated with user input based on previous LLM output. It also includes `_GET` and other similar PHP patterns for user input variables. Users should be able to modify any of these files to include or disclude variables or regex from their respective lists.
