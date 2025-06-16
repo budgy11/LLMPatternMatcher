@@ -1,10 +1,10 @@
 #VARIABLE CLASSIFICATIONS
-#for variables that usually store sensitive data in code1
+#for variables that usually store sensitive data in code
 sensitive = [
     'db_password',
 ]
 
-#for variables that usually take user input prior to or without user
+#for variables that usually take user input 
 dangerous = [
     '_POST',
     '_GET',
@@ -25,10 +25,10 @@ def gen_regex_var_portion(var_list):
     return var_regex
 
 dangerous_vars_regex = gen_regex_var_portion(dangerous)
-print(dangerous_vars_regex)
+#print(dangerous_vars_regex)
 
 sensitive_vars_regex = gen_regex_var_portion(sensitive)
-print(sensitive_vars_regex)
+#print(sensitive_vars_regex)
 
 
 regex_rules = {
