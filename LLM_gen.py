@@ -1,4 +1,6 @@
 import requests
+
+#import chatgpt #Uncomment for chatgpt support
 from code_parser import code_parse
 from code_parser import pull_code
 
@@ -27,7 +29,7 @@ def request_output(prompt,model,url,quiet):
     alert_string = ""
     #openai models that were implemented originally but not used for research
     if model[0:3] == "gpt" or model[0:2] == "o1" or model[0:2] == "o3" or model[0:2] == "o4" or  model == "codex-mini-latest" or  model == "computer-use-preview":
-        output = chatgpt.send_request(model,prompt,token)
+        output = chatgpt.send_request(model,prompt)
     #All none openAI models. Should likely be moved to else if statements later (likely separate gemma for parsing and maybe deepseek because of think tags)
     else: 
         output = send_request(url, model, prompt)['message']['content']

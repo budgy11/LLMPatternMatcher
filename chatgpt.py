@@ -1,14 +1,14 @@
 from openai import OpenAI
 import os
 
+token=os.environ['OpenAI_Token']
 
-def send_request(model,prompt,token):
+def send_request(model,prompt):
     client = OpenAI(api_key=token)
 
     response = client.responses.create(
         model=model,
         input=prompt,
-        #max_output_tokens=100 #TODO only in place for testing remove when creating samples
     )
 
     return response.output_text
