@@ -18,7 +18,7 @@ def main():
     parser.add_argument('-u', '--url', default='http://localhost:11434/api/chat', help="The endpoint used to interact with the LLM model. Default http://localhost:11434/api/chat")
     parser.add_argument('-m', '--model', required = True, help="The model used to generate output.")
     parser.add_argument('-p', '--prompt', required = False, help="Prompt to send the model.")
-    parser.add_argument('-q', '--quiet', action="store_true", help="This variable will mute the Alerts and can help cutdown on runtime.")
+    parser.add_argument('-q', '--quiet', action="store_true", help="This variable will mute the alerts and can help cutdown on runtime.")
 
     args = parser.parse_args()
     model = args.model
