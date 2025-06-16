@@ -36,21 +36,21 @@ regex_rules = {
     #r"regex(python format)",
     #"description"
     #]
+
+    #Examples
     #"find_username":   [
     #    r'\$username',
     #    "There is a username variable in use"
     #    ],
     #"find_password":   [
-    #    r'\$password',
-    #    "There is a password variable in use"
+    #    rf'\${dangerous_vars_regex}',
+    #    "There is a dangerous variable in use"
     #    ],:W
 
     # Use {dangerous_vars_regex} in locations where you are checking for user input specifically and change r' to rf' to use a formatted string
-    # Note: user input may lead to false negatives but should provide less alerts than checking for any input
-
+    # Note: user input may lead to false negatives but should provide less alerts
 
     # The following rules are modified from graudit at https://github.com/wireghoul/graudit/blob/master/signatures/php/default.db
-    # TODO find rules that use GET|... and make sure common user variables are included
     "secret_variables_check":   [
         rf'\${sensitive_vars_regex}',
         "Variable may contain secrets that should not be stored in code"
@@ -116,11 +116,11 @@ regex_rules = {
         "Printing parameters may lead to XSS or database leakage"
         ],
     "use_extract_user_input":   [ 
-        rf'extract\s*\(\$_{dangerous_vars_regex}', #TODO may be useful to also include user-vars here
+        rf'extract\s*\(\${dangerous_vars_regex}',
         "Use of extract on user input may be a sign of SQLI"
         ],
     "use_new_user_input":   [
-        rf'new\s+\$_{dangerous_vars_regex}.*\(', #TODO may be useful to also include user-vars here
+        rf'new\s+\${dangerous_vars_regex}.*\(', 
         "Creating a PHP class from user input using new is dangerous and could lead to RCE"
         ]
 }
