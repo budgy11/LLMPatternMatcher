@@ -1,7 +1,7 @@
 #VARIABLE CLASSIFICATIONS
 #for variables that usually store sensitive data in code1
 sensitive = [
-    'db_password'
+    'db_password',
 ]
 
 #for variables that usually take user input prior to or without user
@@ -18,16 +18,17 @@ safe = []
 
 def gen_regex_var_portion(var_list):
     var_regex = "("
-    for var in dangerous:
+    for var in var_list:
         var_regex += var
         var_regex += "|"
     var_regex = var_regex[:-1] + ")" #replace final '|' with ')'
     return var_regex
 
 dangerous_vars_regex = gen_regex_var_portion(dangerous)
+print(dangerous_vars_regex)
 
 sensitive_vars_regex = gen_regex_var_portion(sensitive)
-
+print(sensitive_vars_regex)
 
 
 regex_rules = {
@@ -51,7 +52,7 @@ regex_rules = {
     # The following rules are modified from graudit at https://github.com/wireghoul/graudit/blob/master/signatures/php/default.db
     # TODO find rules that use GET|... and make sure common user variables are included
     "secret_variables_check":   [
-        rf'${sensitive_vars_regex}',
+        rf'\${sensitive_vars_regex}',
         "Variable may contain secrets that should not be stored in code"
         ],
     "use_exec":   [

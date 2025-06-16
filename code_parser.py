@@ -12,7 +12,7 @@ def code_parse(block, quiet):
    alert_string = ""
    for rule in regex_rules:
       #precompiled patterns could help with runtime if necessary
-      pattern = re.compile(rf"({regex_rules[rule][0]})")
+      pattern = re.compile(rf"({regex_rules[rule][0]})", re.IGNORECASE)
       if not quiet and pattern.search(block):
          alert_string += regex_rules[rule][1]+"\n"
       #print("rule found: %s" % regex_rules[rule][0])
