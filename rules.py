@@ -1,54 +1,24 @@
-#VARIABLE CLASSIFICATIONS
-#for variables that usually store sensitive data in code
-sensitive = [
-    'db_password',
-]
+from var_gen import dangerous_vars_regex,sensitive_vars_regex
 
-#for variables that usually take user input 
-dangerous = [
-    '_POST',
-    '_GET',
-    '_REQUEST',
-    '_COOKIE',
-    '_SERVER'
-]
+#Formatting for implementing regex rules
+# "RULE_NAME": [
+#r"regex(python format)",
+#"description"
+#]
 
-#for variables that always use safe input or hardcoded values
-safe = []
+#Examples
+#"find_username":   [
+#    r'\$username',
+#    "There is a username variable in use"
+#    ],
+#"find_password":   [
+#    rf'\${dangerous_vars_regex}',
+#    "There is a dangerous variable in use"
+#    ],:W
 
-def gen_regex_var_portion(var_list):
-    var_regex = "("
-    for var in var_list:
-        var_regex += var
-        var_regex += "|"
-    var_regex = var_regex[:-1] + ")" #replace final '|' with ')'
-    return var_regex
-
-dangerous_vars_regex = gen_regex_var_portion(dangerous)
-#print(dangerous_vars_regex)
-
-sensitive_vars_regex = gen_regex_var_portion(sensitive)
-#print(sensitive_vars_regex)
-
-
+# Use {dangerous_vars_regex} in locations where you are checking for user input specifically and change r' to rf' to use a formatted string
+# Note: using dangerous_vars_regex is not fullproof and may lead to false negatives but should provide less alerts. This is also not a replacement for code review/audits
 regex_rules = {
-    # "RULE_NAME": [
-    #r"regex(python format)",
-    #"description"
-    #]
-
-    #Examples
-    #"find_username":   [
-    #    r'\$username',
-    #    "There is a username variable in use"
-    #    ],
-    #"find_password":   [
-    #    rf'\${dangerous_vars_regex}',
-    #    "There is a dangerous variable in use"
-    #    ],:W
-
-    # Use {dangerous_vars_regex} in locations where you are checking for user input specifically and change r' to rf' to use a formatted string
-    # Note: user input may lead to false negatives but should provide less alerts
 
     # The following rules are modified from graudit at https://github.com/wireghoul/graudit/blob/master/signatures/php/default.db
     "secret_variables_check":   [
