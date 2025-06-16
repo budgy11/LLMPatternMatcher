@@ -41,7 +41,7 @@ def main():
             prompt = input(model+" >>> ")
             if prompt.lower() == "exit":
                 exit()
-            print(request_output(prompt,model,url)[0])
+            print(request_output(prompt,model,url,quiet)[0])
 
     #json output used for analysis and debugging
     #json_out = {"prompt": prompt} 
