@@ -1,1 +1,2 @@
-db_password
+$db_password
+your_password

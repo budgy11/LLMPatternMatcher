@@ -27,7 +27,7 @@ regex_rules = {
     # The following default rules are modified from graudit at https://github.com/wireghoul/graudit/blob/master/signatures/php/default.db
     # and https://github.com/FloeDesignTechnologies/phpcs-security-audit/tree/master/Security/Sniffs/BadFunctions 
     "secret_variables_check":   [
-        rf'\${sensitive_vars_regex}',
+        rf'{sensitive_vars_regex}',
         "Variable may contain secrets that should not be stored in code"
         ],
     "use_system":   [
