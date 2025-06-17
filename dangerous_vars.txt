@@ -1,5 +1,6 @@
-_POST
-_GET
-_REQUEST
-_COOKIE
-_SERVER
+\$_POST
+\$_GET
+\$_REQUEST
+\$_COOKIE
+\$_SERVER
+\$username

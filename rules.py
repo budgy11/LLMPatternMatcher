@@ -71,7 +71,7 @@ regex_rules = {
         "Backticks may be a sign of command execution when containing a variable"
         ],
     "use_echo":   [
-        r'echo.*\$_.*\[.*\]', #TODO this seems like it may flag a lot 
+        rf'echo.*{dangerous_vars_regex}.*', #TODO this seems like it may flag a lot 
         "Echo may lead to XSS if passed unsanitized input"
         ],
     "use_query":   [
@@ -125,6 +125,10 @@ regex_rules = {
     "use_preg_eval":   [
         r'preg_replace\(.*/e.*\)', 
         "preg_replace using /e can lead to RCE"
+        ],
+    "use_unserialize":   [
+        r'unserialize\(.*\)', 
+        "unserializing user input can lead to RCE"
         ],
 
 }
