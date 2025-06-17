@@ -21,7 +21,6 @@ from var_gen import dangerous_vars_regex, sensitive_vars_regex, callback_func_re
 # Use {dangerous_vars_regex} in locations where you are checking for user input specifically and change r' to rf' to use a formatted string
 # Note: using dangerous_vars_regex is not fullproof and may lead to false negatives but should provide less alerts. This is also not a replacement for code review/audits
 
-#TODO check if dangerous_vars_regex is even worth including or we should just flag on all input variables. Looks likely since we have a low number of alerts
 #TODO it seems like gemma3 likes to sanitize with htmlspecialchars and could be something worth investigating to remove false positives
 regex_rules = {
     # The following default rules are modified from graudit at https://github.com/wireghoul/graudit/blob/master/signatures/php/default.db
@@ -70,9 +69,9 @@ regex_rules = {
         r'^`[^`]*\$[\(\{]?[_a-zA-Z0-9][^`]*`',
         "Backticks may be a sign of command execution when containing a variable"
         ],
-    #https://stackoverflow.com/questions/406230/regular-expression-to-match-a-line-that-doesnt-contain-a-word
+    #modified to have negative look behind for htmlspecialchars( based on gemma3 output
     "use_echo":   [
-        rf'echo.*{dangerous_vars_regex}.*', #TODO htmlspecialchars check to remove false positives
+        rf'echo.*(?<!htmlspecialchars\()\s*{dangerous_vars_regex}.*', 
         "Echo may lead to XSS if passed unsanitized input"
         ],
     "use_query":   [
@@ -96,7 +95,7 @@ regex_rules = {
         "Use of variables following include or require may lead to SQLI"
         ],
     "use_print_param":   [
-        r'print.*param\s*\(.*\);', #TODO htmlspecialchars check to remove false positives
+        r'print.*\s*\((?<!htmlspecialchars\().*\);', 
         "Printing parameters may lead to XSS or database leakage"
         ],
     "use_extract_user_input":   [ 
@@ -137,6 +136,10 @@ regex_rules = {
         ],
     "host_header_poisoning":   [
         r'\$_SERVER\[.HTTP_HOST.\]\s*\.\s*.\/reset_password.*', #reset password functionality always used reset_password.php as the endpoint
-        "Using Host Headers to generate reset links can allow attackers to point links to malicious domains"
+        "Using Host Headers to generate reset links can allow attackers to point reset links to malicious domains to steal tokens"
+        ],
+    "production_warning":   [
+        r'(not|never|improve|for|dont|don\'t|do not|).*production',
+        "The LLM marked code as needing further review before production implementation. This can be a sign of a vulnerability."
         ],
 }
