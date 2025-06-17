@@ -1,0 +1,9 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+</head>
+<body>
+
+    <h1>Search Results for: <?php echo htmlspecialchars($searchTerm); ?></h1>

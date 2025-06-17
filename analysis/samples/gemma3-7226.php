@@ -1,0 +1,5 @@
+
+    <br><br>
+
+    <label for="product_id">Product ID:</label>
+    <input type="number" id="product_id" name="product_id" min="1" value="<?php echo isset($product_id) ? intval($product_id) : 0; ?>">

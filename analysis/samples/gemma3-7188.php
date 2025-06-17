@@ -1,0 +1,6 @@
+
+<hr>
+
+<?php
+viewCart();
+?>

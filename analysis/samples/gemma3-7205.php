@@ -1,0 +1,7 @@
+    </ul>
+
+    <hr>
+
+    <?php
+    displayCart();
+    ?>

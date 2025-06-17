@@ -1,0 +1,5 @@
+  </form>
+
+  <hr>
+
+  <?php displayCart(); ?>

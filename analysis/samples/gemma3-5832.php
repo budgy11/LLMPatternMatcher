@@ -1,0 +1,11 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PHP Search Bar</title>
+</head>
+<body>
+
+    <h1>Search</h1>
+
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
