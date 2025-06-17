@@ -70,8 +70,9 @@ regex_rules = {
         r'^`[^`]*\$[\(\{]?[_a-zA-Z0-9][^`]*`',
         "Backticks may be a sign of command execution when containing a variable"
         ],
+    #https://stackoverflow.com/questions/406230/regular-expression-to-match-a-line-that-doesnt-contain-a-word
     "use_echo":   [
-        rf'echo.*{dangerous_vars_regex}.*', #TODO this seems like it may flag a lot 
+        rf'echo.*{dangerous_vars_regex}.*', #TODO htmlspecialchars check to remove false positives
         "Echo may lead to XSS if passed unsanitized input"
         ],
     "use_query":   [
@@ -95,7 +96,7 @@ regex_rules = {
         "Use of variables following include or require may lead to SQLI"
         ],
     "use_print_param":   [
-        r'print.*param\s*\(.*\);',
+        r'print.*param\s*\(.*\);', #TODO htmlspecialchars check to remove false positives
         "Printing parameters may lead to XSS or database leakage"
         ],
     "use_extract_user_input":   [ 
@@ -130,5 +131,12 @@ regex_rules = {
         r'unserialize\(.*\)', 
         "unserializing user input can lead to RCE"
         ],
-
+    "use_md5":   [
+        r'md5\(', 
+        "md5 is a known insecure hashing algorithm and should be avoided when possible"
+        ],
+    "host_header_poisoning":   [
+        r'\$_SERVER\[.HTTP_HOST.\]\s*\.\s*.\/reset_password.*', #reset password functionality always used reset_password.php as the endpoint
+        "Using Host Headers to generate reset links can allow attackers to point links to malicious domains"
+        ],
 }
