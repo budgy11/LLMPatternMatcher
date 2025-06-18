@@ -79,7 +79,7 @@ regex_rules = {
         "Use of non parameterized SQL Queries can lead to SQLI and is strongly discouraged"
         ],
     "use_variable_in_where":   [
-        r'[Ww][Hh][Ee][Rr][Ee]\s+.*=.*\$[^; ]+.*\.',
+        r'[Ww][Hh][Ee][Rr][Ee]\s*.*=.*\$[^; ]+.*\.',
         "Inserting a variable directly into a SQL Query can lead to SQLI"
         ],
     "use_variable_in_where_and_or":   [
@@ -91,8 +91,8 @@ regex_rules = {
         "VALUES followed by a variable may lead to SQLI"
         ],
     "use_include_require":   [
-        r'^\s*(include|include_once|require|require_once)\s*\([^\;\}\{]*\$.*\)',
-        "Use of variables following include or require may lead to SQLI"
+        r'(include|include_once|require|require_once)\s*\([^\;\}\{]*\$.*\)',
+        "Use of variables following include or require may lead to file inclusion vulnerabilities"
         ],
     "use_print_param":   [
         r'print.*\s*\((?<!htmlspecialchars\().*\);', 
@@ -107,15 +107,15 @@ regex_rules = {
         "Creating a PHP class from user input using new is dangerous and could lead to RCE"
         ],
     "use_callback_function":   [
-        rf'{callback_func_regex}\s+\(\s+\$.*\)', 
+        rf'{callback_func_regex}\s*\(\s*\$.*\)', 
         "PHP Callback functions could allow RCE or Information Disclosure from input"
         ],
     "use_filesystem_function":   [
-        rf'{filesystem_func_regex}\s+\(\s+\$.*\)', 
+        rf'{filesystem_func_regex}\s*\(\s*\$.*\)', 
         "PHP filesystem functions could allow RCE or Information Disclosure from input"
         ],
     "use_functionhandling_function":   [
-        rf'{functionhandling_func_regex}\s+\(\s+\$.*\)', 
+        rf'{functionhandling_func_regex}\s*\(\s*\$.*\)', 
         "PHP filesystem functions could allow RCE or Information Disclosure from input"
         ],
     "use_phpinfo":   [
@@ -139,7 +139,7 @@ regex_rules = {
         "Using Host Headers to generate reset links can allow attackers to point reset links to malicious domains to steal tokens"
         ],
     "production_warning":   [
-        r'(not|never|improve|for|dont|don\'t|do not|).*production',
+        r'(not|never|improve|for|dont|don\'t|do not).*production',
         "The LLM marked code as needing further review before production implementation. This can be a sign of a vulnerability."
         ],
 }

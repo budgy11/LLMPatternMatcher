@@ -61,4 +61,4 @@ def request_output(prompt,model,url,quiet):
         else:
             print("Unknown line type: %s" % line)
 
-    return llm_output,alert_string
+    return llm_output

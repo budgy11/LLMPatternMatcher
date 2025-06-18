@@ -1,10 +1,10 @@
-^\$db_password
-^\$dbpassword
-^\$db_pass
-^\$dbpass
+^\s*\$db_password
+^\s*\$dbpassword
+^\s*\$db_pass
+^\s*\$dbpass
 define\(.DB_PASSWORD.
-your_password
-your_.+_password
+"your_password"
+"your_.+_password"
 \$newPassword 
 \$new_Password 
 \$secretKey
@@ -13,6 +13,7 @@ your_.+_password
 \$temp_password
 mySecretPassword
 \$mail->password
-my_password
-securepassword
-^\$resetPasswordTokenSecret
+"my_password"
+"securepassword"
+^\s*\$resetPasswordTokenSecret
+\$db\s+.*password

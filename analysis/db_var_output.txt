@@ -1,0 +1,290 @@
+samples/gemma3-1250.php:// (e.g., $db is your database connection object)
+samples/gemma3-1252.php:    // $db = new DatabaseConnection();
+samples/gemma3-1252.php:    // $db = new DatabaseConnection();
+samples/gemma3-1258.php:// Assuming $db is your database connection object
+samples/gemma3-1269.php:// Assuming you have the $db connection established.
+samples/gemma3-1271.php:  $stmt = $db->prepare($query); // Assuming $db is your database connection
+samples/gemma3-1281.php:    // $db = get_database_connection(); // Assuming you have this
+samples/gemma3-1281.php:    // $db = get_database_connection();
+samples/gemma3-1302.php: * @param $db mysqli Database connection object.
+samples/gemma3-1302.php: * @param mysqli $db Database connection object.
+samples/gemma3-1321.php:    $db = get_database_connection(); // Assumes you have this function
+samples/gemma3-1321.php:    $db = get_database_connection(); // Assumes you have this function
+samples/gemma3-1325.php:// $db = $your_database_connection; //  Replace with your actual database connection
+samples/gemma3-1328.php:$db = new MockDB();
+samples/gemma3-1341.php:// Assuming you have a database connection established (e.g., $db connection)
+samples/gemma3-1358.php:    global $db; // Assuming $db is your database connection
+samples/gemma3-1361.php:    // $db = new DatabaseConnection();
+samples/gemma3-1361.php:    // $db = new DatabaseConnection();
+samples/gemma3-1383.php:// Assuming you have a database connection established (e.g., $db connection)
+samples/gemma3-1384.php:  //  //  $db = new DatabaseConnection();
+samples/gemma3-1391.php:    // $db = new PDO(...);
+samples/gemma3-1391.php:    // $db = new PDO(...);
+samples/gemma3-1391.php:    // $db = new PDO(...);
+samples/gemma3-1391.php:    // $db = new PDO(...);
+samples/gemma3-1392.php: * @param array $db  Database connection (or database object)
+samples/gemma3-1392.php: * @param array $db  Database connection (or database object)
+samples/gemma3-1392.php: * @param array $db Database connection (or database object)
+samples/gemma3-1392.php:$db = [
+samples/gemma3-1405.php:    $db = getDatabaseConnection(); // Assume this function gets your database connection
+samples/gemma3-1405.php:    $db = getDatabaseConnection();
+samples/gemma3-1406.php:    $db = getDatabaseConnection();  //  Assume this function returns a database connection object
+samples/gemma3-1406.php:    $db = getDatabaseConnection();
+samples/gemma3-1417.php:  $db = new DatabaseConnection(); // Assuming you have a DatabaseConnection class
+samples/gemma3-1432.php:// Example: $db = new PDO('mysql:host=localhost;dbname=your_database');
+samples/gemma3-1432.php: * @param PDO $db  The database connection.
+samples/gemma3-1432.php:// $db = new PDO('mysql:host=localhost;dbname=your_database'); // Replace with your credentials
+samples/gemma3-1432.php:// $db = new PDO('mysql:host=localhost;dbname=your_database');
+samples/gemma3-1445.php:    //    $db = new PDO(...);
+samples/gemma3-1449.php:// Assuming you have a database connection established (e.g., $db connection)
+samples/gemma3-1454.php:    // $db = new DatabaseConnection();
+samples/gemma3-1498.php:    // $db = new DatabaseConnection();
+samples/gemma3-1498.php:    // $db = new DatabaseConnection();
+samples/gemma3-1500.php:    $db = new mysqli($db_host, $db_user, $db_pass, $db_name);
+samples/gemma3-1508.php:  global $db; // Assuming $db is your database connection
+samples/gemma3-1508.php:  global $db; // Assuming $db is your database connection
+samples/gemma3-1508.php:    global $db; // Assuming $db is your database connection
+samples/gemma3-1510.php:// Assume $db is your database connection object
+samples/gemma3-1544.php:    $db = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
+samples/gemma3-1553.php:// Assuming $db is your database connection object
+samples/gemma3-1555.php:    //  $db = new PDO(...);  // Replace with your database connection details
+samples/gemma3-1555.php:    // $db = new PDO(...);
+samples/gemma3-1556.php:  $result = mysqli_query($db, "SELECT id FROM users WHERE email = '$email'"); // Replace $db with your database connection
+samples/gemma3-1574.php:// Assuming you have a database connection established (e.g., $db connection)
+samples/gemma3-1580.php:  // $db = get_db_connection();
+samples/gemma3-1580.php:  // $db = get_db_connection();
+samples/gemma3-1580.php:  // $db = get_db_connection();
+samples/gemma3-1588.php:    $db = getDatabaseConnection(); // Get your database connection
+samples/gemma3-1588.php:    $db = getDatabaseConnection();
+samples/gemma3-1592.php:// Assuming you have a database connection established (e.g., $db connection)
+samples/gemma3-1593.php:// (e.g., $db connection object)
+samples/gemma3-1595.php:    global $db; // Assuming $db is your database connection
+samples/gemma3-1600.php:// Example: $db = new PDO("mysql:host=localhost;dbname=your_database");
+samples/gemma3-1600.php:// Example Usage (assuming you have the $db connection)
+samples/gemma3-1606.php:// (e.g., $db = new PDO(...) or similar)
+samples/gemma3-1613.php:// (e.g., $db is your database connection object)
+samples/gemma3-1613.php:    // Assuming you have a $db object established.
+samples/gemma3-1631.php:// Assuming you have a database connection established (e.g., $db connection)
+samples/gemma3-1631.php:  $stmt = $db->prepare("SELECT id, email FROM users WHERE email = ?"); // Replace $db with your database connection
+samples/gemma3-1634.php:  global $db; // Assuming $db is your database connection object
+samples/gemma3-1635.php:// Example Usage (assuming $db is your PDO database connection)
+samples/gemma3-1644.php:    $result = mysqli_query($db, "SELECT id, email FROM users WHERE email = '$email'"); // Replace $db with your actual database connection
+samples/gemma3-1649.php:// $db = new mysqli($db_host, $db_user, $db_pass, $db_name);
+samples/gemma3-1650.php:// (e.g., $db is your database connection object)
+samples/gemma3-1659.php: * @param PDO $db PDO database object.
+samples/gemma3-1675.php:$db = new MockDatabase(); // Using a mock database
+samples/gemma3-1683.php:    $db = getDatabaseConnection();  // Assuming you have a function to get the DB connection
+samples/gemma3-1683.php:  $db = getDatabaseConnection();
+samples/gemma3-1686.php: * @param PDO $db          The database connection object.
+samples/gemma3-1686.php:// Assuming $db is your established PDO database connection
+samples/gemma3-1689.php:  global $db; // Assuming $db is your database connection
+samples/gemma3-1705.php:  // $db = new PDO('mysql:host=localhost;dbname=your_database');
+samples/gemma3-1707.php:    // $db = new DatabaseConnection(); // Assuming you have a DatabaseConnection class
+samples/gemma3-1709.php:        //  $db = new DatabaseConnection();
+samples/gemma3-1744.php:    $stmt = $db->prepare($query); // Assuming $db is your database connection
+samples/gemma3-1752.php:    global $db;  // Assuming $db is your database connection object
+samples/gemma3-1763.php:// Assuming you have a database connection established (e.g., $db connection)
+samples/gemma3-1766.php:    //  $db = new PDO(...);
+samples/gemma3-1815.php:$db = null;
+samples/gemma3-1818.php:// Assume $db is your database connection object (e.g., mysqli_connect)
+samples/gemma3-1830.php:// Assuming you have a database connection established (e.g., $db connection)
+samples/gemma3-1831.php:// Assuming you have a database connection established (e.g., $db connection)
+samples/gemma3-1835.php:// $db = new PDO(...);  // Replace with your database connection
+samples/gemma3-1835.php: * @param PDO $db  Database connection.
+samples/gemma3-1835.php: * @param PDO $db Database connection.
+samples/gemma3-1850.php:    //  $db = get_database_connection();  // Get database connection
+samples/gemma3-1850.php:  // $db = get_database_connection();
+samples/gemma3-1870.php:// For simplicity, let's assume $db is a mysqli connection object
+samples/gemma3-1873.php:  // $db = new PDO(/* your database connection details */);
+samples/gemma3-1873.php:  // $db = new PDO(/* your database connection details */);
+samples/gemma3-1873.php:// Assuming you have a database connection established (e.g., $db connection)
+samples/gemma3-1883.php:// For this example, we'll assume a simple $db connection is already set up
+samples/gemma3-1888.php:    $db = new DatabaseConnection(); // Assuming you have a database connection class
+samples/gemma3-1899.php:    $db = $dbConnection ?: new SQLite3('reviews.db'); // Use provided connection or create a new one
+samples/gemma3-1902.php:     * @param PDO $db Database connection object.
+samples/gemma3-1911.php:            $db = $dbConnection;
+samples/gemma3-1918.php:// $db = new DatabaseConnection();
+samples/gemma3-1945.php:     * @param PDO $db  Database connection object.  It's best practice to pass this in.
+samples/gemma3-1966.php:     * @param PDO $db A PDO database connection object.
+samples/gemma3-1969.php:     * @param PDO $db A PDO database connection object.
+samples/gemma3-1986.php:  //  $db = new DatabaseConnection(); // Assuming you have a database connection class
+samples/gemma3-2003.php:    $db = [
+samples/gemma3-2007.php:    //  $db = new DatabaseConnection(); // Assuming you have a DatabaseConnection class
+samples/gemma3-2062.php:  // $db = new DatabaseConnection();  // Instantiate your database connection
+samples/gemma3-2074.php:        // $db = new DatabaseConnection();
+samples/gemma3-2074.php:        // $db = new DatabaseConnection();
+samples/gemma3-2098.php:     * @param PDO $db  A PDO database connection object.
+samples/gemma3-2099.php:    //  $db = new DatabaseConnection();  // Assuming you have a DatabaseConnection class
+samples/gemma3-2115.php:     * @param PDO $db  The PDO database connection object.
+samples/gemma3-2120.php:$db = new DatabaseConnection(); // Replace with your actual database connection
+samples/gemma3-2121.php: * @param PDO  $db         A PDO database connection object. Required.
+samples/gemma3-2121.php: * @param PDO $db      A PDO database connection object.
+samples/gemma3-2121.php:$db = new PDO('sqlite:/path/to/your/database.db'); //  Replace with your database details
+samples/gemma3-2133.php:    private $db = null; // Database connection object
+samples/gemma3-2133.php:     * @param PDO|null $db (Optional) PDO database connection object.  If null, uses in-memory storage.
+samples/gemma3-2133.php:    public function __construct(PDO $db = null) {
+samples/gemma3-2144.php:$db = new MockDB();
+samples/gemma3-2146.php:  // $db = new DatabaseConnection();
+samples/gemma3-2155.php:     * @param PDO $db  A PDO database connection object.
+samples/gemma3-2166.php:$db = null; // Disconnect the PDO object
+samples/gemma3-2167.php:    //  $db = new DatabaseConnection();
+samples/gemma3-2168.php:     * @param PDO $db  PDO database connection object
+samples/gemma3-2172.php:$db = new MockDB();
+samples/gemma3-2176.php:    // $db = new DatabaseConnection();  // Assuming you have a DatabaseConnection class
+samples/gemma3-2179.php:$db = new ReviewDatabase();
+samples/gemma3-2184.php:  $db = new DatabaseConnection(); // Assuming you have a DatabaseConnection class
+samples/gemma3-2187.php:     * @param PDO $db  Database connection object.
+samples/gemma3-2193.php:    $db = null; // Close the connection
+samples/gemma3-2196.php:     * @param PDO $db  A PDO database connection object.
+samples/gemma3-2209.php:     * @param PDO $db A PDO database connection object.
+samples/gemma3-2219.php:$db = new MockDB();
+samples/gemma3-2224.php:    //  $db = new DatabaseConnection(); // Assuming you have a DatabaseConnection class
+samples/gemma3-2254.php:  // $db = new DatabaseConnection(); // Assuming you have a database connection class
+samples/gemma3-2262.php:  $db = new MockDatabase();
+samples/gemma3-2282.php:  $db = new DatabaseConnection(); // Assume this class handles database connection
+samples/gemma3-2303.php:// Example Usage (assuming $db is your database connection)
+samples/gemma3-2305.php:// Assuming $db is your database connection object (e.g., mysqli)
+samples/gemma3-2324.php: * @param PDO       $db       A PDO database connection object.
+samples/gemma3-2324.php: * @param PDO       $db       A PDO database connection object.
+samples/gemma3-2336.php:     * @param PDO $db  (Optional) A PDO database connection object.  If null, reviews will be stored in memory.
+samples/gemma3-2336.php:    public function __construct(PDO $db = null)
+samples/gemma3-2340.php: * @param PDO $db - A PDO database connection object.
+samples/gemma3-2340.php: * @param PDO $db - A PDO database connection object.
+samples/gemma3-2345.php:        // $db = new PDO(/* your database connection details */);
+samples/gemma3-2350.php:    private $db = null; // Database connection (optional)
+samples/gemma3-2350.php:     * @param PDO $db (Optional) PDO database connection object.
+samples/gemma3-2350.php:    public function __construct(PDO $db = null) {
+samples/gemma3-2352.php: * @param PDO    $pdo      Optional PDO database connection object.  If not provided, assumes a global $db connection.
+samples/gemma3-2357.php:    //  $db = new DatabaseConnection();
+samples/gemma3-2358.php:  // $db = new DatabaseConnection();
+samples/gemma3-2362.php:     * @param PDO $db A PDO database connection object.
+samples/gemma3-2376.php:     * @param PDO $db PDO database connection.  Defaults to a dummy connection.
+samples/gemma3-2376.php:    public function __construct(PDO $db = null)
+samples/gemma3-2390.php:     * @param PDO|null $db  An optional PDO database connection object.
+samples/gemma3-2390.php:    public function __construct(PDO|null $db = null)
+samples/gemma3-2396.php:    $db = new DatabaseConnection(); // Assuming you have a database connection class
+samples/gemma3-2407.php:    $db = $dbConnection ?: new SQLite3('reviews.db'); // Use provided connection or create a new one
+samples/gemma3-2410.php:     * @param PDO $db Database connection object.
+samples/gemma3-2419.php:            $db = $dbConnection;
+samples/gemma3-2426.php:// $db = new DatabaseConnection();
+samples/gemma3-2453.php:     * @param PDO $db  Database connection object.  It's best practice to pass this in.
+samples/gemma3-2474.php:     * @param PDO $db A PDO database connection object.
+samples/gemma3-2477.php:     * @param PDO $db A PDO database connection object.
+samples/gemma3-2494.php:  //  $db = new DatabaseConnection(); // Assuming you have a database connection class
+samples/gemma3-2511.php:    $db = [
+samples/gemma3-2515.php:    //  $db = new DatabaseConnection(); // Assuming you have a DatabaseConnection class
+samples/gemma3-2570.php:  // $db = new DatabaseConnection();  // Instantiate your database connection
+samples/gemma3-2582.php:        // $db = new DatabaseConnection();
+samples/gemma3-2582.php:        // $db = new DatabaseConnection();
+samples/gemma3-2606.php:     * @param PDO $db  A PDO database connection object.
+samples/gemma3-2607.php:    //  $db = new DatabaseConnection();  // Assuming you have a DatabaseConnection class
+samples/gemma3-2623.php:     * @param PDO $db  The PDO database connection object.
+samples/gemma3-2628.php:$db = new DatabaseConnection(); // Replace with your actual database connection
+samples/gemma3-2629.php: * @param PDO  $db         A PDO database connection object. Required.
+samples/gemma3-2629.php: * @param PDO $db      A PDO database connection object.
+samples/gemma3-2629.php:$db = new PDO('sqlite:/path/to/your/database.db'); //  Replace with your database details
+samples/gemma3-2641.php:    private $db = null; // Database connection object
+samples/gemma3-2641.php:     * @param PDO|null $db (Optional) PDO database connection object.  If null, uses in-memory storage.
+samples/gemma3-2641.php:    public function __construct(PDO $db = null) {
+samples/gemma3-2652.php:$db = new MockDB();
+samples/gemma3-2654.php:  // $db = new DatabaseConnection();
+samples/gemma3-2663.php:     * @param PDO $db  A PDO database connection object.
+samples/gemma3-2674.php:$db = null; // Disconnect the PDO object
+samples/gemma3-2675.php:    //  $db = new DatabaseConnection();
+samples/gemma3-2676.php:     * @param PDO $db  PDO database connection object
+samples/gemma3-2680.php:$db = new MockDB();
+samples/gemma3-2684.php:    // $db = new DatabaseConnection();  // Assuming you have a DatabaseConnection class
+samples/gemma3-2687.php:$db = new ReviewDatabase();
+samples/gemma3-2692.php:  $db = new DatabaseConnection(); // Assuming you have a DatabaseConnection class
+samples/gemma3-2695.php:     * @param PDO $db  Database connection object.
+samples/gemma3-2701.php:    $db = null; // Close the connection
+samples/gemma3-2704.php:     * @param PDO $db  A PDO database connection object.
+samples/gemma3-2717.php:     * @param PDO $db A PDO database connection object.
+samples/gemma3-2727.php:$db = new MockDB();
+samples/gemma3-2732.php:    //  $db = new DatabaseConnection(); // Assuming you have a DatabaseConnection class
+samples/gemma3-2762.php:  // $db = new DatabaseConnection(); // Assuming you have a database connection class
+samples/gemma3-2770.php:  $db = new MockDatabase();
+samples/gemma3-2790.php:  $db = new DatabaseConnection(); // Assume this class handles database connection
+samples/gemma3-2811.php:// Example Usage (assuming $db is your database connection)
+samples/gemma3-2813.php:// Assuming $db is your database connection object (e.g., mysqli)
+samples/gemma3-2832.php: * @param PDO       $db       A PDO database connection object.
+samples/gemma3-2832.php: * @param PDO       $db       A PDO database connection object.
+samples/gemma3-2844.php:     * @param PDO $db  (Optional) A PDO database connection object.  If null, reviews will be stored in memory.
+samples/gemma3-2844.php:    public function __construct(PDO $db = null)
+samples/gemma3-2848.php: * @param PDO $db - A PDO database connection object.
+samples/gemma3-2848.php: * @param PDO $db - A PDO database connection object.
+samples/gemma3-2853.php:        // $db = new PDO(/* your database connection details */);
+samples/gemma3-2858.php:    private $db = null; // Database connection (optional)
+samples/gemma3-2858.php:     * @param PDO $db (Optional) PDO database connection object.
+samples/gemma3-2858.php:    public function __construct(PDO $db = null) {
+samples/gemma3-2860.php: * @param PDO    $pdo      Optional PDO database connection object.  If not provided, assumes a global $db connection.
+samples/gemma3-2865.php:    //  $db = new DatabaseConnection();
+samples/gemma3-2866.php:  // $db = new DatabaseConnection();
+samples/gemma3-2870.php:     * @param PDO $db A PDO database connection object.
+samples/gemma3-2884.php:     * @param PDO $db PDO database connection.  Defaults to a dummy connection.
+samples/gemma3-2884.php:    public function __construct(PDO $db = null)
+samples/gemma3-2898.php:     * @param PDO|null $db  An optional PDO database connection object.
+samples/gemma3-2898.php:    public function __construct(PDO|null $db = null)
+samples/gemma3-2996.php:   $db   = "your_database_name";
+samples/gemma3-3019.php:  $stmt = $db->prepare($sql); // Assuming you have a $db object
+samples/gemma3-3588.php: * @param string $db        The database connection object.
+samples/gemma3-4678.php:  $result = registerUser($username, $password, $email, $db); // Replace $db with your database connection
+samples/gemma3-4854.php:// Assuming you have a database connection established (e.g., $db connection)
+samples/gemma3-4854.php:$result = mysqli_query($db, $sql);  // Replace $db with your actual database connection
+samples/gemma3-4855.php:// Assuming you have a database connection established (e.g., $db is your database connection)
+samples/gemma3-4857.php:    $result = mysqli_query($db, $sql);  // Assuming $db is your database connection
+samples/gemma3-4889.php:// Let's assume $db is a mysqli connection object.
+samples/gemma3-4941.php:// Assuming you have a database connection established (e.g., $db connection)
+samples/gemma3-4944.php:// Assuming you have a database connection established (e.g., $db connection)
+samples/gemma3-4949.php:// Assuming you have a database connection established (e.g., $db connection)
+samples/gemma3-5087.php:$searchTerm = $db->real_escape_string($searchTerm); // Assuming $db is your database object
+samples/gemma3-5089.php:// Assuming you have a database connection established (e.g., $db connection)
+samples/gemma3-5145.php:  global $db; // Assuming $db is your database connection
+samples/gemma3-5151.php:// Assuming you have a database connection established and $db is your database connection object.
+samples/gemma3-5157.php:// Assuming you have a database connection established (e.g., $db connection)
+samples/gemma3-5157.php:$safe_search_term = $db->real_escape_string($search_term);  // Assuming $db is your database object
+samples/gemma3-5209.php:// Let's assume you have a $db connection object
+samples/gemma3-5234.php:// Example assuming you have a $db object already connected
+samples/gemma3-5316.php:// Assuming you have a database connection established (e.g., $db is your database object)
+samples/gemma3-5317.php:// Assuming you have a database connection established (e.g., $db is your database object)
+samples/gemma3-5383.php:// Assuming you have a database connection established (e.g., $db connection)
+samples/gemma3-5383.php:    $result = mysqli_query($db, $sql); // Replace $db with your database connection
+samples/gemma3-5404.php:$result = mysqli_query($db, $sql); // Replace $db with your database connection
+samples/gemma3-5409.php:// Assuming you have a database connection established (e.g., $db is your database connection)
+samples/gemma3-5409.php:$result = mysqli_query($db, $sql); // Assuming $db is your mysqli connection
+samples/gemma3-5413.php:// Let's assume $db is your database connection object
+samples/gemma3-5422.php:$result = mysqli_query($db, $query); // Replace $db with your database connection variable
+samples/gemma3-5424.php:// Assume $db is your established database connection
+samples/gemma3-5489.php:$searchTerm = $db->real_escape_string($searchTerm); // Assuming $db is your database connection object
+samples/gemma3-5491.php:// Assuming $db is your established database connection
+samples/gemma3-5492.php:// Assuming $db is your established database connection
+samples/gemma3-5532.php:// Assuming you have a database connection established (e.g., $db is your connection object)
+samples/gemma3-5536.php:// Let's assume you have a variable $db is your database connection object
+samples/gemma3-5681.php:// and you've defined $db as your connection object.
+samples/gemma3-5707.php:// Assuming you have a database connection established (e.g., $db connection)
+samples/gemma3-5707.php:  $result = mysqli_query($db, $sql); // Replace $db with your database connection
+samples/gemma3-5715.php:// (Assuming you've established $db and $stmt)
+samples/gemma3-5767.php:$stmt = $db->prepare($sql); // Replace $db with your database connection object
+samples/gemma3-5808.php:$results = $db->query($query); // Replace $db with your database connection object
+samples/gemma3-5827.php:// Assuming you have a database connection established (e.g., $db is a mysqli object)
+samples/gemma3-5843.php:$safe_query = mysqli_real_escape_string($db, $search_query); // Replace $db with your actual database connection
+samples/gemma3-5927.php:// Let's assume you have a $db connection object.
+samples/gemma3-5936.php:// Assuming you have a database connection established (e.g., $db is your connection object)
+samples/gemma3-5936.php:$searchTerm = $db->real_escape_string($searchTerm); // Assuming $db is your database connection object
+samples/gemma3-5949.php:    $result = mysqli_query($db, $sql);  // Replace $db with your database connection
+samples/gemma3-5962.php:// Assuming you have a database connection established (e.g., $db connection)
+samples/gemma3-5962.php:  $result = mysqli_query($db, $sql); // Replace $db with your actual database connection.
+samples/gemma3-5986.php:// Assuming you have a database connection established and $db is your database connection object.
+samples/gemma3-5994.php:  global $db; // Assuming $db is your database connection object
+samples/gemma3-6000.php:// Assuming you have a database connection established (e.g., $db connection)
+samples/gemma3-6000.php:  $result = mysqli_query($db, $query);  // Replace $db with your database connection
+samples/gemma3-6006.php:$result = mysqli_query($db, $query);  // Replace $db with your database connection
+samples/gemma3-6043.php:// Assuming you have a database connection established (e.g., $db is your PDO connection)
+samples/gemma3-6108.php:  // $db is assumed to be your database connection object.
+samples/gemma3-6351.php:    //  $db = new DatabaseConnection();
+samples/gemma3-6911.php:// For demonstration purposes, let's assume you have a $db object
+samples/gemma3-6932.php:        // $db = new DatabaseConnection(); // Assuming you have a database class
+samples/gemma3-7063.php:        $db = connect_to_db();
+samples/gemma3-7701.php:$db = connectToDatabase();
+samples/gemma3-8021.php:        // $db = new DatabaseConnection(); // Assuming you have a DatabaseConnection class
+samples/gemma3-8234.php:$db = connectToDatabase();
