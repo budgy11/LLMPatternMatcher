@@ -53,7 +53,7 @@ dangerous_vars_regex = gen_regex_var_portion(dangerous)
 #print(dangerous_vars_regex)
 
 sensitive_vars_regex = gen_regex_var_portion(sensitive)
-print(sensitive_vars_regex)
+#print(sensitive_vars_regex)
 
 callback_func_regex = gen_regex_var_portion(callback_function_list)
 #print(callback_func_regex)
