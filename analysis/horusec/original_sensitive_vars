@@ -1,0 +1,4 @@
+(\$db_password|db_password|your_password|your_.+_password|\$db|\$newPassword |\$new_Password |\$secretKey|\$secret_key|\$smtp_password|\$temp_password|mySecretPassword|\$mail->password|my_password|securepassword)
+
+modified to below due to db matches
+(|your_password|your_.+_password|\$newPassword |\$new_Password |\$secretKey|\$secret_key|\$smtp_password|\$temp_password|mySecretPassword|\$mail->password|my_password|securepassword)
