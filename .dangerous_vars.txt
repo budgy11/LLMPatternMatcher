@@ -41,11 +41,7 @@
 \$new_quantity
 \$newQuantity
 \$newReview
-\$order['customer_name']
-\$orderData['customer_email']
-\$orderData['customer_name']
-\$orderData['product_id']
-\$orderData['quantity']
+\$orderData
 \$order_id
 \$password
 \$payment_amount

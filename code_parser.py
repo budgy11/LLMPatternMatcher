@@ -9,6 +9,7 @@ def pull_code(output):
     return generated
 
 def code_parse(block, quiet):
+   #print(regex_rules['use_echo'])
    alert_string = ""
    for rule in regex_rules:
       #precompiled patterns could help with runtime if necessary

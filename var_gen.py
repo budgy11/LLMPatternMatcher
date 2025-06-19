@@ -1,14 +1,11 @@
 #VARIABLE CLASSIFICATIONS
 #for variables that usually store sensitive data in code
-with open('sensitive_vars.txt') as fh:
+with open('./variables/sensitive_vars.txt') as fh:
     sensitive = fh.read().splitlines()
 
 #for variables that usually take user input 
-with open('dangerous_vars.txt') as fh:
-    dangerous = fh.read().splitlines()
-
-#for variables that always use safe input or hardcoded values
-safe = []
+with open('./variables/dangerous_vars.txt') as fh:
+	dangerous = fh.read().splitlines()
 
 #TODO check analysis for pulled functions with common names for vulnerable functions
 #callbacks are bad - https://github.com/FloeDesignTechnologies/phpcs-security-audit/blob/master/Security/Sniffs/BadFunctions/CallbackFunctionsSniff.php#L32

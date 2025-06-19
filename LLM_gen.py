@@ -42,8 +42,16 @@ def request_output(prompt,model,url,quiet):
         #lines in php blocks to parse
         if line.strip()[0:6] == '```php':
             #print(line) #already printed from above branch
-            llm_output += code_parse(code_blocks[block_ctr],quiet)[0]
-            alert_string += code_parse(code_blocks[block_ctr],quiet)[1]
+            try:
+                llm_output += code_parse(code_blocks[block_ctr],quiet)[0]
+                alert_string += code_parse(code_blocks[block_ctr],quiet)[1]
+            except:
+                print("Index error on code block retrieval. Check that rules will not match the ending of the code block")
+                print("Counter: " + str(block_ctr))
+                print("Code Blocks")
+                for i in code_blocks:
+                    print(i)
+                print("End of Error Message\n####\n\n")
             if not quiet:
                 llm_output += "\n#####\nAlerts:\n" + alert_string + "#####\n"
             block_ctr += 1

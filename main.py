@@ -4,6 +4,7 @@ import argparse
 import re
 import json
 import datetime
+import os
 
 #custom imports
 from LLM_gen import send_request
@@ -25,6 +26,7 @@ def main():
     parser.add_argument('-m', '--model', required = True, help="The model used to generate output.")
     parser.add_argument('-p', '--prompt', required = False, help="Prompt to send the model.")
     parser.add_argument('-q', '--quiet', action="store_true", help="This variable will mute the alerts and can help cutdown on runtime.")
+    parser.add_argument('-l', '--loud', action="store_true", help="This variable will replace dangerouse vars with $. meaning all variables will be considered dangerous.")
     parser.add_argument('-o', '--output', help="Outputs text of matched code")
     parser.add_argument('-oj', '--output-json', help="Outputs json of matched code")
 
@@ -33,6 +35,7 @@ def main():
     url = args.url
     prompt = args.prompt
     quiet = args.quiet
+    loud = args.loud
     out_text = args.output
     out_json = args.output_json
 
@@ -42,7 +45,7 @@ def main():
         print(final_output)
         if out_text:
             timestamp = datetime.datetime.now().strftime("%Y%m%d%H%M%S%f") #to keep names unique
-            with open(out_text + "-" + timestamp + '.txt', 'w') as wh:
+            with open(out_text + "-" + timestamp + '.md', 'w') as wh:
                 wh.write(final_output)
         elif out_json:
             timestamp = datetime.datetime.now().strftime("%Y%m%d%H%M%S%f") #to keep names unique
@@ -55,12 +58,12 @@ def main():
         while True:
             prompt = input(model+" >>> ")
             if prompt.lower() == "exit":
-                exit()
+                break
             final_output = request_output(prompt,model,url,quiet)
             print(final_output)
             if out_text:
                 timestamp = datetime.datetime.now().strftime("%Y%m%d%H%M%S%f") #to keep names unique
-                with open(out_text + "-" + timestamp + '.txt', 'w') as wh:
+                with open(out_text + "-" + timestamp + '.md', 'w') as wh:
                     wh.write(final_output)
             elif out_json:
                 timestamp = datetime.datetime.now().strftime("%Y%m%d%H%M%S%f") #to keep names unique

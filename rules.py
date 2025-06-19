@@ -1,6 +1,5 @@
 from var_gen import dangerous_vars_regex, sensitive_vars_regex, callback_func_regex, filesystem_func_regex,functionhandling_func_regex
 
-
 #Formatting for implementing regex rules
 # "RULE_NAME": [
 #r"regex(python format)",
@@ -71,7 +70,8 @@ regex_rules = {
         ],
     #modified to have negative look behind for htmlspecialchars( based on gemma3 output
     "use_echo":   [
-        rf'echo.*(?<!htmlspecialchars\()\s*{dangerous_vars_regex}.*', 
+        rf'echo\s+.*(?<!htmlspecialchars\()\s*{dangerous_vars_regex}.*\n', 
+        #rf'echo.*(?<!htmlspecialchars\()\s*.*', 
         "Echo may lead to XSS if passed unsanitized input"
         ],
     "use_query":   [
