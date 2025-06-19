@@ -29,6 +29,7 @@ def main():
     parser.add_argument('-l', '--loud', action="store_true", help="This variable will replace dangerouse vars with $. meaning all variables will be considered dangerous.")
     parser.add_argument('-o', '--output', help="Outputs text of matched code")
     parser.add_argument('-oj', '--output-json', help="Outputs json of matched code")
+    parser.add_argument('-i', '--input', help="Markdown input file to parse")
 
     args = parser.parse_args()
     model = args.model
