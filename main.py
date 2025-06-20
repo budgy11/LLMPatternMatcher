@@ -9,6 +9,7 @@ import os
 #custom imports
 from LLM_gen import send_request
 from LLM_gen import request_output
+from LLM_gen import parse_output
 
 def gen_json_out(prompt,llm_output):
     json_output = {"prompt": prompt, "output": llm_output}
@@ -39,10 +40,26 @@ def main():
     loud = args.loud
     out_text = args.output
     out_json = args.output_json
+    input_file = args.input
 
     #One-Time Prompt from CLI
     if prompt:
         final_output = request_output(prompt,model,url,quiet)
+        print(final_output)
+        if out_text:
+            timestamp = datetime.datetime.now().strftime("%Y%m%d%H%M%S%f") #to keep names unique
+            with open(out_text + "-" + timestamp + '.md', 'w') as wh:
+                wh.write(final_output)
+        elif out_json:
+            timestamp = datetime.datetime.now().strftime("%Y%m%d%H%M%S%f") #to keep names unique
+            with open(out_json + "-" + timestamp + '.json', 'w') as wh:
+                wh.write(gen_json_out(prompt,final_output))
+
+    #Markdown input file. Ignores any supplied prompt
+    elif input:
+        with open(input_file, 'r') as fh:
+            llm_output = fh.read()
+        final_output = parse_output(llm_output,quiet)
         print(final_output)
         if out_text:
             timestamp = datetime.datetime.now().strftime("%Y%m%d%H%M%S%f") #to keep names unique

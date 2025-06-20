@@ -25,8 +25,6 @@ def send_request(url,model,prompt):
 #    return output.split('</think>',1)[1] #feels archaic but effective
     
 def request_output(prompt,model,url,quiet):
-    llm_output = "" 
-    alert_string = ""
     #openai models that were implemented originally but not used for research
     if model[0:3] == "gpt" or model[0:2] == "o1" or model[0:2] == "o3" or model[0:2] == "o4" or  model == "codex-mini-latest" or  model == "computer-use-preview":
         output = chatgpt.send_request(model,prompt)
@@ -34,11 +32,16 @@ def request_output(prompt,model,url,quiet):
     else: 
         output = send_request(url, model, prompt)['message']['content']
 
-    code_blocks = pull_code(output)
+    parse_output(output)
 
+
+def parse_output(llm_input,quiet):
+    llm_output = "" 
+    alert_string = ""
+    code_blocks = pull_code(llm_input)
     isCode = False
     block_ctr = 0
-    for line in output.split('\n'):
+    for line in llm_input.split('\n'):
         #lines in php blocks to parse
         if line.strip()[0:6] == '```php':
             #print(line) #already printed from above branch
