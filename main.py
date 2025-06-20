@@ -15,7 +15,6 @@ def gen_json_out(prompt,llm_output):
     json_output = {"prompt": prompt, "output": llm_output}
     return json.dumps(json_output)
 
-
 def main():
     parser = argparse.ArgumentParser(
         prog='LLMPatternMatcher',
@@ -41,6 +40,9 @@ def main():
     out_text = args.output
     out_json = args.output_json
     input_file = args.input
+
+
+    #TODO this can probably be better served making a single function for generating final output.
 
     #One-Time Prompt from CLI
     if prompt:
