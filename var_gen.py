@@ -7,7 +7,6 @@ with open('./variables/sensitive_vars.txt') as fh:
 with open('./variables/dangerous_vars.txt') as fh:
 	dangerous = fh.read().splitlines()
 
-#TODO check analysis for pulled functions with common names for vulnerable functions
 #callbacks are bad - https://github.com/FloeDesignTechnologies/phpcs-security-audit/blob/master/Security/Sniffs/BadFunctions/CallbackFunctionsSniff.php#L32
 callback_function_list = [
 			'ob_start', 'array_diff_uassoc', 'array_diff_ukey', 'array_filter', 'array_intersect_uassoc', 'array_intersect_ukey', 'array_map', 'array_reduce',
