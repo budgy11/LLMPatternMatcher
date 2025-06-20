@@ -20,7 +20,7 @@ from var_gen import dangerous_vars_regex, sensitive_vars_regex, callback_func_re
 # Use {dangerous_vars_regex} in locations where you are checking for user input specifically and change r' to rf' to use a formatted string
 # Note: using dangerous_vars_regex is not fullproof and may lead to false negatives but should provide less alerts. This is also not a replacement for code review/audits
 
-#May need to switch off of format strings  and do substitution later in code_parser
+#May need to switch off of format strings and do substitution later in code_parser
 regex_rules = {
     # The following default rules are modified from graudit at https://github.com/wireghoul/graudit/blob/master/signatures/php/default.db
     # and https://github.com/FloeDesignTechnologies/phpcs-security-audit/tree/master/Security/Sniffs/BadFunctions 
