@@ -2,10 +2,11 @@ import re
 
 from rules import regex_rules 
 
-#TODO Added imports to move format string processing from rules.py to here
+#TODO Added import below to move format string processing from rules.py to here
 #from var_gen import dangerous_vars_regex, sensitive_vars_regex, callback_func_regex, filesystem_func_regex,functionhandling_func_regex
 
-#used for json generation
+#TODO for analysis check how many echo statements use variables tainted at a depth more than 1
+
 def pull_code(output):
     #https://coderwall.com/p/r6b4xg/regex-to-match-github-s-markdown-code-blocks
     generated = re.findall(r'```php\n[\s\S]*?\n```', output)
