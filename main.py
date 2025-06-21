@@ -30,6 +30,7 @@ def main():
     parser.add_argument('-o', '--output', help="Outputs text of matched code")
     parser.add_argument('-oj', '--output-json', help="Outputs json of matched code")
     parser.add_argument('-i', '--input', help="Markdown input file to parse")
+    parser.add_argument('-ip', '--input-php', help="php input file to parse (input treated as a large codeblock)")
 
     args = parser.parse_args()
     model = args.model
@@ -40,6 +41,7 @@ def main():
     out_text = args.output
     out_json = args.output_json
     input_file = args.input
+    input_php = args.input
 
 
     #TODO this can probably be better served making a single function for generating final output.
@@ -61,6 +63,21 @@ def main():
     elif input:
         with open(input_file, 'r') as fh:
             llm_output = fh.read()
+        final_output = parse_output(llm_output,quiet)
+        print(final_output)
+        if out_text:
+            timestamp = datetime.datetime.now().strftime("%Y%m%d%H%M%S%f") #to keep names unique
+            with open(out_text + "-" + timestamp + '.md', 'w') as wh:
+                wh.write(final_output)
+        elif out_json:
+            timestamp = datetime.datetime.now().strftime("%Y%m%d%H%M%S%f") #to keep names unique
+            with open(out_json + "-" + timestamp + '.json', 'w') as wh:
+                wh.write(gen_json_out(prompt,final_output))
+
+    elif input_php:
+        with open(input_file, 'r') as fh:
+            llm_output = fh.read()
+            llm_output = "```php\n" + llm_output +"\n```\n" #to create a code block
         final_output = parse_output(llm_output,quiet)
         print(final_output)
         if out_text:
