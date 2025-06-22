@@ -71,7 +71,7 @@ regex_rules = {
     #modified to have negative look behind for htmlspecialchars( based on gemma3 output
     "use_echo":   [
         #r'echo\s+.*\$.*\n\`', 
-        rf'echo\s+.*(?<!htmlspecialchars\()\s*{dangerous_vars_regex};', 
+        rf'echo\s+.*(?<!htmlspecialchars\()\s*{dangerous_vars_regex}.*;', 
         #rf'echo.*(?<!htmlspecialchars\()\s*.*', 
         "Echo may lead to XSS if passed unsanitized input"
         ],

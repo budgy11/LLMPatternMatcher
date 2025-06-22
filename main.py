@@ -60,7 +60,7 @@ def main():
                 wh.write(gen_json_out(prompt,final_output))
 
     #Markdown input file. Ignores any supplied prompt
-    elif input:
+    elif input_file:
         with open(input_file, 'r') as fh:
             llm_output = fh.read()
         final_output = parse_output(llm_output,quiet)
@@ -75,7 +75,7 @@ def main():
                 wh.write(gen_json_out(prompt,final_output))
 
     elif input_php:
-        with open(input_file, 'r') as fh:
+        with open(input_php, 'r') as fh:
             llm_output = fh.read()
             llm_output = "```php\n" + llm_output +"\n```\n" #to create a code block
         final_output = parse_output(llm_output,quiet)
