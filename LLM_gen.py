@@ -32,7 +32,7 @@ def request_output(prompt,model,url,quiet):
     else: 
         output = send_request(url, model, prompt)['message']['content']
 
-    parse_output(output)
+    return parse_output(output,quiet)
 
 
 def parse_output(llm_input,quiet):
@@ -55,6 +55,7 @@ def parse_output(llm_input,quiet):
                 for i in code_blocks:
                     print(i)
                 print("End of Error Message\n####\n\n")
+                exit()
             if not quiet:
                 llm_output += "\n#####\nAlerts:\n" + alert_string + "#####\n"
             block_ctr += 1
