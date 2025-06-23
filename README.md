@@ -1,10 +1,10 @@
 # LLM Pattern Matching Tool for PHP Code
-This tool is a python tool that will highlight potentially vulnerable portions of PHP code provided when using an LLM and print out basic alerts strings. It can be used with a `-p` flag followed by the prompt string wrapped in quotes or through an interactive prompt as seen below ![Interactive Prompt](./assets/LLMPatternMatcher-Prompt-Example.gif)
+This tool is a python tool that will highlight potentially vulnerable portions of PHP code provided when using an LLM and print out basic alerts strings. It can be used with a `-p` flag followed by the prompt string wrapped in quotes or through an interactive prompt as seen below. The tool also allows providing markdown, `-i <file.md>`, and php files `-ip <file.php>` as input to process using the same regex rules. ![Interactive Prompt](./assets/LLMPatternMatcher-Prompt-Example.gif)
 ## Extensibility
 Regex rules are stored in a python dictionary located in `rules.py` with formatting information. The `variables/sensitive_vars.txt` file contains a list of regex to match potential code secrets and can be added by newlines. The `variables/dangerous_vars.txt` file includes regex commonly associated with user input based on previous LLM output. It also includes `_GET` and other similar PHP patterns for user input variables. Users should be able to modify any of these files to include or disclude regex from their respective lists.
 
 #### Dangerous Variables
-The `variables/dangerous_vars.txt` file by default contains `\$.` to match everything. There is also an ecommerce version available in the `variables` folder with some default variable names discovered during testing on gemma3. The file can be swapped in by renaming to `variables/dangerous_vars.txt`.
+The `variables/dangerous_vars.txt` file by default contains `\$.` to match everything. There is also an ecommerce version available in the `variables` folder with some default variable names discovered during testing on gemma3. The file can be swapped in by renaming it to `variables/dangerous_vars.txt`.
 
 ## Connecting to LLMs
 The LLM Pattern Matching Tool for PHP Code was tested and designed for use with models hosted with Ollama. The `-u` flag can be used to point at specific API endpoints for the target LLMs and defaults to `http://localhost:11434/api/chat` for locally hosted Ollama. The `-m` flag will specify the model to use and is required.
