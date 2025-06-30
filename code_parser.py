@@ -10,7 +10,8 @@ from rules import regex_rules
 
 def pull_code(output):
     #https://coderwall.com/p/r6b4xg/regex-to-match-github-s-markdown-code-blocks
-    generated = re.findall(r'```php\n[\s\S]*?\n```', output)
+    #modified for php specifically and added \s* due to inconsistent indentation in output
+    generated = re.findall(r'```php\n[\s\S]*?\n\s*```', output)
     return generated
 
 def code_parse(block, quiet):

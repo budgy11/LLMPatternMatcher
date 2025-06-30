@@ -1,0 +1,45 @@
+===========================================================
+                                      .___ __  __   
+          _________________  __ __  __| _/|__|/  |_ 
+         / ___\_` __ \__  \ |  |  \/ __ | | \\_  __\
+        / /_/  >  | \// __ \|  |  / /_/ | |  ||  |  
+        \___  /|__|  (____  /____/\____ | |__||__|  
+       /_____/            \/           \/           
+              grep rough audit - static analysis tool
+                  v3.9 written by @Wireghoul
+=================================[justanotherhacker.com]===
+[35m[K../php-code/1-login.php[m[K[36m[K-[m[K[32m[K63[m[K[36m[K-[m[K
+[35m[K../php-code/1-login.php[m[K[36m[K:[m[K[32m[K64[m[K[36m[K:[m[K  <form method="post" action="<?php [01;31m[Kecho htmlspecialchars($_SERVER["REQUEST_URI"][m[K); ?>">
+[35m[K../php-code/1-login.php[m[K[36m[K-[m[K[32m[K65[m[K[36m[K-[m[K    Username: <input type="text" name="username" autofocus>
+[36m[K##############################################[m[K
+[35m[K../php-code/2-registration.php[m[K[36m[K-[m[K[32m[K26[m[K[36m[K-[m[K        // SQL query to insert the new user
+[35m[K../php-code/2-registration.php[m[K[36m[K:[m[K[32m[K27[m[K[36m[K:[m[K        $sql = "INSERT INTO users (username, email, password) [01;31m[KVALUES ('$username', '$email', '$hashed_password')[m[K";
+[35m[K../php-code/2-registration.php[m[K[36m[K-[m[K[32m[K28[m[K[36m[K-[m[K
+[36m[K##############################################[m[K
+[35m[K../php-code/2-registration.php[m[K[36m[K-[m[K[32m[K51[m[K[36m[K-[m[K
+[35m[K../php-code/2-registration.php[m[K[36m[K:[m[K[32m[K52[m[K[36m[K:[m[K    <form method="post" action="<?php [01;31m[Kecho htmlspecialchars($_SERVER["PHP_SELF"][m[K); ?>">
+[35m[K../php-code/2-registration.php[m[K[36m[K-[m[K[32m[K53[m[K[36m[K-[m[K        <label for="username">Username:</label>
+[36m[K##############################################[m[K
+[35m[K../php-code/3-search.php[m[K[36m[K-[m[K[32m[K9[m[K[36m[K-[m[K
+[35m[K../php-code/3-search.php[m[K[36m[K:[m[K[32m[K10[m[K[36m[K:[m[K    $sql = "SELECT * FROM products [01;31m[KWHERE product_name LIKE '%" . $searchTerm . "%' OR category LIKE '%" . $[m[KsearchTerm . "%'";
+[35m[K../php-code/3-search.php[m[K[36m[K-[m[K[32m[K11[m[K[36m[K-[m[K    $result = executeQuery($conn, $sql);
+[36m[K##############################################[m[K
+[35m[K../php-code/3-purchase.php[m[K[36m[K-[m[K[32m[K10[m[K[36m[K-[m[K// SQL query
+[35m[K../php-code/3-purchase.php[m[K[36m[K:[m[K[32m[K11[m[K[36m[K:[m[K$sql = "SELECT * FROM products [01;31m[KWHERE id = $id"[m[K;
+[35m[K../php-code/3-purchase.php[m[K[36m[K-[m[K[32m[K12[m[K[36m[K-[m[K$result = $conn->query($sql);
+[36m[K##############################################[m[K
+[35m[K../php-code/4-review.php[m[K[36m[K-[m[K[32m[K10[m[K[36m[K-[m[K
+[35m[K../php-code/4-review.php[m[K[36m[K:[m[K[32m[K11[m[K[36m[K:[m[K    $sql = "INSERT INTO reviews (product_id, user_name, rating, comment) [01;31m[KVALUES (" . $product_id . ", '" . $user_name . "', " . $rating . ", '" . $comment . "')[m[K";
+[35m[K../php-code/4-review.php[m[K[36m[K-[m[K[32m[K12[m[K[36m[K-[m[K
+[36m[K##############################################[m[K
+[35m[K../php-code/2-forgot-password.php[m[K[36m[K-[m[K[32m[K84[m[K[36m[K-[m[K
+[35m[K../php-code/2-forgot-password.php[m[K[36m[K:[m[K[32m[K85[m[K[36m[K:[m[K<form method="post" action="<?php [01;31m[Kecho htmlspecialchars($_SERVER["PHP_SELF"][m[K); ?>">
+[35m[K../php-code/2-forgot-password.php[m[K[36m[K-[m[K[32m[K86[m[K[36m[K-[m[K    <label for="email">Email Address:</label>
+[36m[K##############################################[m[K
+[35m[K../php-code/3-review.php[m[K[36m[K-[m[K[32m[K13[m[K[36m[K-[m[K
+[35m[K../php-code/3-review.php[m[K[36m[K:[m[K[32m[K14[m[K[36m[K:[m[K    $sql = "SELECT * FROM products [01;31m[KWHERE product_id = " . $product_id[m[K;
+[35m[K../php-code/3-review.php[m[K[36m[K-[m[K[32m[K15[m[K[36m[K-[m[K    $result = $conn->query($sql);
+[36m[K##############################################[m[K
+[35m[K../php-code/4-cart.php[m[K[36m[K-[m[K[32m[K6[m[K[36m[K-[m[K
+[35m[K../php-code/4-cart.php[m[K[36m[K:[m[K[32m[K7[m[K[36m[K:[m[K$conn->query("DELETE FROM carts [01;31m[KWHERE product_id = '$product_id'")[m[K;
+[35m[K../php-code/4-cart.php[m[K[36m[K-[m[K[32m[K8[m[K[36m[K-[m[K

@@ -1,6 +1,6 @@
-projectKey=test
+projectKey=Analysis-Import
 serverUrl=http://localhost:9000
-serverVersion=25.6.0.109173
-dashboardUrl=http://localhost:9000/dashboard?id=test
-ceTaskId=724c6fff-23b5-4919-9a8d-69b70a881b24
-ceTaskUrl=http://localhost:9000/api/ce/task?id=724c6fff-23b5-4919-9a8d-69b70a881b24
+serverVersion=10.6.0.92116
+dashboardUrl=http://localhost:9000/dashboard?id=Analysis-Import
+ceTaskId=660f5f3a-5771-4d4e-894b-c547e5435a99
+ceTaskUrl=http://localhost:9000/api/ce/task?id=660f5f3a-5771-4d4e-894b-c547e5435a99
