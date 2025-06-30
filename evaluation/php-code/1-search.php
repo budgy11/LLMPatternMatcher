@@ -1,4 +1,3 @@
-```php
 <?php
 
 $servername = "localhost";
@@ -25,4 +24,3 @@ function executeQuery($conn, $sql) {
 }
 
 ?>
-```

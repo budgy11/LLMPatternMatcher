@@ -1,4 +1,3 @@
-```php
 <?php
 
 $host = "localhost"; // Database host
@@ -15,4 +14,3 @@ if ($conn->connect_error) {
 // Optional:  Establish a persistent connection (for slightly better performance)
 // $conn->set_type("resource");  // This is important for persistence.
 ?>
-```

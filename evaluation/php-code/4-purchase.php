@@ -1,4 +1,3 @@
-```php
 <?php
 // cart.php
 
@@ -56,4 +55,3 @@ if (empty($_SESSION['cart'])) {
 
 $conn->close();
 ?>
-```

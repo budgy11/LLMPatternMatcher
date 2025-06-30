@@ -1,4 +1,3 @@
-```php
 <?php
 require_once 'database.php'; // Include the database connection
 
@@ -21,4 +20,3 @@ if ($result->num_rows > 0) {
 
 $conn->close();
 ?>
-```

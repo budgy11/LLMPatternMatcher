@@ -1,4 +1,3 @@
-```php
 <?php
 require_once 'database.php';
 
@@ -68,4 +67,3 @@ $cart_items = get_cart_items($conn);
 
 </body>
 </html>
-```

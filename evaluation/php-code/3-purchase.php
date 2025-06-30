@@ -1,4 +1,3 @@
-```php
 <?php
 // product.php
 
@@ -33,4 +32,3 @@ if ($result->num_rows == 0) {
 
 $conn->close();
 ?>
-```

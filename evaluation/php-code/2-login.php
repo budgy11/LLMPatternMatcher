@@ -1,4 +1,3 @@
-```php
 <?php
 $servername = "localhost";
 $username = "your_db_username";  //Replace with your MySQL username
@@ -12,4 +11,3 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 ?>
-```

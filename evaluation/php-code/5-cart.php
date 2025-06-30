@@ -1,4 +1,3 @@
-```php
 <?php
 session_start();
 if (!isset($_SESSION["cart_id"])) {
@@ -21,4 +20,3 @@ if (!isset($_SESSION["cart_id"])) {
 <a href="cart.php">Continue Shopping</a>
 </body>
 </html>
-```

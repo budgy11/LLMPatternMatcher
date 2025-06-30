@@ -1,4 +1,3 @@
-```php
 <?php
 require_once 'database.php';
 require_once 'products.php'; //Include products.php
@@ -30,4 +29,3 @@ $conn->close();
     <input type="text" name="search" placeholder="Search products...">
     <button type="submit">Search</button>
 </form>
-```

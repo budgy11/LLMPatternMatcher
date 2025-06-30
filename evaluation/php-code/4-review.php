@@ -1,4 +1,3 @@
-```php
 <?php
 include 'database.php';
 
@@ -30,4 +29,3 @@ if (isset($_POST['submit_review'])) {
 
     <input type="submit" name="submit_review" value="Submit Review">
 </form>
-```

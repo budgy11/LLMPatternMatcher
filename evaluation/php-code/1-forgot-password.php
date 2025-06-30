@@ -1,4 +1,3 @@
-```php
 <?php
 
 $host = "localhost";
@@ -15,4 +14,3 @@ if ($conn->connect_error) {
 // If you need to perform database operations here, do it from this file.
 
 ?>
-```

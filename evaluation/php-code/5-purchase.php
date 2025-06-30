@@ -1,4 +1,3 @@
-```php
 <?php
 // purchase.php
 
@@ -38,4 +37,3 @@ echo "<a href='index.php'>Continue Shopping</a>";
 
 $conn->close();
 ?>
-```

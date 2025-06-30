@@ -1,0 +1,6 @@
+projectKey=evaluation
+serverUrl=http://localhost:9000
+serverVersion=10.6.0.92116
+dashboardUrl=http://localhost:9000/dashboard?id=evaluation
+ceTaskId=362b4809-9edc-4968-8166-f70c9d08c6d8
+ceTaskUrl=http://localhost:9000/api/ce/task?id=362b4809-9edc-4968-8166-f70c9d08c6d8

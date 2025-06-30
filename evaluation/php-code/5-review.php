@@ -1,4 +1,3 @@
-```php
 <?php
 include 'database.php';
 
@@ -29,4 +28,3 @@ if (isset($_POST['submit_review'])) {
     $stmt->close();
 }
 ?>
-```

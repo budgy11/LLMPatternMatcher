@@ -1,4 +1,3 @@
-```php
 <?php
 
 $servername = "localhost";
@@ -47,4 +46,3 @@ function get_cart_items($conn) {
     }
 }
 ?>
-```

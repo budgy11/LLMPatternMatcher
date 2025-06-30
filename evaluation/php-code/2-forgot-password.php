@@ -1,4 +1,3 @@
-```php
 <?php
 
 // Include the database connection file
@@ -90,4 +89,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 </body>
 </html>
-```
