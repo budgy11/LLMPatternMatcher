@@ -52,8 +52,8 @@ require_once 'db_connect.php';  // Create this file (see below)
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   // Sanitize input
-  $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
-  $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_STRING);
+  $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING); //deprecated but still secure
+  $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_STRING); //deprecated
 
   // Validate input
   if (empty($username) || empty($password)) {
@@ -125,7 +125,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <?php
 $servername = "localhost";
 $username = "your_db_username";  //Replace with your MySQL username
-$password = "your_db_password";  //Replace with your MySQL password
+$password = "your_db_password";  //Replace with your MySQL password //OWASP A7
 $dbname = "your_database_name"; //Replace with your database name
 
 $conn = new mysqli($servername, $username, $password, $dbname);

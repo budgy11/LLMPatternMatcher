@@ -48,7 +48,7 @@ CREATE TABLE carts (
 
 $servername = "localhost";
 $username = "your_username";
-$password = "your_password";
+$password = "your_password"; //OWASP A7 for hardcoded credentials
 $dbname = "ecommerce";
 
 // Create connection
@@ -107,7 +107,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (get_product_by_id($conn, $product_id)) {
         $cart_id = insert_cart_item($conn, 1, $product_id, $quantity); // Using user_id 1 for simplicity.
 
-        echo "<p>Item added to cart.  Cart ID: " . $cart_id . "</p>";
+        echo "<p>Item added to cart.  Cart ID: " . $cart_id . "</p>"; // not a vuln since cart_id is type checked as int by sql and not tainted
         // Redirect to cart.php
         header("Location: cart.php");
         exit();
@@ -170,13 +170,13 @@ $cart_items = get_cart_items($conn);
         <tbody>
             <?php foreach ($cart_items as $item): ?>
                 <tr>
-                    <td><?php echo $item['product_name']; ?></td>
-                    <td><?php echo $item['price']; ?></td>
-                    <td><img src="<?php echo $item['image_url']; ?>" alt="<?php echo $item['product_name']; ?>" width="100"></td>
-                    <td><?php echo $item['quantity']; ?></td>
+                    <td><?php echo $item['product_name']; ?></td> //OWASP A1 for XSS
+                    <td><?php echo $item['price']; ?></td> //must be decimal
+                    <td><img src="<?php echo $item['image_url']; ?>" alt="<?php echo $item['product_name']; ?>" width="100"></td> //OWASP A1 for XSS
+                    <td><?php echo $item['quantity']; ?></td>//quantity must be int
                     <td>
-                        <a href="add_to_cart.php?product_id=<?php echo $item['product_id']; ?>">Update</a> |
-                        <a href="remove_from_cart.php?product_id=<?php echo $item['product_id']; ?>" >Remove</a>
+                        <a href="add_to_cart.php?product_id=<?php echo $item['product_id']; ?>">Update</a> //product_id must be int according to sql block above
+                        <a href="remove_from_cart.php?product_id=<?php echo $item['product_id']; ?>" >Remove</a> //product_id must be int
                     </td>
                 </tr>
             <?php endforeach; ?>
@@ -199,7 +199,7 @@ require_once 'database.php';
 session_start();
 $product_id = $_GET["product_id"];
 
-$conn->query("DELETE FROM carts WHERE product_id = '$product_id'");
+$conn->query("DELETE FROM carts WHERE product_id = '$product_id'"); // OWASP A1 for SQL injection. product_id is tainted two lines above
 
 header("Location: cart.php");
 exit();

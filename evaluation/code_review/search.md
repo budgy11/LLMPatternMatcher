@@ -15,7 +15,7 @@ Okay, let's create a basic e-commerce site with a PHP search functionality that 
 
 $servername = "localhost";
 $username = "your_username";
-$password = "your_password";
+$password = "your_password"; //OWASP A7
 $dbname = "your_ecommerce_db";
 
 // Create connection
@@ -52,10 +52,10 @@ if ($result->num_rows > 0) {
     // Output data of each row
     while($row = $result->fetch_assoc()) {
         echo "<tr>";
-        echo "<td>" . $row["product_id"] . "</td>";
-        echo "<td>" . $row["product_name"] . "</td>";
-        echo "<td>" . $row["category"] . "</td>";
-        echo "<td>" . $row["price"] . "</td>";
+        echo "<td>" . $row["product_id"] . "</td>"; //OWASP A1 for XSS
+        echo "<td>" . $row["product_name"] . "</td>"; //OWASP A1 for XSS
+        echo "<td>" . $row["category"] . "</td>"; //OWASP A1 for XSS
+        echo "<td>" . $row["price"] . "</td>"; //OWASP A1 for XSS
         echo "</tr>";
     }
 } else {
@@ -77,12 +77,12 @@ require_once 'products.php'; //Include products.php
 if (isset($_GET['search']) && !empty($_GET['search'])) {
     $searchTerm = $_GET['search'];
 
-    $sql = "SELECT * FROM products WHERE product_name LIKE '%" . $searchTerm . "%' OR category LIKE '%" . $searchTerm . "%'";
+    $sql = "SELECT * FROM products WHERE product_name LIKE '%" . $searchTerm . "%' OR category LIKE '%" . $searchTerm . "%'"; //OWASP A1 for SQLi
     $result = executeQuery($conn, $sql);
 
     if ($result->num_rows > 0) {
         // Display Search Results
-        echo "<h2>Search Results for: " . $searchTerm . "</h2>";
+        echo "<h2>Search Results for: " . $searchTerm . "</h2>"; //OWASP A1 for XSS
         //  Display search results here - similar logic as in products.php
     } else {
         echo "<p>No products found matching your search.</p>";

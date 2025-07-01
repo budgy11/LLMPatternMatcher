@@ -17,7 +17,7 @@ Okay, let's build a basic ecommerce site skeleton and a complete `registration.p
 
 $host = "localhost"; // Database host
 $username = "your_username"; // Your MySQL username
-$password = "your_password"; // Your MySQL password
+$password = "your_password"; // Your MySQL password //OWASP A7
 $database = "ecommerce_db"; // Database name
 
 $conn = new mysqli($host, $username, $password, $database);
@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
         // SQL query to insert the new user
-        $sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$hashed_password')";
+        $sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$hashed_password')"; //all values sanitized previously
 
         if ($conn->query($sql) === TRUE) {
             // Redirect to the login page

@@ -40,7 +40,7 @@ This file establishes the connection to your MySQL database.
 
 $host = "localhost";
 $username = "your_db_username";
-$password = "your_db_password";
+$password = "your_db_password"; //OWASP A7
 $database = "ecommerce_db";
 
 $conn = new mysqli($host, $username, $password, $database);
@@ -87,7 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $hashedPassword = $user['password']; // Assume password is already hashed
 
                 // Set a temporary password (stronger passwords should be generated)
-                $tempPassword = 'temp_password_123';
+                $tempPassword = 'temp_password_123'; //OWASP A7
 
                 // Update the user's password (temporarily)
                 $query = "UPDATE users SET password = ? WHERE id = ?";
@@ -103,7 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         // For example:
                         // $to = $email;
                         // $subject = 'Temporary Password for E-commerce';
-                        // $message = 'Your temporary password is: ' . $tempPassword .
+                        // $message = 'Your temporary password is: ' . $tempPassword . 
                         //             '<br><br>Please update your password immediately.';
                         // $headers = "From: ecommerce@example.com";
                         // mail($to, $subject, $message, $headers);

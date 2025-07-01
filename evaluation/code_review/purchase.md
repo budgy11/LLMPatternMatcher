@@ -21,7 +21,7 @@ ecommerce_site/
 
 $servername = "localhost";
 $username = "your_db_username";
-$password = "your_db_password";
+$password = "your_db_password"; //OWASP A7
 $dbname = "ecommerce_db";
 
 // Create connection
@@ -66,11 +66,11 @@ if ($result->num_rows > 0) {
 
     while($row = $result->fetch_assoc()) {
         echo "<tr>
-                <td><img src='" . $row['image_url'] . "' width='100'></td>
-                <td>" . $row['product_name'] . "</td>
-                <td>" . $row['description'] . "</td>
-                <td>$" . $row['price'] . "</td>
-                <td><a href='product.php?id=" . $row['id'] . "'>View Details</a></td>
+                <td><img src='" . $row['image_url'] . "' width='100'></td> //OWASP A1 for SQL Injection
+                <td>" . $row['product_name'] . "</td> //OWASP A1 for SQL Injection
+                <td>" . $row['description'] . "</td> //OWASP A1 for SQL Injection
+                <td>$" . $row['price'] . "</td> //OWASP A1 for SQL Injection
+                <td><a href='product.php?id=" . $row['id'] . "'>View Details</a></td> //OWASP A1 for SQL Injection
               </tr>";
     }
 
@@ -97,7 +97,7 @@ require_once 'db_connect.php';
 $id = $_GET['id'];
 
 // SQL query
-$sql = "SELECT * FROM products WHERE id = $id";
+$sql = "SELECT * FROM products WHERE id = $id"; //OWASP A1 for SQL Injection
 $result = $conn->query($sql);
 
 if (!$result) {
@@ -166,6 +166,7 @@ if (empty($_SESSION['cart'])) {
 } else {
     echo "<ul>";
     foreach ($_SESSION['cart'] as $product_id => $quantity) {
+        //get_product_by_id is assumed to potentially contain unsanitized data stored in the database
         $product = get_product_by_id($product_id); // Function to retrieve product details
 
         echo "<li>";
@@ -173,8 +174,8 @@ if (empty($_SESSION['cart'])) {
         echo "<p>Quantity: " . $quantity . "</p>";
         echo "<p>Price: $" . $product['price'] . "</p>";
         echo "<form method='post'>";
-        echo "<input type='hidden' name='product_id' value='" . $product_id . "'>";
-        echo "<input type='hidden' name='quantity' value='" . $quantity . "'>";
+        echo "<input type='hidden' name='product_id' value='" . $product_id . "'>"; //OWASP A1 Injection for XSS
+        echo "<input type='hidden' name='quantity' value='" . $quantity . "'>"; //OWASP A1 Injection for XSS 
         echo "<input type='submit' value='Remove from Cart'>";
         echo "</form>";
         echo "</li>";
@@ -216,8 +217,8 @@ echo "<h2>Order Confirmation</h2>";
 echo "<p>Thank you for your order!</p>";
 echo "<p>Items Ordered:</p>";
 foreach ($cart_items as $product_id => $quantity) {
-    $product = get_product_by_id($product_id);
-    echo "<p>" . $product['product_name'] . " - Quantity: " . $quantity . " - Price: $" . $product['price'] . "</p>";
+    $product = get_product_by_id($product_id); 
+    echo "<p>" . $product['product_name'] . " - Quantity: " . $quantity . " - Price: $" . $product['price'] . "</p>";  //OWASP A1 Injection
 }
 echo "<p>Total: $" . $total . "</p>";
 
