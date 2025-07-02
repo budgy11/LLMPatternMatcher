@@ -64,9 +64,9 @@ def main():
 
     #Markdown input file. Ignores any supplied prompt
     elif input_file:
+        start_time = time.time()
         with open(input_file, 'r') as fh:
             llm_output = fh.read()
-        start_time = time.time()
         final_output = parse_output(llm_output,quiet)
         print(final_output)
         if out_text:
@@ -80,10 +80,10 @@ def main():
                 wh.write(gen_json_out(prompt,final_output,total_time))
 
     elif input_php:
+        start_time = time.time()
         with open(input_php, 'r') as fh:
             llm_output = fh.read()
             llm_output = "```php\n" + llm_output +"\n```\n" #to create a code block
-        start_time = time.time()
         final_output = parse_output(llm_output,quiet)
         print(final_output)
         if out_text:

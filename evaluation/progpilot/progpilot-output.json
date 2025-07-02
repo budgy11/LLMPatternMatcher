@@ -1,0 +1,24 @@
+[
+    {
+        "source_name": [
+            "$searchTerm"
+        ],
+        "source_line": [
+            7
+        ],
+        "source_column": [
+            172
+        ],
+        "source_file": [
+            "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/php-code\/3-search.php"
+        ],
+        "sink_name": "echo",
+        "sink_line": 14,
+        "sink_column": 452,
+        "sink_file": "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/php-code\/3-search.php",
+        "vuln_name": "xss",
+        "vuln_cwe": "CWE_79",
+        "vuln_id": "36042d943448d56c61c988a8057a2fc222670872b375296a6e8c92b40be15661",
+        "vuln_type": "taint-style"
+    }
+]

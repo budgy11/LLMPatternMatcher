@@ -96,7 +96,7 @@ regex_rules = {
         "Use of variables following include or require may lead to file inclusion vulnerabilities"
         ],
     "use_print_param":   [
-        r'print.*\s*\((?<!htmlspecialchars\().*\);', 
+        rf'print.*\s*\((?<!htmlspecialchars\()\s*{dangerous_vars_regex}.*\);', 
         "Printing parameters may lead to XSS or database leakage"
         ],
     "use_extract_user_input":   [ 
