@@ -46,7 +46,7 @@ Let's put the PHP code into separate files (e.g., `index.php`, `product.php`, `r
 
 $host = "localhost";
 $username = "your_username";
-$password = [0;31m"your_password"[0m;
+$password = [0;31m"your_password"[0m; //OWASP A7
 $dbname = "ecommerce_db";
 
 $conn = new mysqli($host, $username, $password, $dbname);
@@ -82,9 +82,9 @@ Variable may contain secrets that should not be stored in code
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
             echo "<div class='product'>";
-            [0;31mecho "<h2>" . $row['product_name'] . "</h2>";[0m
-            [0;31mecho "<img src='" . $row['image_url'] . "' alt='" . $row['product_name'] . "'>";[0m
-            [0;31mecho "<a href='product.php?product_id=" . $row['product_id'] . "' >View Details</a>";[0m
+            [0;31mecho "<h2>" . $row['product_name'] . "</h2>";[0m //OWASP A3
+            [0;31mecho "<img src='" . $row['image_url'] . "' alt='" . $row['product_name'] . "'>";[0m //OWASP A3
+            [0;31mecho "<a href='product.php?product_id=" . $row['product_id'] . "' >View Details</a>";[0m //OWASP A3
             echo "</div>";
         }
     } else {
@@ -118,19 +118,19 @@ Echo may lead to XSS if passed unsanitized input
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
-        $product = $result->fetch_assoc();
-        [0;31mecho $product['product_name'];[0m
+        $product = $result->fetch_assoc(); 
+        [0;31mecho $product['product_name'];[0m //OWASP A3
     } else {
         echo "Product not found.";
     }
     ?></h1>
 
     <img src='" . $product['image_url'] . "' alt='" . $product['product_name'] . "'>";
-    [0;31mecho "<p>" . $product['description'] . "</p>";[0m
-    [0;31mecho "<p>Price: $" . $product['price'] . "</p>";[0m
+    [0;31mecho "<p>" . $product['description'] . "</p>";[0m //OWASP A3
+    [0;31mecho "<p>Price: $" . $product['price'] . "</p>";[0m //False Positive OWASP A3
 
     // Reviews
-    [0;31mecho "<h2>Reviews for " . $product['product_name'] . "</h2>";[0m
+    [0;31mecho "<h2>Reviews for " . $product['product_name'] . "</h2>";[0m //OWASP A3
 
     include 'review.php'; //Include the review.php file
     ?>
@@ -154,12 +154,12 @@ if (isset($_POST['submit_review'])) {
     $rating = $_POST['rating'];
     $comment = $_POST['comment'];
 
-    $sql = "INSERT INTO reviews (product_id, user_name, rating, comment) [0;31mVALUES (" . $product_id . ", '" . $user_name . "', " . $rating . ", '" . $comment . "')[0m";
+    $sql = "INSERT INTO reviews (product_id, user_name, rating, comment) [0;31mVALUES (" . $product_id . ", '" . $user_name . "', " . $rating . ", '" . $comment . "')[0m"; //OWASP A3
 
     if ($conn->query($sql) === TRUE) {
         echo "<p>Review submitted successfully!</p>";
     } else {
-        [0;31mecho "<p>Error submitting review: " . $conn->error . "</p>";[0m
+        [0;31mecho "<p>Error submitting review: " . $conn->error . "</p>";[0m //False Positive OWASP A3
     }
 }
 ?>
@@ -239,7 +239,7 @@ if (isset($_POST['submit_review'])) {
     if ($stmt->execute()) {
         echo "<p>Review submitted successfully!</p>";
     } else {
-        [0;31mecho "<p>Error submitting review: " . $conn->error . "</p>";[0m
+        [0;31mecho "<p>Error submitting review: " . $conn->error . "</p>";[0m //False Positive OWASP A3
     }
 
     $stmt->close();

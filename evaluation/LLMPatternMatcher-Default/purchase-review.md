@@ -26,7 +26,7 @@ ecommerce_site/
 
 $servername = "localhost";
 $username = "your_db_username";
-$password = [0;31m"your_db_password"[0m;
+$password = [0;31m"your_db_password"[0m; //OWASP A7
 $dbname = "ecommerce_db";
 
 // Create connection
@@ -121,10 +121,10 @@ if ($result->num_rows == 0) {
 } else {
     $product = $result->fetch_assoc();
 
-    [0;31mecho "<h2>" . $product['product_name'] . "</h2>";[0m
-    [0;31mecho "<img src='" . $product['image_url'] . "' width='200'><br><br>";[0m
-    [0;31mecho "<p>" . $product['description'] . "</p>";[0m
-    [0;31mecho "<p>Price: $" . $product['price'] . "</p>";[0m
+    [0;31mecho "<h2>" . $product['product_name'] . "</h2>";[0m//OWASP A3
+    [0;31mecho "<img src='" . $product['image_url'] . "' width='200'><br><br>";[0m//OWASP A3
+    [0;31mecho "<p>" . $product['description'] . "</p>";[0m//OWASP A3
+    [0;31mecho "<p>Price: $" . $product['price'] . "</p>";[0m//OWASP A3
 
     // Add to cart functionality (simplified)
     if (isset($_POST['add_to_cart'])) {
@@ -237,16 +237,16 @@ echo "<p>Thank you for your order!</p>";
 echo "<p>Items Ordered:</p>";
 foreach ($cart_items as $product_id => $quantity) {
     $product = get_product_by_id($product_id);
-    [0;31mecho "<p>" . $product['product_name'] . " - Quantity: " . $quantity . " - Price: $" . $product['price'] . "</p>";[0m
+    [0;31mecho "<p>" . $product['product_name'] . " - Quantity: " . $quantity . " - Price: $" . $product['price'] . "</p>";[0m//OWASP A3
 }
-[0;31mecho "<p>Total: $" . $total . "</p>";[0m
+[0;31mecho "<p>Total: $" . $total . "</p>";[0m//False Positive OWASP A3
 
 // Clear the cart after successful order
 $_SESSION['cart'] = array();
 
-[0;31mecho "<a href='index.php'>Continue Shopping</a>";
+[0;31mecho "<a href='index.php'>Continue Shopping</a>"; 
 
-$conn->close();[0m
+$conn->close();[0m //False Positive OWASP A3
 ?>
 ```
 #####

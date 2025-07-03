@@ -18,7 +18,7 @@ Okay, let's create a basic e-commerce site with a PHP search functionality that 
 
 $servername = "localhost";
 $username = "your_username";
-$password = [0;31m"your_password"[0m;
+$password = [0;31m"your_password"[0m; //OWASP A7
 $dbname = "your_ecommerce_db";
 
 // Create connection
@@ -33,7 +33,7 @@ if ($conn->connect_error) {
 function executeQuery($conn, $sql) {
     $result = $conn->query($sql);
     if (!$result) {
-        [0;31mecho "Error executing query: " . $conn->error;[0m
+        [0;31mecho "Error executing query: " . $conn->error;[0m //False Positive OWASP A3
         return false;
     }
     return $result;
@@ -60,10 +60,10 @@ if ($result->num_rows > 0) {
     // Output data of each row
     while($row = $result->fetch_assoc()) {
         echo "<tr>";
-        [0;31mecho "<td>" . $row["product_id"] . "</td>";[0m
-        [0;31mecho "<td>" . $row["product_name"] . "</td>";[0m
-        [0;31mecho "<td>" . $row["category"] . "</td>";[0m
-        [0;31mecho "<td>" . $row["price"] . "</td>";[0m
+        [0;31mecho "<td>" . $row["product_id"] . "</td>";[0m //OWASP A3
+        [0;31mecho "<td>" . $row["product_name"] . "</td>";[0m //OWASP A3
+        [0;31mecho "<td>" . $row["category"] . "</td>";[0m //OWASP A3
+        [0;31mecho "<td>" . $row["price"] . "</td>";[0m //OWASP A3
         echo "</tr>";
     }
 } else {
@@ -89,12 +89,12 @@ require_once 'products.php'; //Include products.php
 if (isset($_GET['search']) && !empty($_GET['search'])) {
     $searchTerm = $_GET['search'];
 
-    $sql = "SELECT * FROM products [0;31mWHERE product_name LIKE '%" . $searchTerm . "%' OR category LIKE '%" . $searchTerm .[0m "%'";
+    $sql = "SELECT * FROM products [0;31mWHERE product_name LIKE '%" . $searchTerm . "%' OR category LIKE '%" . $searchTerm .[0m "%'"; //OWASP A3
     $result = executeQuery($conn, $sql);
 
     if ($result->num_rows > 0) {
         // Display Search Results
-        [0;31mecho "<h2>Search Results for: " . $searchTerm . "</h2>";[0m
+        [0;31mecho "<h2>Search Results for: " . $searchTerm . "</h2>";[0m //OWASP A3
         //  Display search results here - similar logic as in products.php
     } else {
         echo "<p>No products found matching your search.</p>";

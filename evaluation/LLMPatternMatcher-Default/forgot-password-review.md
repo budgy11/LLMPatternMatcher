@@ -42,7 +42,7 @@ This file establishes the connection to your MySQL database.
 
 $host = "localhost";
 $username = "your_db_username";
-$password = [0;31m"your_db_password"[0m;
+$password = [0;31m"your_db_password"[0m; //OWASP A7
 $database = "ecommerce_db";
 
 $conn = new mysqli($host, $username, $password, $database);
@@ -141,11 +141,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <h1>Forgot Password</h1>
 
 <?php if (isset($error)) { ?>
-    <p style="color: red;"><?php [0;31mecho $error;[0m ?></p>
+    <p style="color: red;"><?php [0;31mecho $error;[0m ?></p> // False Positive OWASP A3
 <?php } ?>
 
 <?php if (isset($success)) { ?>
-    <p style="color: green;"><?php [0;31mecho $success;[0m ?></p>
+    <p style="color: green;"><?php [0;31mecho $success;[0m ?> // False Positive OWASP A3</p>
 <?php } ?>
 
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">

@@ -19,7 +19,7 @@ Okay, let's build a basic ecommerce site skeleton and a complete `registration.p
 
 $host = "localhost"; // Database host
 $username = "your_username"; // Your MySQL username
-$password = [0;31m"your_password"[0m; // Your MySQL password
+$password = [0;31m"your_password"[0m; // Your MySQL password //OWASP A7
 $database = "ecommerce_db"; // Database name
 
 $conn = new mysqli($host, $username, $password, $database);
@@ -72,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
         // SQL query to insert the new user
-        $sql = "INSERT INTO users (username, email, password) [0;31mVALUES ('$username', '$email', '$hashed_password')[0m";
+        $sql = "INSERT INTO users (username, email, password) [0;31mVALUES ('$username', '$email', '$hashed_password')[0m"; //False Positive OWASP A3, all sanitized inputs
 
         if ($conn->query($sql) === TRUE) {
             // Redirect to the login page
@@ -94,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <h1>Registration</h1>
 
     <?php if (isset($error)) { ?>
-        <p style="color: red;"><?php [0;31mecho $error;[0m ?></p>
+        <p style="color: red;"><?php [0;31mecho $error;[0m ?></p> //False Positive OWASP A3 
     <?php } ?>
 
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">

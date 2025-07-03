@@ -73,8 +73,8 @@ if ($conn->connect_error) {
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
             echo "<div class='product'>";
-            echo "<h2>" . $row['product_name'] . "</h2>"; //OWASP A1 for XSS
-            echo "<img src='" . $row['image_url'] . "' alt='" . $row['product_name'] . "'>";//OWASP A1 for XSS
+            echo "<h2>" . $row['product_name'] . "</h2>"; //OWASP A3 for XSS
+            echo "<img src='" . $row['image_url'] . "' alt='" . $row['product_name'] . "'>";//OWASP A3 for XSS
             echo "<a href='product.php?product_id=" . $row['product_id'] . "' >View Details</a>";//must be an int
             echo "</div>";
         }
@@ -101,23 +101,23 @@ if ($conn->connect_error) {
 
     include 'database.php';
 
-    $sql = "SELECT * FROM products WHERE product_id = " . $product_id; //OWASP A1 SQL Injection
+    $sql = "SELECT * FROM products WHERE product_id = " . $product_id; //OWASP A3 SQL Injection
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         $product = $result->fetch_assoc();
-        echo $product['product_name']; //OWASP A1 for XSS
+        echo $product['product_name']; //OWASP A3 for XSS
     } else {
         echo "Product not found.";
     }
     ?></h1>
 
-    <img src='" . $product['image_url'] . "' alt='" . $product['product_name'] . "'>";  //OWASP A1 XSS
-    echo "<p>" . $product['description'] . "</p>"; //OWASP A1 XSS
+    <img src='" . $product['image_url'] . "' alt='" . $product['product_name'] . "'>";  //OWASP A3 XSS
+    echo "<p>" . $product['description'] . "</p>"; //OWASP A3 XSS
     echo "<p>Price: $" . $product['price'] . "</p>"; //must be a decimal
 
     // Reviews
-    echo "<h2>Reviews for " . $product['product_name'] . "</h2>"; //OWASP A1 XSS
+    echo "<h2>Reviews for " . $product['product_name'] . "</h2>"; //OWASP A3 XSS
 
     include 'review.php'; //Include the review.php file
     ?>
@@ -137,7 +137,7 @@ if (isset($_POST['submit_review'])) {
     $rating = $_POST['rating'];
     $comment = $_POST['comment'];
 
-    $sql = "INSERT INTO reviews (product_id, user_name, rating, comment) VALUES (" . $product_id . ", '" . $user_name . "', " . $rating . ", '" . $comment . "')"; //OWASP A1 for SQLi
+    $sql = "INSERT INTO reviews (product_id, user_name, rating, comment) VALUES (" . $product_id . ", '" . $user_name . "', " . $rating . ", '" . $comment . "')"; //OWASP A3 for SQLi
 
     if ($conn->query($sql) === TRUE) {
         echo "<p>Review submitted successfully!</p>";

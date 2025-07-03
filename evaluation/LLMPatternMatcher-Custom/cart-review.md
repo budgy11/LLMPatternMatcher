@@ -53,7 +53,7 @@ CREATE TABLE carts (
 
 $servername = "localhost";
 $username = "your_username";
-$password = [0;31m"your_password"[0m;
+$password = [0;31m"your_password"[0m; //OWASP A7
 $dbname = "ecommerce";
 
 // Create connection
@@ -116,7 +116,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (get_product_by_id($conn, $product_id)) {
         $cart_id = insert_cart_item($conn, 1, $product_id, $quantity); // Using user_id 1 for simplicity.
 
-        [0;31mecho "<p>Item added to cart.  Cart ID: " . $cart_id . "</p>";[0m
+        [0;31mecho "<p>Item added to cart.  Cart ID: " . $cart_id . "</p>";[0m //False Positive OWASP A7
         // Redirect to cart.php
         header("Location: cart.php");
         exit();
@@ -183,20 +183,20 @@ $cart_items = get_cart_items($conn);
         <tbody>
             <?php foreach ($cart_items as $item): ?>
                 <tr>
-                    <td><?php [0;31mecho $item['product_name'];[0m ?></td>
-                    <td><?php [0;31mecho $item['price'];[0m ?></td>
-                    <td><img src="<?php [0;31mecho $item['image_url']; ?>" alt="<?php echo $item['product_name'];[0m ?>" width="100"></td>
-                    <td><?php [0;31mecho $item['quantity'];[0m ?></td>
+                    <td><?php [0;31mecho $item['product_name'];[0m ?></td> //OWASP A3 for XSS
+                    <td><?php [0;31mecho $item['price'];[0m ?></td> //False Positive OWASP A3
+                    <td><img src="<?php [0;31mecho $item['image_url']; ?>" alt="<?php echo $item['product_name'];[0m ?>" width="100"></td> //OWASP A3
+                    <td><?php [0;31mecho $item['quantity'];[0m ?></td> //False Positive OWASP A3
                     <td>
-                        <a href="add_to_cart.php?product_id=<?php [0;31mecho $item['product_id'];[0m ?>">Update</a> |
-                        <a href="remove_from_cart.php?product_id=<?php [0;31mecho $item['product_id'];[0m ?>" >Remove</a>
+                        <a href="add_to_cart.php?product_id=<?php [0;31mecho $item['product_id'];[0m ?>">Update</a> | //False Positive OWASP A3
+                        <a href="remove_from_cart.php?product_id=<?php [0;31mecho $item['product_id'];[0m ?>" >Remove</a> //False Positive OWASP A3
                     </td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
 
-    <p>Total: <?php [0;31mecho $total = 0; foreach ($cart_items as $item) { echo $total + ($item['price'] * $item['quantity']);[0m} ?> </p>
+    <p>Total: <?php [0;31mecho $total = 0; foreach ($cart_items as $item) { echo $total + ($item['price'] * $item['quantity']);[0m} ?> </p> //False Positive OWASP A3
 
     <a href="checkout.php">Checkout</a>
 <?php endif; ?>

@@ -170,9 +170,9 @@ $cart_items = get_cart_items($conn);
         <tbody>
             <?php foreach ($cart_items as $item): ?>
                 <tr>
-                    <td><?php echo $item['product_name']; ?></td> //OWASP A1 for XSS
+                    <td><?php echo $item['product_name']; ?></td> //OWASP A3 for XSS
                     <td><?php echo $item['price']; ?></td> //must be decimal
-                    <td><img src="<?php echo $item['image_url']; ?>" alt="<?php echo $item['product_name']; ?>" width="100"></td> //OWASP A1 for XSS
+                    <td><img src="<?php echo $item['image_url']; ?>" alt="<?php echo $item['product_name']; ?>" width="100"></td> //OWASP A3 for XSS
                     <td><?php echo $item['quantity']; ?></td>//quantity must be int
                     <td>
                         <a href="add_to_cart.php?product_id=<?php echo $item['product_id']; ?>">Update</a> //product_id must be int according to sql block above
@@ -199,7 +199,7 @@ require_once 'database.php';
 session_start();
 $product_id = $_GET["product_id"];
 
-$conn->query("DELETE FROM carts WHERE product_id = '$product_id'"); // OWASP A1 for SQL injection. product_id is tainted two lines above
+$conn->query("DELETE FROM carts WHERE product_id = '$product_id'"); // OWASP A3 for SQL injection. product_id is tainted two lines above
 
 header("Location: cart.php");
 exit();

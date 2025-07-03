@@ -66,11 +66,11 @@ if ($result->num_rows > 0) {
 
     while($row = $result->fetch_assoc()) {
         echo "<tr>
-                <td><img src='" . $row['image_url'] . "' width='100'></td> //OWASP A1 for SQL Injection
-                <td>" . $row['product_name'] . "</td> //OWASP A1 for SQL Injection
-                <td>" . $row['description'] . "</td> //OWASP A1 for SQL Injection
-                <td>$" . $row['price'] . "</td> //OWASP A1 for SQL Injection
-                <td><a href='product.php?id=" . $row['id'] . "'>View Details</a></td> //OWASP A1 for SQL Injection
+                <td><img src='" . $row['image_url'] . "' width='100'></td> //OWASP A3 for XSS
+                <td>" . $row['product_name'] . "</td> //OWASP A3 for XSS
+                <td>" . $row['description'] . "</td> //OWASP A3 for XSS
+                <td>$" . $row['price'] . "</td> //OWASP A3 for XSS
+                <td><a href='product.php?id=" . $row['id'] . "'>View Details</a></td> //OWASP A3 for XSS
               </tr>";
     }
 
@@ -97,7 +97,7 @@ require_once 'db_connect.php';
 $id = $_GET['id'];
 
 // SQL query
-$sql = "SELECT * FROM products WHERE id = $id"; //OWASP A1 for SQL Injection
+$sql = "SELECT * FROM products WHERE id = $id"; //OWASP A3 for SQL Injection
 $result = $conn->query($sql);
 
 if (!$result) {
@@ -109,10 +109,10 @@ if ($result->num_rows == 0) {
 } else {
     $product = $result->fetch_assoc();
 
-    echo "<h2>" . $product['product_name'] . "</h2>";
-    echo "<img src='" . $product['image_url'] . "' width='200'><br><br>";
-    echo "<p>" . $product['description'] . "</p>";
-    echo "<p>Price: $" . $product['price'] . "</p>";
+    echo "<h2>" . $product['product_name'] . "</h2>"; //OWASP A3
+    echo "<img src='" . $product['image_url'] . "' width='200'><br><br>";//OWASP A3
+    echo "<p>" . $product['description'] . "</p>";//OWASP A3
+    echo "<p>Price: $" . $product['price'] . "</p>";//OWASP A3
 
     // Add to cart functionality (simplified)
     if (isset($_POST['add_to_cart'])) {
@@ -170,12 +170,12 @@ if (empty($_SESSION['cart'])) {
         $product = get_product_by_id($product_id); // Function to retrieve product details
 
         echo "<li>";
-        echo "<h3>" . $product['product_name'] . "</h3>";
-        echo "<p>Quantity: " . $quantity . "</p>";
-        echo "<p>Price: $" . $product['price'] . "</p>";
-        echo "<form method='post'>";
-        echo "<input type='hidden' name='product_id' value='" . $product_id . "'>"; //OWASP A1 Injection for XSS
-        echo "<input type='hidden' name='quantity' value='" . $quantity . "'>"; //OWASP A1 Injection for XSS 
+        echo "<h3>" . $product['product_name'] . "</h3>"; //OWASP A3 Injection
+        echo "<p>Quantity: " . $quantity . "</p>"; //OWASP A3
+        echo "<p>Price: $" . $product['price'] . "</p>"; //OWASP A3
+        echo "<form method='post'>";  
+        echo "<input type='hidden' name='product_id' value='" . $product_id . "'>"; //OWASP A3 Injection for XSS
+        echo "<input type='hidden' name='quantity' value='" . $quantity . "'>"; //OWASP A3 Injection for XSS 
         echo "<input type='submit' value='Remove from Cart'>";
         echo "</form>";
         echo "</li>";
@@ -218,9 +218,9 @@ echo "<p>Thank you for your order!</p>";
 echo "<p>Items Ordered:</p>";
 foreach ($cart_items as $product_id => $quantity) {
     $product = get_product_by_id($product_id); 
-    echo "<p>" . $product['product_name'] . " - Quantity: " . $quantity . " - Price: $" . $product['price'] . "</p>";  //OWASP A1 Injection
+    echo "<p>" . $product['product_name'] . " - Quantity: " . $quantity . " - Price: $" . $product['price'] . "</p>";  //OWASP A3 Injection
 }
-echo "<p>Total: $" . $total . "</p>";
+echo "<p>Total: $" . $total . "</p>"; //Total cannot be a string due to multipulcation done to declare total
 
 // Clear the cart after successful order
 $_SESSION['cart'] = array();

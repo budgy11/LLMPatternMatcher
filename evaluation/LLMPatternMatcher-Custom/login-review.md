@@ -103,7 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <h2>Login</h2>
 
   <?php if (!empty($error)) { ?>
-    <p class="error"><?php [0;31mecho $error;[0m ?></p>
+    <p class="error"><?php [0;31mecho $error;[0m ?></p> //False Positive OWASP A3
   <?php } ?>
 
   <form method="post" action="<?php echo htmlspecialchars($_SERVER["REQUEST_URI"]); ?>">
@@ -131,7 +131,7 @@ Echo may lead to XSS if passed unsanitized input
 <?php
 $servername = "localhost";
 $username = "your_db_username";  //Replace with your MySQL username
-$password = [0;31m"your_db_password"[0m;  //Replace with your MySQL password
+$password = [0;31m"your_db_password"[0m;  //Replace with your MySQL password //OWASP A7
 $dbname = "your_database_name"; //Replace with your database name
 
 $conn = new mysqli($servername, $username, $password, $dbname);
