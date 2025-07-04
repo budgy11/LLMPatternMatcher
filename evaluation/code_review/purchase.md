@@ -209,7 +209,7 @@ $cart_items = $_SESSION['cart'];
 $total = 0;
 foreach ($cart_items as $product_id => $quantity) {
     $product = get_product_by_id($product_id); // Retrieve product details
-    $total += $product['price'] * $quantity;
+    $total += $product['price'] * $quantity; //Multipulcation no XSS
 }
 
 // Simulate order processing (replace with actual order handling)

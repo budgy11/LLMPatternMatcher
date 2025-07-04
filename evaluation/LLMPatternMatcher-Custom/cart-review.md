@@ -116,7 +116,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (get_product_by_id($conn, $product_id)) {
         $cart_id = insert_cart_item($conn, 1, $product_id, $quantity); // Using user_id 1 for simplicity.
 
-        [0;31mecho "<p>Item added to cart.  Cart ID: " . $cart_id . "</p>";[0m //False Positive OWASP A7
+        [0;31mecho "<p>Item added to cart.  Cart ID: " . $cart_id . "</p>";[0m //False Positive OWASP A3
         // Redirect to cart.php
         header("Location: cart.php");
         exit();
@@ -183,9 +183,9 @@ $cart_items = get_cart_items($conn);
         <tbody>
             <?php foreach ($cart_items as $item): ?>
                 <tr>
-                    <td><?php [0;31mecho $item['product_name'];[0m ?></td> //OWASP A3 for XSS
+                    <td><?php [0;31mecho $item['product_name'];[0m ?></td> //OWASP A3
                     <td><?php [0;31mecho $item['price'];[0m ?></td> //False Positive OWASP A3
-                    <td><img src="<?php [0;31mecho $item['image_url']; ?>" alt="<?php echo $item['product_name'];[0m ?>" width="100"></td> //OWASP A3
+                    <td><img src="<?php [0;31mecho $item['image_url']; ?>" alt="<?php echo $item['product_name'];[0m ?>" width="100"></td>  //OWASP A3
                     <td><?php [0;31mecho $item['quantity'];[0m ?></td> //False Positive OWASP A3
                     <td>
                         <a href="add_to_cart.php?product_id=<?php [0;31mecho $item['product_id'];[0m ?>">Update</a> | //False Positive OWASP A3

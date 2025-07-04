@@ -185,7 +185,7 @@ if (empty($_SESSION['cart'])) {
         $product = get_product_by_id($product_id); // Function to retrieve product details
 
         echo "<li>";
-        [0;31mecho "<h3>" . $product['product_name'] . "</h3>";[0m //False
+        [0;31mecho "<h3>" . $product['product_name'] . "</h3>";[0m //OWASP A3
         [0;31mecho "<p>Quantity: " . $quantity . "</p>";[0m //OWASP A3
         [0;31mecho "<p>Price: $" . $product['price'] . "</p>";[0m //OWASP A3
         echo "<form method='post'>";
@@ -237,16 +237,16 @@ echo "<p>Thank you for your order!</p>";
 echo "<p>Items Ordered:</p>";
 foreach ($cart_items as $product_id => $quantity) {
     $product = get_product_by_id($product_id);
-    [0;31mecho "<p>" . $product['product_name'] . " - Quantity: " . $quantity . " - Price: $" . $product['price'] . "</p>";[0m //OWASP A3
+    [0;31mecho "<p>" . $product['product_name'] . " - Quantity: " . $quantity . " - Price: $" . $product['price'] . "</p>";[0m   //OWASP A3
 }
 [0;31mecho "<p>Total: $" . $total . "</p>";[0m //False Positive OWASP A3
 
 // Clear the cart after successful order
 $_SESSION['cart'] = array();
 
-[0;31mecho "<a href='index.php'>Continue Shopping</a>";
+echo "<a href='index.php'>Continue Shopping</a>";
 
-$conn->close();[0m
+$conn->close();
 ?>
 ```
 #####

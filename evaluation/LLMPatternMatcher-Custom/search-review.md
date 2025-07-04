@@ -33,7 +33,7 @@ if ($conn->connect_error) {
 function executeQuery($conn, $sql) {
     $result = $conn->query($sql);
     if (!$result) {
-        [0;31mecho "Error executing query: " . $conn->error;[0m //False Positive OWASP A3
+        echo "Error executing query: " . $conn->error;
         return false;
     }
     return $result;
@@ -44,7 +44,6 @@ function executeQuery($conn, $sql) {
 #####
 Alerts:
 Variable may contain secrets that should not be stored in code
-Echo may lead to XSS if passed unsanitized input
 #####
 
 **2. `products.php` (Product Listing - Example)**

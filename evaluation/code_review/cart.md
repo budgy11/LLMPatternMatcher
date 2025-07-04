@@ -183,7 +183,7 @@ $cart_items = get_cart_items($conn);
         </tbody>
     </table>
 
-    <p>Total: <?php echo $total = 0; foreach ($cart_items as $item) { echo $total + ($item['price'] * $item['quantity']);} ?> </p>
+    <p>Total: <?php echo $total = 0; foreach ($cart_items as $item) { echo $total + ($item['price'] * $item['quantity']);} ?> </p> //Not Injection due to multipulcation and inability to hold string
 
     <a href="checkout.php">Checkout</a>
 <?php endif; ?>

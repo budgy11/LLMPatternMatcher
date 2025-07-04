@@ -16,7 +16,6 @@
 \$confirmPassword
 \$confirm_email
 \$confirm_password
-\$conn
 \$count
 \$customerAddress
 \$customerEmail
@@ -34,7 +33,6 @@
 \$deleted
 \$details
 \$email
-\$error
 \$escapedSearchTerm
 \$exec_result
 \$exists

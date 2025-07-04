@@ -84,7 +84,7 @@ Variable may contain secrets that should not be stored in code
             echo "<div class='product'>";
             [0;31mecho "<h2>" . $row['product_name'] . "</h2>";[0m //OWASP A3
             [0;31mecho "<img src='" . $row['image_url'] . "' alt='" . $row['product_name'] . "'>";[0m //OWASP A3
-            [0;31mecho "<a href='product.php?product_id=" . $row['product_id'] . "' >View Details</a>";[0m //OWASP A3
+            [0;31mecho "<a href='product.php?product_id=" . $row['product_id'] . "' >View Details</a>";[0m //False Positive OWASP A3
             echo "</div>";
         }
     } else {

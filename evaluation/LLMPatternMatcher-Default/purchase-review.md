@@ -76,10 +76,10 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         echo "<tr>
                 <td><img src='" . $row['image_url'] . "' width='100'></td>
-                <td>" . $row['product_name'] . "</td>
-                <td>" . $row['description'] . "</td>
+                <td>" . $row['product_name'] . "</td> 
+                <td>" . $row['description'] . "</td> 
                 <td>$" . $row['price'] . "</td>
-                <td><a href='product.php?id=" . $row['id'] . "'>View Details</a></td>
+                <td><a href='product.php?id=" . $row['id'] . "'>View Details</a></td> 
               </tr>";
     }
 
@@ -185,12 +185,12 @@ if (empty($_SESSION['cart'])) {
         $product = get_product_by_id($product_id); // Function to retrieve product details
 
         echo "<li>";
-        [0;31mecho "<h3>" . $product['product_name'] . "</h3>";[0m
-        [0;31mecho "<p>Quantity: " . $quantity . "</p>";[0m
-        [0;31mecho "<p>Price: $" . $product['price'] . "</p>";[0m
+        [0;31mecho "<h3>" . $product['product_name'] . "</h3>";[0m //OWASP A3
+        [0;31mecho "<p>Quantity: " . $quantity . "</p>";[0m //OWASP A3
+        [0;31mecho "<p>Price: $" . $product['price'] . "</p>";[0m //OWASP A3
         echo "<form method='post'>";
-        [0;31mecho "<input type='hidden' name='product_id' value='" . $product_id . "'>";[0m
-        [0;31mecho "<input type='hidden' name='quantity' value='" . $quantity . "'>";[0m
+        [0;31mecho "<input type='hidden' name='product_id' value='" . $product_id . "'>";[0m //OWASP A3
+        [0;31mecho "<input type='hidden' name='quantity' value='" . $quantity . "'>";[0m //OWASP A3
         echo "<input type='submit' value='Remove from Cart'>";
         echo "</form>";
         echo "</li>";
@@ -244,7 +244,7 @@ foreach ($cart_items as $product_id => $quantity) {
 // Clear the cart after successful order
 $_SESSION['cart'] = array();
 
-[0;31mecho "<a href='index.php'>Continue Shopping</a>"; 
+[0;31mecho "<a href='index.php'>Continue Shopping</a>";  //False Positive that stretches to next line (2 vulnerable lines)
 
 $conn->close();[0m //False Positive OWASP A3
 ?>

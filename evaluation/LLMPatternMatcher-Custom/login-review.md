@@ -103,7 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <h2>Login</h2>
 
   <?php if (!empty($error)) { ?>
-    <p class="error"><?php [0;31mecho $error;[0m ?></p> //False Positive OWASP A3
+    <p class="error"><?php echo $error; ?></p>
   <?php } ?>
 
   <form method="post" action="<?php echo htmlspecialchars($_SERVER["REQUEST_URI"]); ?>">
@@ -122,7 +122,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ```
 #####
 Alerts:
-Echo may lead to XSS if passed unsanitized input
 #####
 
 **4.  `db_connect.php` (Database Connection File)**

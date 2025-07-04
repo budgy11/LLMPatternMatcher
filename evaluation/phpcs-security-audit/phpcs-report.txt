@@ -1,0 +1,236 @@
+
+FILE: /home/victor/CS6727/LLMPatternMatcher/evaluation/php-code/1-cart.php
+---------------------------------------------------------------------------
+FOUND 0 ERRORS AND 4 WARNINGS AFFECTING 4 LINES
+---------------------------------------------------------------------------
+ 13 | WARNING | Possible XSS detected with . on die
+ 18 | WARNING | MYSQLi function prepare() detected with dynamic parameter 
+ 28 | WARNING | MYSQLi function prepare() detected with dynamic parameter 
+ 36 | WARNING | MYSQLi function query() detected with dynamic parameter 
+---------------------------------------------------------------------------
+
+
+FILE: /home/victor/CS6727/LLMPatternMatcher/evaluation/php-code/1-forgot-password.php
+-------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+-------------------------------------------------------------------------------------
+ 11 | WARNING | Possible XSS detected with . on die
+-------------------------------------------------------------------------------------
+
+
+FILE: /home/victor/CS6727/LLMPatternMatcher/evaluation/php-code/1-login.php
+---------------------------------------------------------------------------
+FOUND 0 ERRORS AND 2 WARNINGS AFFECTING 2 LINES
+---------------------------------------------------------------------------
+ 19 | WARNING | Crypto function password_hash used.
+ 60 | WARNING | Possible XSS detected with $error on echo
+---------------------------------------------------------------------------
+
+
+FILE: /home/victor/CS6727/LLMPatternMatcher/evaluation/php-code/1-purchase.php
+------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+------------------------------------------------------------------------------
+ 14 | WARNING | Possible XSS detected with . on die
+------------------------------------------------------------------------------
+
+
+FILE: /home/victor/CS6727/LLMPatternMatcher/evaluation/php-code/1-registration.php
+----------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+----------------------------------------------------------------------------------
+ 11 | WARNING | Possible XSS detected with . on die
+----------------------------------------------------------------------------------
+
+
+FILE: /home/victor/CS6727/LLMPatternMatcher/evaluation/php-code/1-review.php
+----------------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+----------------------------------------------------------------------------
+ 11 | WARNING | Possible XSS detected with . on die
+----------------------------------------------------------------------------
+
+
+FILE: /home/victor/CS6727/LLMPatternMatcher/evaluation/php-code/1-search.php
+----------------------------------------------------------------------------
+FOUND 0 ERRORS AND 3 WARNINGS AFFECTING 3 LINES
+----------------------------------------------------------------------------
+ 13 | WARNING | Possible XSS detected with . on die
+ 18 | WARNING | MYSQLi function query() detected with dynamic parameter 
+ 20 | WARNING | Possible XSS detected with . on echo
+----------------------------------------------------------------------------
+
+
+FILE: /home/victor/CS6727/LLMPatternMatcher/evaluation/php-code/2-cart.php
+--------------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+--------------------------------------------------------------------------
+ 11 | WARNING | Possible XSS detected with . on echo
+--------------------------------------------------------------------------
+
+
+FILE: /home/victor/CS6727/LLMPatternMatcher/evaluation/php-code/2-forgot-password.php
+-------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 4 WARNINGS AFFECTING 4 LINES
+-------------------------------------------------------------------------------------
+ 16 | WARNING | MYSQLi function prepare() detected with dynamic parameter 
+ 33 | WARNING | MYSQLi function prepare() detected with dynamic parameter 
+ 77 | WARNING | Possible XSS detected with $error on echo
+ 81 | WARNING | Possible XSS detected with $success on echo
+-------------------------------------------------------------------------------------
+
+
+FILE: /home/victor/CS6727/LLMPatternMatcher/evaluation/php-code/2-login.php
+---------------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+---------------------------------------------------------------------------
+ 11 | WARNING | Possible XSS detected with . on die
+---------------------------------------------------------------------------
+
+
+FILE: /home/victor/CS6727/LLMPatternMatcher/evaluation/php-code/2-purchase.php
+------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 3 WARNINGS AFFECTING 3 LINES
+------------------------------------------------------------------------------
+  8 | WARNING | MYSQLi function query() detected with dynamic parameter 
+ 11 | WARNING | Possible XSS detected with . on die
+ 30 | WARNING | Possible XSS detected with . on echo
+------------------------------------------------------------------------------
+
+
+FILE: /home/victor/CS6727/LLMPatternMatcher/evaluation/php-code/2-registration.php
+----------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 3 WARNINGS AFFECTING 3 LINES
+----------------------------------------------------------------------------------
+ 23 | WARNING | Crypto function password_hash used.
+ 28 | WARNING | MYSQLi function query() detected with dynamic parameter 
+ 48 | WARNING | Possible XSS detected with $error on echo
+----------------------------------------------------------------------------------
+
+
+FILE: /home/victor/CS6727/LLMPatternMatcher/evaluation/php-code/2-review.php
+----------------------------------------------------------------------------
+FOUND 0 ERRORS AND 4 WARNINGS AFFECTING 4 LINES
+----------------------------------------------------------------------------
+ 14 | WARNING | MYSQLi function query() detected with dynamic parameter 
+ 19 | WARNING | Possible XSS detected with . on echo
+ 20 | WARNING | Possible XSS detected with . on echo
+ 21 | WARNING | Possible XSS detected with . on echo
+----------------------------------------------------------------------------
+
+
+FILE: /home/victor/CS6727/LLMPatternMatcher/evaluation/php-code/2-search.php
+----------------------------------------------------------------------------
+FOUND 0 ERRORS AND 4 WARNINGS AFFECTING 4 LINES
+----------------------------------------------------------------------------
+ 11 | WARNING | Possible XSS detected with . on echo
+ 12 | WARNING | Possible XSS detected with . on echo
+ 13 | WARNING | Possible XSS detected with . on echo
+ 14 | WARNING | Possible XSS detected with . on echo
+----------------------------------------------------------------------------
+
+
+FILE: /home/victor/CS6727/LLMPatternMatcher/evaluation/php-code/3-cart.php
+--------------------------------------------------------------------------
+FOUND 0 ERRORS AND 9 WARNINGS AFFECTING 7 LINES
+--------------------------------------------------------------------------
+ 50 | WARNING | Possible XSS detected with $item on echo
+ 51 | WARNING | Possible XSS detected with $item on echo
+ 52 | WARNING | Possible XSS detected with $item on echo
+ 52 | WARNING | Possible XSS detected with $item on echo
+ 53 | WARNING | Possible XSS detected with $item on echo
+ 55 | WARNING | Possible XSS detected with $item on echo
+ 56 | WARNING | Possible XSS detected with $item on echo
+ 63 | WARNING | Possible XSS detected with $total on echo
+ 63 | WARNING | Possible XSS detected with $total on echo
+--------------------------------------------------------------------------
+
+
+FILE: /home/victor/CS6727/LLMPatternMatcher/evaluation/php-code/3-purchase.php
+------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 6 WARNINGS AFFECTING 6 LINES
+------------------------------------------------------------------------------
+ 11 | WARNING | MYSQLi function query() detected with dynamic parameter 
+ 14 | WARNING | Possible XSS detected with . on die
+ 22 | WARNING | Possible XSS detected with . on echo
+ 23 | WARNING | Possible XSS detected with . on echo
+ 24 | WARNING | Possible XSS detected with . on echo
+ 25 | WARNING | Possible XSS detected with . on echo
+------------------------------------------------------------------------------
+
+
+FILE: /home/victor/CS6727/LLMPatternMatcher/evaluation/php-code/3-review.php
+----------------------------------------------------------------------------
+FOUND 0 ERRORS AND 2 WARNINGS AFFECTING 2 LINES
+----------------------------------------------------------------------------
+ 14 | WARNING | MYSQLi function query() detected with dynamic parameter 
+ 18 | WARNING | Possible XSS detected with $product on echo
+----------------------------------------------------------------------------
+
+
+FILE: /home/victor/CS6727/LLMPatternMatcher/evaluation/php-code/3-search.php
+----------------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+----------------------------------------------------------------------------
+ 14 | WARNING | Possible XSS detected with . on echo
+----------------------------------------------------------------------------
+
+
+FILE: /home/victor/CS6727/LLMPatternMatcher/evaluation/php-code/4-cart.php
+--------------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+--------------------------------------------------------------------------
+ 6 | WARNING | MYSQLi function query() detected with dynamic parameter 
+--------------------------------------------------------------------------
+
+
+FILE: /home/victor/CS6727/LLMPatternMatcher/evaluation/php-code/4-purchase.php
+------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 5 WARNINGS AFFECTING 5 LINES
+------------------------------------------------------------------------------
+ 43 | WARNING | Possible XSS detected with . on echo
+ 44 | WARNING | Possible XSS detected with . on echo
+ 45 | WARNING | Possible XSS detected with . on echo
+ 47 | WARNING | Possible XSS detected with . on echo
+ 48 | WARNING | Possible XSS detected with . on echo
+------------------------------------------------------------------------------
+
+
+FILE: /home/victor/CS6727/LLMPatternMatcher/evaluation/php-code/4-review.php
+----------------------------------------------------------------------------
+FOUND 0 ERRORS AND 2 WARNINGS AFFECTING 2 LINES
+----------------------------------------------------------------------------
+ 12 | WARNING | MYSQLi function query() detected with dynamic parameter 
+ 15 | WARNING | Possible XSS detected with . on echo
+----------------------------------------------------------------------------
+
+
+FILE: /home/victor/CS6727/LLMPatternMatcher/evaluation/php-code/4-search.php
+------------------------------------------------------------------------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+------------------------------------------------------------------------------------------------------------------------------------------------
+ 1 | WARNING | No PHP code was found in this file and short open tags are not allowed by this install of PHP. This file may be using short open
+   |         | tags but PHP does not allow them.
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: /home/victor/CS6727/LLMPatternMatcher/evaluation/php-code/5-purchase.php
+------------------------------------------------------------------------------
+FOUND 0 ERRORS AND 2 WARNINGS AFFECTING 2 LINES
+------------------------------------------------------------------------------
+ 29 | WARNING | Possible XSS detected with . on echo
+ 31 | WARNING | Possible XSS detected with . on echo
+------------------------------------------------------------------------------
+
+
+FILE: /home/victor/CS6727/LLMPatternMatcher/evaluation/php-code/5-review.php
+----------------------------------------------------------------------------
+FOUND 0 ERRORS AND 3 WARNINGS AFFECTING 3 LINES
+----------------------------------------------------------------------------
+ 12 | WARNING | MYSQLi function prepare() detected with dynamic parameter 
+ 15 | WARNING | Possible XSS detected with . on die
+ 25 | WARNING | Possible XSS detected with . on echo
+----------------------------------------------------------------------------
+
+Time: 21ms; Memory: 4MB
+

@@ -196,7 +196,7 @@ $cart_items = get_cart_items($conn);
         </tbody>
     </table>
 
-    <p>Total: <?php [0;31mecho $total = 0; foreach ($cart_items as $item) { echo $total + ($item['price'] * $item['quantity']);[0m} ?> </p>
+    <p>Total: <?php [0;31mecho $total = 0; foreach ($cart_items as $item) { echo $total + ($item['price'] * $item['quantity']);[0m} ?> </p> //False Positive A3
 
     <a href="checkout.php">Checkout</a>
 <?php endif; ?>

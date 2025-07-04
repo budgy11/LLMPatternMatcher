@@ -94,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <h1>Registration</h1>
 
     <?php if (isset($error)) { ?>
-        <p style="color: red;"><?php [0;31mecho $error;[0m ?></p> // False Positive OWASP A3
+        <p style="color: red;"><?php echo $error; ?></p>
     <?php } ?>
 
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
@@ -114,7 +114,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ```
 #####
 Alerts:
-Echo may lead to XSS if passed unsanitized input
 VALUES followed by a variable may lead to SQLI
 #####
 
