@@ -1,0 +1,720 @@
+{
+    "totals": {
+        "errors": 6,
+        "warnings": 59,
+        "fixable": 0
+    },
+    "files": {
+        "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/1-cart.php": {
+            "errors": 0,
+            "warnings": 7,
+            "messages": [
+                {
+                    "message": "MYSQLi function mysqli_query() detected with dynamic parameter ",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.Mysqli.WarnMysqlimysqli_query",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 15,
+                    "column": 11
+                },
+                {
+                    "message": "Possible XSS detected with $item on <?=",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.EasyXSS.EasyXSSwarn",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 45,
+                    "column": 28
+                },
+                {
+                    "message": "Possible XSS detected with $item on <?=",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.EasyXSS.EasyXSSwarn",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 45,
+                    "column": 57
+                },
+                {
+                    "message": "Possible XSS detected with $item on <?=",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.EasyXSS.EasyXSSwarn",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 46,
+                    "column": 14
+                },
+                {
+                    "message": "Possible XSS detected with $item on <?=",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.EasyXSS.EasyXSSwarn",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 47,
+                    "column": 24
+                },
+                {
+                    "message": "Possible XSS detected with $item on <?=",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.EasyXSS.EasyXSSwarn",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 48,
+                    "column": 21
+                },
+                {
+                    "message": "Possible XSS detected with number_format on <?=",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.EasyXSS.EasyXSSwarn",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 52,
+                    "column": 18
+                }
+            ]
+        },
+        "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/1-forgot-password.php": {
+            "errors": 0,
+            "warnings": 0,
+            "messages": []
+        },
+        "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/1-login.php": {
+            "errors": 1,
+            "warnings": 3,
+            "messages": [
+                {
+                    "message": "Possible XSS detected with . on die",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.EasyXSS.EasyXSSwarn",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 15,
+                    "column": 31
+                },
+                {
+                    "message": "Easy XSS detected because of direct user input with $_SERVER on echo",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.EasyXSS.EasyXSSerr",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "ERROR",
+                    "line": 31,
+                    "column": 30
+                },
+                {
+                    "message": "Crypto function md5 used.",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.CryptoFunctions.WarnCryptoFunc",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 50,
+                    "column": 24
+                },
+                {
+                    "message": "MYSQLi function mysqli_query() detected with dynamic parameter ",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.Mysqli.WarnMysqlimysqli_query",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 54,
+                    "column": 15
+                }
+            ]
+        },
+        "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/1-purchase.php": {
+            "errors": 0,
+            "warnings": 0,
+            "messages": []
+        },
+        "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/1-registration.php": {
+            "errors": 0,
+            "warnings": 1,
+            "messages": [
+                {
+                    "message": "Possible XSS detected with . on die",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.EasyXSS.EasyXSSwarn",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 11,
+                    "column": 31
+                }
+            ]
+        },
+        "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/1-review.php": {
+            "errors": 0,
+            "warnings": 7,
+            "messages": [
+                {
+                    "message": "Possible XSS detected with . on die",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.EasyXSS.EasyXSSwarn",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 8,
+                    "column": 31
+                },
+                {
+                    "message": "MYSQLi function query() detected with dynamic parameter ",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.Mysqli.WarnMysqli",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 13,
+                    "column": 16
+                },
+                {
+                    "message": "Possible XSS detected with . on echo",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.EasyXSS.EasyXSSwarn",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 16,
+                    "column": 38
+                },
+                {
+                    "message": "Possible XSS detected with . on echo",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.EasyXSS.EasyXSSwarn",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 21,
+                    "column": 21
+                },
+                {
+                    "message": "Possible XSS detected with . on echo",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.EasyXSS.EasyXSSwarn",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 22,
+                    "column": 21
+                },
+                {
+                    "message": "Possible XSS detected with . on echo",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.EasyXSS.EasyXSSwarn",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 23,
+                    "column": 20
+                },
+                {
+                    "message": "Possible XSS detected with . on echo",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.EasyXSS.EasyXSSwarn",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 25,
+                    "column": 41
+                }
+            ]
+        },
+        "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/1-search.php": {
+            "errors": 0,
+            "warnings": 1,
+            "messages": [
+                {
+                    "message": "Possible XSS detected with . on die",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.EasyXSS.EasyXSSwarn",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 14,
+                    "column": 31
+                }
+            ]
+        },
+        "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/2-cart.php": {
+            "errors": 0,
+            "warnings": 1,
+            "messages": [
+                {
+                    "message": "MYSQLi function mysqli_query() detected with dynamic parameter ",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.Mysqli.WarnMysqlimysqli_query",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 12,
+                    "column": 1
+                }
+            ]
+        },
+        "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/2-forgot-password.php": {
+            "errors": 0,
+            "warnings": 0,
+            "messages": []
+        },
+        "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/2-purchase.php": {
+            "errors": 0,
+            "warnings": 2,
+            "messages": [
+                {
+                    "message": "Possible XSS detected with . on die",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.EasyXSS.EasyXSSwarn",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 9,
+                    "column": 33
+                },
+                {
+                    "message": "MYSQLi function query() detected with dynamic parameter ",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.Mysqli.WarnMysqli",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 14,
+                    "column": 23
+                }
+            ]
+        },
+        "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/2-registration.php": {
+            "errors": 0,
+            "warnings": 0,
+            "messages": []
+        },
+        "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/2-review.php": {
+            "errors": 0,
+            "warnings": 7,
+            "messages": [
+                {
+                    "message": "Possible XSS detected with . on die",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.EasyXSS.EasyXSSwarn",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 8,
+                    "column": 31
+                },
+                {
+                    "message": "MYSQLi function prepare() detected with dynamic parameter ",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.Mysqli.WarnMysqli",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 22,
+                    "column": 18
+                },
+                {
+                    "message": "Possible XSS detected with . on echo",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.EasyXSS.EasyXSSwarn",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 26,
+                    "column": 42
+                },
+                {
+                    "message": "MYSQLi function prepare() detected with dynamic parameter ",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.Mysqli.WarnMysqli",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 36,
+                    "column": 14
+                },
+                {
+                    "message": "Possible XSS detected with . on echo",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.EasyXSS.EasyXSSwarn",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 40,
+                    "column": 37
+                },
+                {
+                    "message": "Possible XSS detected with \"<p>Rating: <strong>$review[rating]\/5<\/strong><\/p>\" on echo",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.EasyXSS.EasyXSSwarn",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 47,
+                    "column": 14
+                },
+                {
+                    "message": "Possible XSS detected with \"<p>$review[user_name]: $review[review_text]<\/p>\" on echo",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.EasyXSS.EasyXSSwarn",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 48,
+                    "column": 14
+                }
+            ]
+        },
+        "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/2-search.php": {
+            "errors": 0,
+            "warnings": 2,
+            "messages": [
+                {
+                    "message": "MYSQLi function query() detected with dynamic parameter ",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.Mysqli.WarnMysqli",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 13,
+                    "column": 20
+                },
+                {
+                    "message": "Possible XSS detected with . on echo",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.EasyXSS.EasyXSSwarn",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 18,
+                    "column": 27
+                }
+            ]
+        },
+        "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/3-cart.php": {
+            "errors": 0,
+            "warnings": 1,
+            "messages": [
+                {
+                    "message": "MYSQLi function mysqli_query() detected with dynamic parameter ",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.Mysqli.WarnMysqlimysqli_query",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 11,
+                    "column": 1
+                }
+            ]
+        },
+        "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/3-forgot-password.php": {
+            "errors": 0,
+            "warnings": 0,
+            "messages": []
+        },
+        "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/3-purchase.php": {
+            "errors": 0,
+            "warnings": 0,
+            "messages": []
+        },
+        "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/3-registration.php": {
+            "errors": 1,
+            "warnings": 5,
+            "messages": [
+                {
+                    "message": "MYSQLi function mysqli_query() detected with dynamic parameter ",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.Mysqli.WarnMysqlimysqli_query",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 15,
+                    "column": 13
+                },
+                {
+                    "message": "MYSQLi function mysqli_query() detected with dynamic parameter ",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.Mysqli.WarnMysqlimysqli_query",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 16,
+                    "column": 23
+                },
+                {
+                    "message": "Crypto function md5 used.",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.CryptoFunctions.WarnCryptoFunc",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 20,
+                    "column": 36
+                },
+                {
+                    "message": "MYSQLi function mysqli_query() detected with dynamic parameter ",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.Mysqli.WarnMysqlimysqli_query",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 25,
+                    "column": 21
+                },
+                {
+                    "message": "Possible XSS detected with . on echo",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.EasyXSS.EasyXSSwarn",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 28,
+                    "column": 53
+                },
+                {
+                    "message": "Easy XSS detected because of direct user input with $_SERVER on echo",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.EasyXSS.EasyXSSerr",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "ERROR",
+                    "line": 41,
+                    "column": 30
+                }
+            ]
+        },
+        "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/3-review.php": {
+            "errors": 0,
+            "warnings": 10,
+            "messages": [
+                {
+                    "message": "Possible XSS detected with . on die",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.EasyXSS.EasyXSSwarn",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 8,
+                    "column": 31
+                },
+                {
+                    "message": "MYSQLi function prepare() detected with dynamic parameter ",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.Mysqli.WarnMysqli",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 16,
+                    "column": 14
+                },
+                {
+                    "message": "Possible XSS detected with . on echo",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.EasyXSS.EasyXSSwarn",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 20,
+                    "column": 37
+                },
+                {
+                    "message": "Possible XSS detected with . on echo",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.EasyXSS.EasyXSSwarn",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 25,
+                    "column": 17
+                },
+                {
+                    "message": "Possible XSS detected with . on echo",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.EasyXSS.EasyXSSwarn",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 26,
+                    "column": 17
+                },
+                {
+                    "message": "Possible XSS detected with . on echo",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.EasyXSS.EasyXSSwarn",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 27,
+                    "column": 16
+                },
+                {
+                    "message": "MYSQLi function prepare() detected with dynamic parameter ",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.Mysqli.WarnMysqli",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 31,
+                    "column": 18
+                },
+                {
+                    "message": "Possible XSS detected with . on echo",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.EasyXSS.EasyXSSwarn",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 35,
+                    "column": 41
+                },
+                {
+                    "message": "Possible XSS detected with \"<p>Rating: <strong>$review[rating]\/5<\/strong><\/p>\" on echo",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.EasyXSS.EasyXSSwarn",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 42,
+                    "column": 18
+                },
+                {
+                    "message": "Possible XSS detected with \"<p>$review[user_name]: $review[review_text]<\/p>\" on echo",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.EasyXSS.EasyXSSwarn",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 43,
+                    "column": 18
+                }
+            ]
+        },
+        "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/4-cart.php": {
+            "errors": 0,
+            "warnings": 2,
+            "messages": [
+                {
+                    "message": "MYSQLi function mysqli_query() detected with dynamic parameter ",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.Mysqli.WarnMysqlimysqli_query",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 9,
+                    "column": 11
+                },
+                {
+                    "message": "MYSQLi function mysqli_query() detected with dynamic parameter ",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.Mysqli.WarnMysqlimysqli_query",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 27,
+                    "column": 3
+                }
+            ]
+        },
+        "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/4-forgot-password.php": {
+            "errors": 1,
+            "warnings": 2,
+            "messages": [
+                {
+                    "message": "Possible XSS detected with . on die",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.EasyXSS.EasyXSSwarn",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 13,
+                    "column": 35
+                },
+                {
+                    "message": "MYSQLi function query() detected with dynamic parameter ",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.Mysqli.WarnMysqli",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 19,
+                    "column": 20
+                },
+                {
+                    "message": "Easy XSS detected because of direct user input with $_SERVER on echo",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.EasyXSS.EasyXSSerr",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "ERROR",
+                    "line": 50,
+                    "column": 40
+                }
+            ]
+        },
+        "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/4-purchase.php": {
+            "errors": 2,
+            "warnings": 4,
+            "messages": [
+                {
+                    "message": "Possible XSS detected with $product on echo",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.EasyXSS.EasyXSSwarn",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 33,
+                    "column": 32
+                },
+                {
+                    "message": "Possible XSS detected with $product on echo",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.EasyXSS.EasyXSSwarn",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 33,
+                    "column": 63
+                },
+                {
+                    "message": "Possible XSS detected with $product on echo",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.EasyXSS.EasyXSSwarn",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 34,
+                    "column": 45
+                },
+                {
+                    "message": "Possible XSS detected with $product on echo",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.EasyXSS.EasyXSSwarn",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 34,
+                    "column": 82
+                },
+                {
+                    "message": "Easy XSS detected because of direct user input with $_POST on echo",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.EasyXSS.EasyXSSerr",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "ERROR",
+                    "line": 49,
+                    "column": 29
+                },
+                {
+                    "message": "Easy XSS detected because of direct user input with $_POST on echo",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.EasyXSS.EasyXSSerr",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "ERROR",
+                    "line": 50,
+                    "column": 26
+                }
+            ]
+        },
+        "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/5-forgot-password.php": {
+            "errors": 1,
+            "warnings": 4,
+            "messages": [
+                {
+                    "message": "Possible XSS detected with . on die",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.EasyXSS.EasyXSSwarn",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 13,
+                    "column": 35
+                },
+                {
+                    "message": "MYSQLi function query() detected with dynamic parameter ",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.Mysqli.WarnMysqli",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 24,
+                    "column": 24
+                },
+                {
+                    "message": "Crypto function password_hash used.",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.CryptoFunctions.WarnCryptoFunc",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 32,
+                    "column": 25
+                },
+                {
+                    "message": "MYSQLi function query() detected with dynamic parameter ",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.Mysqli.WarnMysqli",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "WARNING",
+                    "line": 37,
+                    "column": 22
+                },
+                {
+                    "message": "Easy XSS detected because of direct user input with $_SERVER on echo",
+                    "source": "PHPCS_SecurityAudit.BadFunctions.EasyXSS.EasyXSSerr",
+                    "severity": 5,
+                    "fixable": false,
+                    "type": "ERROR",
+                    "line": 56,
+                    "column": 40
+                }
+            ]
+        }
+    }
+}

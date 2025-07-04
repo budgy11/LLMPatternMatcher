@@ -1,0 +1,354 @@
+[
+    {
+        "source_name": [
+            "$query"
+        ],
+        "source_line": [
+            53
+        ],
+        "source_column": [
+            1405
+        ],
+        "source_file": [
+            "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/1-login.php"
+        ],
+        "sink_name": "mysqli_query",
+        "sink_line": 54,
+        "sink_column": 1510,
+        "sink_file": "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/1-login.php",
+        "vuln_name": "sql_injection",
+        "vuln_cwe": "CWE_89",
+        "vuln_id": "207c7e5be4917f0f89d14d56fdfac5388a4d77673a0e0e1a584fa753811d518b",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$product[\"name\"]"
+        ],
+        "source_line": [
+            21
+        ],
+        "source_column": [
+            588
+        ],
+        "source_file": [
+            "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/1-review.php"
+        ],
+        "sink_name": "echo",
+        "sink_line": 21,
+        "sink_column": 579,
+        "sink_file": "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/1-review.php",
+        "vuln_name": "xss",
+        "vuln_cwe": "CWE_79",
+        "vuln_id": "dfdd496b8367ac35470cb8ab1c32b15977e906dfbab5bb4986e2571317208b36",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$product[\"price\"]"
+        ],
+        "source_line": [
+            22
+        ],
+        "source_column": [
+            638
+        ],
+        "source_file": [
+            "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/1-review.php"
+        ],
+        "sink_name": "echo",
+        "sink_line": 22,
+        "sink_column": 629,
+        "sink_file": "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/1-review.php",
+        "vuln_name": "xss",
+        "vuln_cwe": "CWE_79",
+        "vuln_id": "31d924883079a4aa03738438470458fbc7dbc9203960a773b74759bae109fbc4",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$product[\"description\"]"
+        ],
+        "source_line": [
+            23
+        ],
+        "source_column": [
+            687
+        ],
+        "source_file": [
+            "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/1-review.php"
+        ],
+        "sink_name": "echo",
+        "sink_line": 23,
+        "sink_column": 679,
+        "sink_file": "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/1-review.php",
+        "vuln_name": "xss",
+        "vuln_cwe": "CWE_79",
+        "vuln_id": "a10ce001d8ac210561124551ecf430b215e9316d7f2bca83750e587290b09458",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$product[\"id\"]"
+        ],
+        "source_line": [
+            25
+        ],
+        "source_column": [
+            805
+        ],
+        "source_file": [
+            "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/1-review.php"
+        ],
+        "sink_name": "echo",
+        "sink_line": 25,
+        "sink_column": 776,
+        "sink_file": "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/1-review.php",
+        "vuln_name": "xss",
+        "vuln_cwe": "CWE_79",
+        "vuln_id": "ed4806ef96167831028f4e7625743069b0a9ddcaca9d1dc14e306e83c9654406",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$sql"
+        ],
+        "source_line": [
+            11
+        ],
+        "source_column": [
+            188
+        ],
+        "source_file": [
+            "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/2-cart.php"
+        ],
+        "sink_name": "mysqli_query",
+        "sink_line": 12,
+        "sink_column": 305,
+        "sink_file": "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/2-cart.php",
+        "vuln_name": "sql_injection",
+        "vuln_cwe": "CWE_89",
+        "vuln_id": "4902977ed623a54541d1e78d6a67823663f79c2aa94750b7c2caf479a77ed0f9",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$product_id"
+        ],
+        "source_line": [
+            12
+        ],
+        "source_column": [
+            247
+        ],
+        "source_file": [
+            "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/2-review.php"
+        ],
+        "sink_name": "header",
+        "sink_line": 29,
+        "sink_column": 947,
+        "sink_file": "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/2-review.php",
+        "vuln_name": "header_injection",
+        "vuln_cwe": "CWE_601",
+        "vuln_id": "6ae288a2a35f30f11184d7b6201d56c0436be69be06494fde163e51cbfe0f627",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$sql"
+        ],
+        "source_line": [
+            10
+        ],
+        "source_column": [
+            169
+        ],
+        "source_file": [
+            "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/3-cart.php"
+        ],
+        "sink_name": "mysqli_query",
+        "sink_line": 11,
+        "sink_column": 251,
+        "sink_file": "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/3-cart.php",
+        "vuln_name": "sql_injection",
+        "vuln_cwe": "CWE_89",
+        "vuln_id": "d8563525ff8751de1f41d5d0fb02a79ddc80b5ccc84fdc732070c0f9abe74dad",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$email"
+        ],
+        "source_line": [
+            8
+        ],
+        "source_column": [
+            108
+        ],
+        "source_file": [
+            "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/3-registration.php"
+        ],
+        "sink_name": "mysqli_query",
+        "sink_line": 15,
+        "sink_column": 322,
+        "sink_file": "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/3-registration.php",
+        "vuln_name": "sql_injection",
+        "vuln_cwe": "CWE_89",
+        "vuln_id": "7ee5207dd8715d8d4057a64a273735d9ab441af455d8c9d31260488b7a7be2d8",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$email"
+        ],
+        "source_line": [
+            8
+        ],
+        "source_column": [
+            108
+        ],
+        "source_file": [
+            "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/3-registration.php"
+        ],
+        "sink_name": "mysqli_query",
+        "sink_line": 16,
+        "sink_column": 411,
+        "sink_file": "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/3-registration.php",
+        "vuln_name": "sql_injection",
+        "vuln_cwe": "CWE_89",
+        "vuln_id": "7ee5207dd8715d8d4057a64a273735d9ab441af455d8c9d31260488b7a7be2d8",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$query"
+        ],
+        "source_line": [
+            23
+        ],
+        "source_column": [
+            671
+        ],
+        "source_file": [
+            "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/3-registration.php"
+        ],
+        "sink_name": "mysqli_query",
+        "sink_line": 25,
+        "sink_column": 857,
+        "sink_file": "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/3-registration.php",
+        "vuln_name": "sql_injection",
+        "vuln_cwe": "CWE_89",
+        "vuln_id": "a7323ed2e31a46954676d776843fb705371858016f28847b576a9f8de2b259be",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$query"
+        ],
+        "source_line": [
+            17
+        ],
+        "source_column": [
+            382
+        ],
+        "source_file": [
+            "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/4-forgot-password.php"
+        ],
+        "sink_name": "query",
+        "sink_line": 19,
+        "sink_column": 462,
+        "sink_file": "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/4-forgot-password.php",
+        "vuln_name": "sql_injection",
+        "vuln_cwe": "CWE_89",
+        "vuln_id": "646871d251d2e4146599fff19f1958d454860f14b7007663f9c2644cc8521b0e",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$_POST[\"last_order_id\"]"
+        ],
+        "source_line": [
+            49
+        ],
+        "source_column": [
+            1443
+        ],
+        "source_file": [
+            "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/4-purchase.php"
+        ],
+        "sink_name": "echo",
+        "sink_line": 49,
+        "sink_column": 1443,
+        "sink_file": "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/4-purchase.php",
+        "vuln_name": "xss",
+        "vuln_cwe": "CWE_79",
+        "vuln_id": "42581bc2cff0d280ba153a2b911048522adabb62f7b5f554db0b7cd71b434ff1",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$_POST[\"total\"]"
+        ],
+        "source_line": [
+            50
+        ],
+        "source_column": [
+            1500
+        ],
+        "source_file": [
+            "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/4-purchase.php"
+        ],
+        "sink_name": "echo",
+        "sink_line": 50,
+        "sink_column": 1500,
+        "sink_file": "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/4-purchase.php",
+        "vuln_name": "xss",
+        "vuln_cwe": "CWE_79",
+        "vuln_id": "77f85350e0c8931958021cc042113789d2282da3aff5c88f15d57f84c33ab789",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$query"
+        ],
+        "source_line": [
+            22
+        ],
+        "source_column": [
+            537
+        ],
+        "source_file": [
+            "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/5-forgot-password.php"
+        ],
+        "sink_name": "query",
+        "sink_line": 24,
+        "sink_column": 625,
+        "sink_file": "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/5-forgot-password.php",
+        "vuln_name": "sql_injection",
+        "vuln_cwe": "CWE_89",
+        "vuln_id": "9aee172fd28b2f7e5a2497946f5d15bf63b9ee884f052b59332c70fc449897aa",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$query"
+        ],
+        "source_line": [
+            35
+        ],
+        "source_column": [
+            1066
+        ],
+        "source_file": [
+            "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/5-forgot-password.php"
+        ],
+        "sink_name": "query",
+        "sink_line": 37,
+        "sink_column": 1182,
+        "sink_file": "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/llama3.1\/php-code\/5-forgot-password.php",
+        "vuln_name": "sql_injection",
+        "vuln_cwe": "CWE_89",
+        "vuln_id": "9aee172fd28b2f7e5a2497946f5d15bf63b9ee884f052b59332c70fc449897aa",
+        "vuln_type": "taint-style"
+    }
+]

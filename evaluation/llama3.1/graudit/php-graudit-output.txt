@@ -1,0 +1,192 @@
+===========================================================
+                                      .___ __  __   
+          _________________  __ __  __| _/|__|/  |_ 
+         / ___\_` __ \__  \ |  |  \/ __ | | \\_  __\
+        / /_/  >  | \// __ \|  |  / /_/ | |  ||  |  
+        \___  /|__|  (____  /____/\____ | |__||__|  
+       /_____/            \/           \/           
+              grep rough audit - static analysis tool
+                  v3.9 written by @Wireghoul
+=================================[justanotherhacker.com]===
+[35m[K../php-code/1-cart.php[m[K[36m[K-[m[K[32m[K13[m[K[36m[K-[m[K$cart_items = array();
+[35m[K../php-code/1-cart.php[m[K[36m[K:[m[K[32m[K14[m[K[36m[K:[m[K$sql = "SELECT * FROM cart [01;31m[KWHERE user_id = $_SESSION[user_id]"[m[K;
+[35m[K../php-code/1-cart.php[m[K[36m[K:[m[K[32m[K15[m[K[36m[K:[m[K$result = [01;31m[Kmysqli_query($conn, $sql)[m[K;
+[35m[K../php-code/1-cart.php[m[K[36m[K:[m[K[32m[K16[m[K[36m[K:[m[Kwhile ($row = [01;31m[Kmysqli_fetch_assoc($result))[m[K {
+[35m[K../php-code/1-cart.php[m[K[36m[K-[m[K[32m[K17[m[K[36m[K-[m[K  $product_id = $row['product_id'];
+[36m[K##############################################[m[K
+[35m[K../php-code/1-login.php[m[K[36m[K-[m[K[32m[K30[m[K[36m[K-[m[K    <h2>Login</h2>
+[35m[K../php-code/1-login.php[m[K[36m[K:[m[K[32m[K31[m[K[36m[K:[m[K    <form action="<?php [01;31m[Kecho $_SERVER['PHP_SELF']; ?>" method="post">[m[K
+[35m[K../php-code/1-login.php[m[K[36m[K-[m[K[32m[K32[m[K[36m[K-[m[K        <label for="username">Username:</label>
+[36m[K##############################################[m[K
+[35m[K../php-code/1-login.php[m[K[36m[K-[m[K[32m[K42[m[K[36m[K-[m[K// Check if the form has been submitted
+[35m[K../php-code/1-login.php[m[K[36m[K:[m[K[32m[K43[m[K[36m[K:[m[Kif ([01;31m[K$_SERVER["REQUEST_METHOD"][m[K == "POST") {
+[35m[K../php-code/1-login.php[m[K[36m[K-[m[K[32m[K44[m[K[36m[K-[m[K    
+[35m[K../php-code/1-login.php[m[K[36m[K-[m[K[32m[K45[m[K[36m[K-[m[K    // Get the user input
+[35m[K../php-code/1-login.php[m[K[36m[K:[m[K[32m[K46[m[K[36m[K:[m[K    $username = [01;31m[K$_POST['username'][m[K;
+[35m[K../php-code/1-login.php[m[K[36m[K:[m[K[32m[K47[m[K[36m[K:[m[K    $password = [01;31m[K$_POST['password'][m[K;
+[35m[K../php-code/1-login.php[m[K[36m[K-[m[K[32m[K48[m[K[36m[K-[m[K
+[36m[K##############################################[m[K
+[35m[K../php-code/1-login.php[m[K[36m[K-[m[K[32m[K52[m[K[36m[K-[m[K    // Query the database to get the user's data
+[35m[K../php-code/1-login.php[m[K[36m[K:[m[K[32m[K53[m[K[36m[K:[m[K    $query = "SELECT * FROM users [01;31m[KWHERE username='$username' AND password='$hashed_password'"[m[K;
+[35m[K../php-code/1-login.php[m[K[36m[K:[m[K[32m[K54[m[K[36m[K:[m[K    $result = [01;31m[Kmysqli_query($conn, $query)[m[K;
+[35m[K../php-code/1-login.php[m[K[36m[K-[m[K[32m[K55[m[K[36m[K-[m[K
+[35m[K../php-code/1-login.php[m[K[36m[K-[m[K[32m[K56[m[K[36m[K-[m[K    // Check if the query was successful and if a row was returned
+[35m[K../php-code/1-login.php[m[K[36m[K:[m[K[32m[K57[m[K[36m[K:[m[K    if ([01;31m[Kmysqli_num_rows($result) == 1)[m[K {
+[35m[K../php-code/1-login.php[m[K[36m[K-[m[K[32m[K58[m[K[36m[K-[m[K        
+[35m[K../php-code/1-login.php[m[K[36m[K-[m[K[32m[K59[m[K[36m[K-[m[K        // Get the user's data from the result set
+[35m[K../php-code/1-login.php[m[K[36m[K:[m[K[32m[K60[m[K[36m[K:[m[K        while ($row = [01;31m[Kmysqli_fetch_assoc($result))[m[K {
+[35m[K../php-code/1-login.php[m[K[36m[K-[m[K[32m[K61[m[K[36m[K-[m[K            $_SESSION['username'] = $row['username'];
+[36m[K##############################################[m[K
+[35m[K../php-code/1-registration.php[m[K[36m[K-[m[K[32m[K10[m[K[36m[K-[m[Kif (!$conn) {
+[35m[K../php-code/1-registration.php[m[K[36m[K:[m[K[32m[K11[m[K[36m[K:[m[K    die("Connection failed: " . [01;31m[Kmysqli_error($conn))[m[K;
+[35m[K../php-code/1-registration.php[m[K[36m[K-[m[K[32m[K12[m[K[36m[K-[m[K}
+[36m[K##############################################[m[K
+[35m[K../php-code/2-cart.php[m[K[36m[K-[m[K[32m[K6[m[K[36m[K-[m[K// Get product ID from URL
+[35m[K../php-code/2-cart.php[m[K[36m[K:[m[K[32m[K7[m[K[36m[K:[m[K$product_id = [01;31m[K$_GET['product_id'][m[K;
+[35m[K../php-code/2-cart.php[m[K[36m[K-[m[K[32m[K8[m[K[36m[K-[m[K
+[36m[K##############################################[m[K
+[35m[K../php-code/2-cart.php[m[K[36m[K-[m[K[32m[K10[m[K[36m[K-[m[K$quantity = 1;
+[35m[K../php-code/2-cart.php[m[K[36m[K:[m[K[32m[K11[m[K[36m[K:[m[K$sql = "INSERT INTO cart (user_id, product_id, quantity) [01;31m[KVALUES ('$_SESSION[user_id]', '$product_id', '$quantity')[m[K";
+[35m[K../php-code/2-cart.php[m[K[36m[K:[m[K[32m[K12[m[K[36m[K:[m[K[01;31m[Kmysqli_query($conn, $sql)[m[K;
+[35m[K../php-code/2-cart.php[m[K[36m[K-[m[K[32m[K13[m[K[36m[K-[m[K
+[36m[K##############################################[m[K
+[35m[K../php-code/2-review.php[m[K[36m[K-[m[K[32m[K11[m[K[36m[K-[m[K// Get the product ID from the URL
+[35m[K../php-code/2-review.php[m[K[36m[K:[m[K[32m[K12[m[K[36m[K:[m[K$product_id = [01;31m[K$_GET["id"][m[K;
+[35m[K../php-code/2-review.php[m[K[36m[K-[m[K[32m[K13[m[K[36m[K-[m[K
+[35m[K../php-code/2-review.php[m[K[36m[K-[m[K[32m[K14[m[K[36m[K-[m[K// Check if the user is submitting a review
+[35m[K../php-code/2-review.php[m[K[36m[K:[m[K[32m[K15[m[K[36m[K:[m[Kif (isset([01;31m[K$_POST["submit"][m[K)) {
+[35m[K../php-code/2-review.php[m[K[36m[K-[m[K[32m[K16[m[K[36m[K-[m[K    // Get the submitted data and sanitize it to prevent SQL injection
+[35m[K../php-code/2-review.php[m[K[36m[K:[m[K[32m[K17[m[K[36m[K:[m[K    $review_text = trim([01;31m[K$_POST["review"][m[K);
+[35m[K../php-code/2-review.php[m[K[36m[K:[m[K[32m[K18[m[K[36m[K:[m[K    $rating = intval(trim([01;31m[K$_POST["rating"][m[K));
+[35m[K../php-code/2-review.php[m[K[36m[K-[m[K[32m[K19[m[K[36m[K-[m[K    
+[36m[K##############################################[m[K
+[35m[K../php-code/2-search.php[m[K[36m[K-[m[K[32m[K6[m[K[36m[K-[m[K// Check if form is submitted
+[35m[K../php-code/2-search.php[m[K[36m[K:[m[K[32m[K7[m[K[36m[K:[m[Kif (isset([01;31m[K$_POST['search'][m[K)) {
+[35m[K../php-code/2-search.php[m[K[36m[K-[m[K[32m[K8[m[K[36m[K-[m[K    // Prepare query parameters
+[35m[K../php-code/2-search.php[m[K[36m[K:[m[K[32m[K9[m[K[36m[K:[m[K    $searchTerm = [01;31m[K$_POST['searchTerm'][m[K;
+[35m[K../php-code/2-search.php[m[K[36m[K-[m[K[32m[K10[m[K[36m[K-[m[K    
+[35m[K../php-code/2-search.php[m[K[36m[K-[m[K[32m[K11[m[K[36m[K-[m[K    // SQL query to retrieve search results
+[35m[K../php-code/2-search.php[m[K[36m[K:[m[K[32m[K12[m[K[36m[K:[m[K    $sql = "SELECT * FROM products [01;31m[KWHERE name LIKE '%$searchTerm%' OR description LIKE '%$[m[KsearchTerm%'";
+[35m[K../php-code/2-search.php[m[K[36m[K-[m[K[32m[K13[m[K[36m[K-[m[K    $result = $conn->query($sql);
+[36m[K##############################################[m[K
+[35m[K../php-code/3-cart.php[m[K[36m[K-[m[K[32m[K6[m[K[36m[K-[m[K// Get item ID from URL
+[35m[K../php-code/3-cart.php[m[K[36m[K:[m[K[32m[K7[m[K[36m[K:[m[K$item_id = [01;31m[K$_GET['item_id'][m[K;
+[35m[K../php-code/3-cart.php[m[K[36m[K-[m[K[32m[K8[m[K[36m[K-[m[K
+[35m[K../php-code/3-cart.php[m[K[36m[K-[m[K[32m[K9[m[K[36m[K-[m[K// Remove item from cart for current user
+[35m[K../php-code/3-cart.php[m[K[36m[K:[m[K[32m[K10[m[K[36m[K:[m[K$sql = "DELETE FROM cart [01;31m[KWHERE user_id = $_SESSION[user_id] AND id = '$item_id'"[m[K;
+[35m[K../php-code/3-cart.php[m[K[36m[K:[m[K[32m[K11[m[K[36m[K:[m[K[01;31m[Kmysqli_query($conn, $sql)[m[K;
+[35m[K../php-code/3-cart.php[m[K[36m[K-[m[K[32m[K12[m[K[36m[K-[m[K
+[36m[K##############################################[m[K
+[35m[K../php-code/3-purchase.php[m[K[36m[K-[m[K[32m[K20[m[K[36m[K-[m[K  $stmt = $db->conn->prepare($sql);
+[35m[K../php-code/3-purchase.php[m[K[36m[K:[m[K[32m[K21[m[K[36m[K:[m[K  $stmt->bind_param("sss", [01;31m[K$_POST['customer_name'], $_POST['email'], $_POST['total'][m[K);
+[35m[K../php-code/3-purchase.php[m[K[36m[K-[m[K[32m[K22[m[K[36m[K-[m[K  if ($stmt->execute()) {
+[36m[K##############################################[m[K
+[35m[K../php-code/3-purchase.php[m[K[36m[K-[m[K[32m[K34[m[K[36m[K-[m[K  $stmt = $db->conn->prepare($sql);
+[35m[K../php-code/3-purchase.php[m[K[36m[K:[m[K[32m[K35[m[K[36m[K:[m[K  $stmt->bind_param("iis", [01;31m[K$_POST['order_id'], $_POST['product_id'], $_POST['quantity'][m[K);
+[35m[K../php-code/3-purchase.php[m[K[36m[K-[m[K[32m[K36[m[K[36m[K-[m[K  if ($stmt->execute()) {
+[36m[K##############################################[m[K
+[35m[K../php-code/3-registration.php[m[K[36m[K-[m[K[32m[K5[m[K[36m[K-[m[K
+[35m[K../php-code/3-registration.php[m[K[36m[K:[m[K[32m[K6[m[K[36m[K:[m[Kif (isset([01;31m[K$_POST['submit'][m[K)) {
+[35m[K../php-code/3-registration.php[m[K[36m[K-[m[K[32m[K7[m[K[36m[K-[m[K
+[35m[K../php-code/3-registration.php[m[K[36m[K:[m[K[32m[K8[m[K[36m[K:[m[K    $email = [01;31m[K$_POST['email'][m[K;
+[35m[K../php-code/3-registration.php[m[K[36m[K:[m[K[32m[K9[m[K[36m[K:[m[K    $password = [01;31m[K$_POST['password'][m[K;
+[35m[K../php-code/3-registration.php[m[K[36m[K:[m[K[32m[K10[m[K[36m[K:[m[K    $name = [01;31m[K$_POST['name'][m[K;
+[35m[K../php-code/3-registration.php[m[K[36m[K:[m[K[32m[K11[m[K[36m[K:[m[K    $address = [01;31m[K$_POST['address'][m[K;
+[35m[K../php-code/3-registration.php[m[K[36m[K:[m[K[32m[K12[m[K[36m[K:[m[K    $phone = [01;31m[K$_POST['phone'][m[K;
+[35m[K../php-code/3-registration.php[m[K[36m[K-[m[K[32m[K13[m[K[36m[K-[m[K
+[35m[K../php-code/3-registration.php[m[K[36m[K-[m[K[32m[K14[m[K[36m[K-[m[K    if (!empty($email) && !empty($password)) {
+[35m[K../php-code/3-registration.php[m[K[36m[K:[m[K[32m[K15[m[K[36m[K:[m[K        if ([01;31m[Kmysqli_query($conn, "SELECT * FROM users WHERE email='$email'"))[m[K {
+[35m[K../php-code/3-registration.php[m[K[36m[K:[m[K[32m[K16[m[K[36m[K:[m[K            $result = [01;31m[Kmysqli_query($conn, "SELECT * FROM users WHERE email='$email'")[m[K;
+[35m[K../php-code/3-registration.php[m[K[36m[K:[m[K[32m[K17[m[K[36m[K:[m[K            if ([01;31m[Kmysqli_num_rows($result) == 0)[m[K {
+[35m[K../php-code/3-registration.php[m[K[36m[K-[m[K[32m[K18[m[K[36m[K-[m[K
+[36m[K##############################################[m[K
+[35m[K../php-code/3-registration.php[m[K[36m[K-[m[K[32m[K23[m[K[36m[K-[m[K                $query = "INSERT INTO users (email, password, name, address, phone)
+[35m[K../php-code/3-registration.php[m[K[36m[K:[m[K[32m[K24[m[K[36m[K:[m[K                           [01;31m[KVALUES ('$email', '$hashed_password', '$name', '$address', '$phone')[m[K";
+[35m[K../php-code/3-registration.php[m[K[36m[K:[m[K[32m[K25[m[K[36m[K:[m[K                if ([01;31m[Kmysqli_query($conn, $query))[m[K {
+[35m[K../php-code/3-registration.php[m[K[36m[K-[m[K[32m[K26[m[K[36m[K-[m[K                    echo 'Account created successfully!';
+[35m[K../php-code/3-registration.php[m[K[36m[K-[m[K[32m[K27[m[K[36m[K-[m[K                } else {
+[35m[K../php-code/3-registration.php[m[K[36m[K:[m[K[32m[K28[m[K[36m[K:[m[K                    echo 'Error creating account: ' . [01;31m[Kmysqli_error($conn)[m[K;
+[35m[K../php-code/3-registration.php[m[K[36m[K-[m[K[32m[K29[m[K[36m[K-[m[K                }
+[36m[K##############################################[m[K
+[35m[K../php-code/3-registration.php[m[K[36m[K-[m[K[32m[K40[m[K[36m[K-[m[K    ?>
+[35m[K../php-code/3-registration.php[m[K[36m[K:[m[K[32m[K41[m[K[36m[K:[m[K    <form action="<?php [01;31m[Kecho $_SERVER['PHP_SELF']; ?>" method="post">[m[K
+[35m[K../php-code/3-registration.php[m[K[36m[K-[m[K[32m[K42[m[K[36m[K-[m[K        Email: <input type="email" name="email"><br><br>
+[36m[K##############################################[m[K
+[35m[K../php-code/3-review.php[m[K[36m[K-[m[K[32m[K11[m[K[36m[K-[m[K// Get the product ID from the URL
+[35m[K../php-code/3-review.php[m[K[36m[K:[m[K[32m[K12[m[K[36m[K:[m[K$product_id = [01;31m[K$_GET["id"][m[K;
+[35m[K../php-code/3-review.php[m[K[36m[K-[m[K[32m[K13[m[K[36m[K-[m[K
+[36m[K##############################################[m[K
+[35m[K../php-code/4-cart.php[m[K[36m[K-[m[K[32m[K7[m[K[36m[K-[m[K$cart_items = array();
+[35m[K../php-code/4-cart.php[m[K[36m[K:[m[K[32m[K8[m[K[36m[K:[m[K$sql = "SELECT * FROM cart [01;31m[KWHERE user_id = $_SESSION[user_id]"[m[K;
+[35m[K../php-code/4-cart.php[m[K[36m[K:[m[K[32m[K9[m[K[36m[K:[m[K$result = [01;31m[Kmysqli_query($conn, $sql)[m[K;
+[35m[K../php-code/4-cart.php[m[K[36m[K:[m[K[32m[K10[m[K[36m[K:[m[Kwhile ($row = [01;31m[Kmysqli_fetch_assoc($result))[m[K {
+[35m[K../php-code/4-cart.php[m[K[36m[K-[m[K[32m[K11[m[K[36m[K-[m[K  $product_id = $row['product_id'];
+[36m[K##############################################[m[K
+[35m[K../php-code/4-cart.php[m[K[36m[K-[m[K[32m[K22[m[K[36m[K-[m[K// Update cart with new quantities
+[35m[K../php-code/4-cart.php[m[K[36m[K:[m[K[32m[K23[m[K[36m[K:[m[Kforeach ([01;31m[K$_POST['cart_items'][m[K as $item) {
+[35m[K../php-code/4-cart.php[m[K[36m[K-[m[K[32m[K24[m[K[36m[K-[m[K  $product_id = $item['id'];
+[35m[K../php-code/4-cart.php[m[K[36m[K-[m[K[32m[K25[m[K[36m[K-[m[K  $new_quantity = $item['quantity'];
+[35m[K../php-code/4-cart.php[m[K[36m[K:[m[K[32m[K26[m[K[36m[K:[m[K  $sql = "UPDATE cart SET quantity = '$new_quantity' [01;31m[KWHERE user_id = $_SESSION[user_id] AND product_id = '$product_id'"[m[K;
+[35m[K../php-code/4-cart.php[m[K[36m[K:[m[K[32m[K27[m[K[36m[K:[m[K  [01;31m[Kmysqli_query($conn, $sql)[m[K;
+[35m[K../php-code/4-cart.php[m[K[36m[K-[m[K[32m[K28[m[K[36m[K-[m[K}
+[36m[K##############################################[m[K
+[35m[K../php-code/4-forgot-password.php[m[K[36m[K-[m[K[32m[K7[m[K[36m[K-[m[K
+[35m[K../php-code/4-forgot-password.php[m[K[36m[K:[m[K[32m[K8[m[K[36m[K:[m[Kif (isset([01;31m[K$_POST['email'][m[K)) {
+[35m[K../php-code/4-forgot-password.php[m[K[36m[K-[m[K[32m[K9[m[K[36m[K-[m[K    // Check if user exists in database
+[36m[K##############################################[m[K
+[35m[K../php-code/4-forgot-password.php[m[K[36m[K-[m[K[32m[K15[m[K[36m[K-[m[K    
+[35m[K../php-code/4-forgot-password.php[m[K[36m[K:[m[K[32m[K16[m[K[36m[K:[m[K    $email = [01;31m[K$_POST['email'][m[K;
+[35m[K../php-code/4-forgot-password.php[m[K[36m[K:[m[K[32m[K17[m[K[36m[K:[m[K    $query = "SELECT * FROM users [01;31m[KWHERE email='" . $email[m[K . "'";
+[35m[K../php-code/4-forgot-password.php[m[K[36m[K-[m[K[32m[K18[m[K[36m[K-[m[K    
+[36m[K##############################################[m[K
+[35m[K../php-code/4-forgot-password.php[m[K[36m[K-[m[K[32m[K49[m[K[36m[K-[m[K<!-- Display form to enter email address -->
+[35m[K../php-code/4-forgot-password.php[m[K[36m[K:[m[K[32m[K50[m[K[36m[K:[m[K<form method="post" action="<?php [01;31m[Kecho $_SERVER['PHP_SELF']; ?>">[m[K
+[35m[K../php-code/4-forgot-password.php[m[K[36m[K-[m[K[32m[K51[m[K[36m[K-[m[K    <label for="email">Email:</label>
+[36m[K##############################################[m[K
+[35m[K../php-code/4-purchase.php[m[K[36m[K-[m[K[32m[K5[m[K[36m[K-[m[K
+[35m[K../php-code/4-purchase.php[m[K[36m[K:[m[K[32m[K6[m[K[36m[K:[m[Kif (isset([01;31m[K$_POST['submit'][m[K)) {
+[35m[K../php-code/4-purchase.php[m[K[36m[K-[m[K[32m[K7[m[K[36m[K-[m[K  $products = getProducts();
+[35m[K../php-code/4-purchase.php[m[K[36m[K:[m[K[32m[K8[m[K[36m[K:[m[K  if ([01;31m[K$_POST['customer_name'] && $_POST['email'][m[K) {
+[35m[K../php-code/4-purchase.php[m[K[36m[K-[m[K[32m[K9[m[K[36m[K-[m[K    // Create order
+[36m[K##############################################[m[K
+[35m[K../php-code/4-purchase.php[m[K[36m[K-[m[K[32m[K11[m[K[36m[K-[m[K      foreach ($products as $product) {
+[35m[K../php-code/4-purchase.php[m[K[36m[K:[m[K[32m[K12[m[K[36m[K:[m[K        if (isset([01;31m[K$_POST[$product['id']][m[K)) {
+[35m[K../php-code/4-purchase.php[m[K[36m[K-[m[K[32m[K13[m[K[36m[K-[m[K          addOrderItem(array(
+[35m[K../php-code/4-purchase.php[m[K[36m[K:[m[K[32m[K14[m[K[36m[K:[m[K            'order_id' => [01;31m[K$_POST['last_order_id'][m[K,
+[35m[K../php-code/4-purchase.php[m[K[36m[K-[m[K[32m[K15[m[K[36m[K-[m[K            'product_id' => $product['id'],
+[35m[K../php-code/4-purchase.php[m[K[36m[K:[m[K[32m[K16[m[K[36m[K:[m[K            'quantity' => [01;31m[K$_POST[$product['id']][m[K
+[35m[K../php-code/4-purchase.php[m[K[36m[K-[m[K[32m[K17[m[K[36m[K-[m[K          ));
+[36m[K##############################################[m[K
+[35m[K../php-code/4-purchase.php[m[K[36m[K-[m[K[32m[K47[m[K[36m[K-[m[K
+[35m[K../php-code/4-purchase.php[m[K[36m[K:[m[K[32m[K48[m[K[36m[K:[m[K  <?php if (isset([01;31m[K$_POST['last_order_id'][m[K)) { ?>
+[35m[K../php-code/4-purchase.php[m[K[36m[K:[m[K[32m[K49[m[K[36m[K:[m[K    <p>Order ID: <?php [01;31m[Kecho $_POST['last_order_id']; ?></p>[m[K
+[35m[K../php-code/4-purchase.php[m[K[36m[K:[m[K[32m[K50[m[K[36m[K:[m[K    <p>Total: <?php [01;31m[Kecho $_POST['total']; ?></p>[m[K
+[35m[K../php-code/4-purchase.php[m[K[36m[K-[m[K[32m[K51[m[K[36m[K-[m[K  <?php } ?>
+[36m[K##############################################[m[K
+[35m[K../php-code/5-forgot-password.php[m[K[36m[K-[m[K[32m[K7[m[K[36m[K-[m[K
+[35m[K../php-code/5-forgot-password.php[m[K[36m[K:[m[K[32m[K8[m[K[36m[K:[m[Kif (isset([01;31m[K$_GET['token'][m[K)) {
+[35m[K../php-code/5-forgot-password.php[m[K[36m[K-[m[K[32m[K9[m[K[36m[K-[m[K    // Check if token matches session token
+[36m[K##############################################[m[K
+[35m[K../php-code/5-forgot-password.php[m[K[36m[K-[m[K[32m[K15[m[K[36m[K-[m[K    
+[35m[K../php-code/5-forgot-password.php[m[K[36m[K:[m[K[32m[K16[m[K[36m[K:[m[K    $token = [01;31m[K$_GET['token'][m[K;
+[35m[K../php-code/5-forgot-password.php[m[K[36m[K-[m[K[32m[K17[m[K[36m[K-[m[K    
+[36m[K##############################################[m[K
+[35m[K../php-code/5-forgot-password.php[m[K[36m[K-[m[K[32m[K20[m[K[36m[K-[m[K        // Check if user exists
+[35m[K../php-code/5-forgot-password.php[m[K[36m[K:[m[K[32m[K21[m[K[36m[K:[m[K        $email = [01;31m[K$_POST['email'][m[K;
+[35m[K../php-code/5-forgot-password.php[m[K[36m[K:[m[K[32m[K22[m[K[36m[K:[m[K        $query = "SELECT * FROM users [01;31m[KWHERE email='" . $email[m[K . "'";
+[35m[K../php-code/5-forgot-password.php[m[K[36m[K-[m[K[32m[K23[m[K[36m[K-[m[K        
+[36m[K##############################################[m[K
+[35m[K../php-code/5-forgot-password.php[m[K[36m[K-[m[K[32m[K27[m[K[36m[K-[m[K            // Update password
+[35m[K../php-code/5-forgot-password.php[m[K[36m[K:[m[K[32m[K28[m[K[36m[K:[m[K            $new_password = [01;31m[K$_POST['password'][m[K;
+[35m[K../php-code/5-forgot-password.php[m[K[36m[K:[m[K[32m[K29[m[K[36m[K:[m[K            $confirm_password = [01;31m[K$_POST['confirm_password'][m[K;
+[35m[K../php-code/5-forgot-password.php[m[K[36m[K-[m[K[32m[K30[m[K[36m[K-[m[K            
+[35m[K../php-code/5-forgot-password.php[m[K[36m[K-[m[K[32m[K31[m[K[36m[K-[m[K            if ($new_password == $confirm_password) {
+[35m[K../php-code/5-forgot-password.php[m[K[36m[K:[m[K[32m[K32[m[K[36m[K:[m[K                $hash = password_[01;31m[Khash($new_password, PASSWORD_DEFAULT)[m[K;
+[35m[K../php-code/5-forgot-password.php[m[K[36m[K-[m[K[32m[K33[m[K[36m[K-[m[K                
+[35m[K../php-code/5-forgot-password.php[m[K[36m[K-[m[K[32m[K34[m[K[36m[K-[m[K                // Update the user's password in the database
+[35m[K../php-code/5-forgot-password.php[m[K[36m[K:[m[K[32m[K35[m[K[36m[K:[m[K                $query = "UPDATE users SET password='" . $hash . "' [01;31m[KWHERE email='" . $email[m[K . "'";
+[35m[K../php-code/5-forgot-password.php[m[K[36m[K-[m[K[32m[K36[m[K[36m[K-[m[K                
+[36m[K##############################################[m[K
+[35m[K../php-code/5-forgot-password.php[m[K[36m[K-[m[K[32m[K55[m[K[36m[K-[m[K<!-- Display form to enter new password and confirm it -->
+[35m[K../php-code/5-forgot-password.php[m[K[36m[K:[m[K[32m[K56[m[K[36m[K:[m[K<form method="post" action="<?php [01;31m[Kecho $_SERVER['PHP_SELF']; ?>">[m[K
+[35m[K../php-code/5-forgot-password.php[m[K[36m[K-[m[K[32m[K57[m[K[36m[K-[m[K    <label for="email">Email:</label>
