@@ -116,7 +116,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (get_product_by_id($conn, $product_id)) {
         $cart_id = insert_cart_item($conn, 1, $product_id, $quantity); // Using user_id 1 for simplicity.
 
-        [0;31mecho "<p>Item added to cart.  Cart ID: " . $cart_id . "</p>";[0m //False Positive OWASP A3
+        [0;31mecho "<p>Item added to cart.  Cart ID: " . $cart_id . "</p>";[0m //False Positive OWASP A3 cart_id returned as int
         // Redirect to cart.php
         header("Location: cart.php");
         exit();

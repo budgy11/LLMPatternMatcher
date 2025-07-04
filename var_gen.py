@@ -7,6 +7,9 @@ with open('./variables/sensitive_vars.txt') as fh:
 with open('./variables/dangerous_vars.txt') as fh:
 	dangerous = fh.read().splitlines()
 
+with open('./variables/safe_vars.txt') as fh:
+	safe = fh.read().splitlines()
+
 #callbacks are bad - https://github.com/FloeDesignTechnologies/phpcs-security-audit/blob/master/Security/Sniffs/BadFunctions/CallbackFunctionsSniff.php#L32
 callback_function_list = [
 			'ob_start', 'array_diff_uassoc', 'array_diff_ukey', 'array_filter', 'array_intersect_uassoc', 'array_intersect_ukey', 'array_map', 'array_reduce',
@@ -44,6 +47,8 @@ def gen_regex_var_portion(var_list):
     var_regex = var_regex[:-1] + ")" #replace final '|' with ')'
     return var_regex
 
+safe_vars_regex = gen_regex_var_portion(safe)
+#print(safe_vars_regex)
 
 dangerous_vars_regex = gen_regex_var_portion(dangerous)
 #print(dangerous_vars_regex)

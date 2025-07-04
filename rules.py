@@ -1,4 +1,4 @@
-from var_gen import dangerous_vars_regex, sensitive_vars_regex, callback_func_regex, filesystem_func_regex,functionhandling_func_regex
+from var_gen import safe_vars_regex, dangerous_vars_regex, sensitive_vars_regex, callback_func_regex, filesystem_func_regex,functionhandling_func_regex
 
 #Formatting for implementing regex rules
 # "RULE_NAME": [
@@ -71,8 +71,10 @@ regex_rules = {
     #modified to have negative look behind for htmlspecialchars( based on gemma3 output
     "use_echo":   [
         #r'echo\s+.*\$.*\n\`', 
-        rf'echo\s+.*(?<!htmlspecialchars\()\s*{dangerous_vars_regex}.*;', 
+        #rf'echo\s+.*(?<!htmlspecialchars\()\s*{dangerous_vars_regex}.*;', 
         #rf'echo.*(?<!htmlspecialchars\()\s*.*', 
+
+        rf'echo\s+.*(?<!htmlspecialchars\()\s*\$(?!{safe_vars_regex}).*;', 
         "Echo may lead to XSS if passed unsanitized input"
         ],
     "use_query":   [
@@ -96,7 +98,7 @@ regex_rules = {
         "Use of variables following include or require may lead to file inclusion vulnerabilities"
         ],
     "use_print_param":   [
-        rf'print.*\s*\((?<!htmlspecialchars\()\s*{dangerous_vars_regex}.*\);', 
+        rf'print.*\s*\((?<!htmlspecialchars\()\s*\$(?!{safe_vars_regex}).*\);', 
         "Printing parameters may lead to XSS or database leakage"
         ],
     "use_extract_user_input":   [ 

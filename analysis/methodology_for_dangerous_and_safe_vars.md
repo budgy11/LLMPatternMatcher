@@ -22,7 +22,7 @@ Variables taken from the databases or objects were also considered dangerous. Th
 grep -P '\$.*\s*(?<!=)=(?!=)\s*\$.*->.*' samples/* | cut -d '=' -f 1 | cut -d ':' -f 2 | awk '{print $NF}' | grep -v '\-\>' | grep '\$' | sort -u >> dangerous_vars.txt
 ```
 
-Variables that seemed overly verbose where checked by looking at definition lines using grep and then reviewed if the definitions contained user input at least 10 percent of the time. This was used to check the $error and $conn variables.
+Variables that seemed overly verbose where checked by looking at definition lines using grep and then reviewed if the definitions contained user input at least 10 percent of the time. This was used to check the $error and $conn variables. This was later turned into the safe_vars file.
 
 ```bash
 grep -ie '^\s*\$error\s*=\s*' samples/*
