@@ -126,7 +126,7 @@ if (isset($_POST['email'])) {
 ?>
 
 <!-- Display form to enter email address -->
-<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>"> //OWASP A3
     <label for="email">Email:</label>
     <input type="text" id="email" name="email" required><br><br>
     <button type="submit">Submit</button>

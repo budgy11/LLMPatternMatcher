@@ -35,7 +35,7 @@ CREATE TABLE users (
 <?php
 define('DB_HOST', 'localhost');
 define('DB_USER', 'your_username');
-[0;31mdefine('DB_PASSWORD'[0m, 'your_password');
+[0;31mdefine('DB_PASSWORD'[0m, 'your_password'); //OWASP A7
 define('DB_NAME', 'ecommerce_database');
 
 $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
@@ -86,17 +86,17 @@ if (isset($_POST['submit'])) {
     $phone = $_POST['phone'];
 
     if (!empty($email) && !empty($password)) {
-        if ([0;31mmysqli_query($conn, "SELECT * FROM users WHERE email='$email'"))[0m {
-            $result = [0;31mmysqli_query($conn, "SELECT * FROM users WHERE email='$email'")[0m;
+        if ([0;31mmysqli_query($conn, "SELECT * FROM users WHERE email='$email'"))[0m { //OWASP A3 
+            $result = [0;31mmysqli_query($conn, "SELECT * FROM users WHERE email='$email'")[0m; //OWASP A3
             if (mysqli_num_rows($result) == 0) {
 
                 // Hash the password
-                $hashed_password = [0;31mmd5([0m$password);
+                $hashed_password = [0;31mmd5([0m$password); //OWASP A2
 
                 // Insert into database
                 $query = "INSERT INTO users (email, password, name, address, phone)
-                           [0;31mVALUES ('$email', '$hashed_password', '$name', '$address', '$phone')[0m";
-                if ([0;31mmysqli_query($conn, $query))[0m {
+                           [0;31mVALUES ('$email', '$hashed_password', '$name', '$address', '$phone')[0m"; //OWASP A3
+                if ([0;31mmysqli_query($conn, $query))[0m { //False Positive Extra alert
                     echo 'Account created successfully!';
                 } else {
                     echo 'Error creating account: ' . mysqli_error($conn);
@@ -112,7 +112,7 @@ if (isset($_POST['submit'])) {
     }
 } else {
     ?>
-    <form action="<?php [0;31mecho $_SERVER['PHP_SELF'];[0m ?>" method="post">
+    <form action="<?php [0;31mecho $_SERVER['PHP_SELF'];[0m ?>" method="post"> //OWASP A3
         Email: <input type="email" name="email"><br><br>
         Password: <input type="password" name="password"><br><br>
         Name: <input type="text" name="name"><br><br>

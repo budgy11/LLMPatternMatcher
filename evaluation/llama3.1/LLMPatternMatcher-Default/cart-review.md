@@ -52,7 +52,7 @@ if (!isset($_SESSION['user_id'])) {
 // Get all items in cart for current user
 $cart_items = array();
 $sql = "SELECT * FROM cart WHERE user_id = $_SESSION[user_id]";
-$result = [0;31mmysqli_query($conn, $sql)[0m;
+$result = [0;31mmysqli_query($conn, $sql)[0m; //OWASP A3
 while ($row = mysqli_fetch_assoc($result)) {
   $product_id = $row['product_id'];
   $item = get_product_info($product_id);
@@ -116,8 +116,8 @@ $product_id = $_GET['product_id'];
 
 // Add item to cart for current user
 $quantity = 1;
-$sql = "INSERT INTO cart (user_id, product_id, quantity) [0;31mVALUES ('$_SESSION[user_id]', '$product_id', '$quantity')[0m";
-[0;31mmysqli_query($conn, $sql)[0m;
+$sql = "INSERT INTO cart (user_id, product_id, quantity) [0;31mVALUES ('$_SESSION[user_id]', '$product_id', '$quantity')[0m"; //OWASP A3
+[0;31mmysqli_query($conn, $sql)[0m; //Extra line/False Positive
 
 // Redirect back to cart page
 header('Location: cart.php');
@@ -140,7 +140,7 @@ $item_id = $_GET['item_id'];
 
 // Remove item from cart for current user
 $sql = "DELETE FROM cart WHERE user_id = $_SESSION[user_id] AND id = '$item_id'";
-[0;31mmysqli_query($conn, $sql)[0m;
+[0;31mmysqli_query($conn, $sql)[0m;//OWASP A3
 
 // Redirect back to cart page
 header('Location: cart.php');
@@ -160,7 +160,7 @@ require_once 'db.php';
 // Get all items in cart for current user
 $cart_items = array();
 $sql = "SELECT * FROM cart WHERE user_id = $_SESSION[user_id]";
-$result = [0;31mmysqli_query($conn, $sql)[0m;
+$result = [0;31mmysqli_query($conn, $sql)[0m; //OWASP A3
 while ($row = mysqli_fetch_assoc($result)) {
   $product_id = $row['product_id'];
   $item = get_product_info($product_id);
@@ -178,7 +178,7 @@ foreach ($_POST['cart_items'] as $item) {
   $product_id = $item['id'];
   $new_quantity = $item['quantity'];
   $sql = "UPDATE cart SET quantity = '$new_quantity' WHERE user_id = $_SESSION[user_id] AND product_id = '$product_id'";
-  [0;31mmysqli_query($conn, $sql)[0m;
+  [0;31mmysqli_query($conn, $sql)[0m; //OWASP A3
 }
 
 // Redirect back to cart page

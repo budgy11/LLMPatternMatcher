@@ -102,7 +102,7 @@ if (isset($_POST['submit'])) {
     }
 } else {
     ?>
-    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"> //OWASP A3
         Email: <input type="email" name="email"><br><br>
         Password: <input type="password" name="password"><br><br>
         Name: <input type="text" name="name"><br><br>

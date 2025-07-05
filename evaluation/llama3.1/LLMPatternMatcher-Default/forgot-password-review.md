@@ -32,7 +32,7 @@ Here's the code:
 // Database connection settings
 define('DB_HOST', 'your_host');
 define('DB_USERNAME', 'your_username');
-[0;31mdefine('DB_PASSWORD'[0m, 'your_password');
+[0;31mdefine('DB_PASSWORD'[0m, 'your_password'); //OWASP A7
 define('DB_NAME', 'your_database');
 
 // Error reporting level
@@ -108,7 +108,7 @@ if (isset($_POST['email'])) {
     }
     
     $email = $_POST['email'];
-    $query = "SELECT * FROM users [0;31mWHERE email='" . $email .[0m "'";
+    $query = "SELECT * FROM users [0;31mWHERE email='" . $email .[0m "'"; //OWASP A3
     
     $result = $conn->query($query);
     
@@ -141,7 +141,7 @@ if (isset($_POST['email'])) {
 ?>
 
 <!-- Display form to enter email address -->
-<form method="post" action="<?php [0;31mecho $_SERVER['PHP_SELF'];[0m ?>">
+<form method="post" action="<?php [0;31mecho $_SERVER['PHP_SELF'];[0m ?>"> //OWASP A3
     <label for="email">Email:</label>
     <input type="text" id="email" name="email" required><br><br>
     <button type="submit">Submit</button>
@@ -178,20 +178,20 @@ if (isset($_GET['token'])) {
         
         // Check if user exists
         $email = $_POST['email'];
-        $query = "SELECT * FROM users [0;31mWHERE email='" . $email .[0m "'";
+        $query = "SELECT * FROM users [0;31mWHERE email='" . $email .[0m "'";A //OWASP A3
         
         $result = $conn->query($query);
         
         if ($result->num_rows > 0) {
             // Update password
-            [0;31m$new_password [0m= $_POST['password'];
+            [0;31m$new_password [0m= $_POST['password'];//False Positive A7
             $confirm_password = $_POST['confirm_password'];
             
-            if ([0;31m$new_password [0m== $confirm_password) {
+            if ([0;31m$new_password [0m== $confirm_password) { //False Positive A7
                 $hash = password_hash($new_password, PASSWORD_DEFAULT);
                 
                 // Update the user's password in the database
-                $query = "UPDATE users SET password='" . $hash . "' [0;31mWHERE email='" . $email .[0m "'";
+                $query = "UPDATE users SET password='" . $hash . "' [0;31mWHERE email='" . $email .[0m "'"; //OWASP A3
                 
                 $conn->query($query);
                 
@@ -212,7 +212,7 @@ if (isset($_GET['token'])) {
 ?>
 
 <!-- Display form to enter new password and confirm it -->
-<form method="post" action="<?php [0;31mecho $_SERVER['PHP_SELF'];[0m ?>">
+<form method="post" action="<?php [0;31mecho $_SERVER['PHP_SELF'];[0m ?>"> //OWASP A3
     <label for="email">Email:</label>
     <input type="text" id="email" name="email" required><br><br>
     <label for="password">New Password:</label>

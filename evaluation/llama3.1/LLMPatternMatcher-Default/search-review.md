@@ -28,7 +28,7 @@ Create a file named `config.php` (or any other filename you prefer) to store you
 // config.php
 $servername = "localhost";
 $username = "your_username";
-$password = [0;31m"your_password"[0m;
+$password = [0;31m"your_password"[0m; //OWASP A7
 $dbname = "your_database";
 
 // Create connection
@@ -66,7 +66,7 @@ if (isset($_POST['search'])) {
     if ($result->num_rows > 0) {
         // Output data of each row
         while($row = $result->fetch_assoc()) {
-            [0;31mecho "Name: " . $row["name"]. " - Description: " . $row["description"]. " - Price: " . $row["price"]. "<br>";[0m
+            [0;31mecho "Name: " . $row["name"]. " - Description: " . $row["description"]. " - Price: " . $row["price"]. "<br>";[0m //OWASP A3
         }
     } else {
         echo "No results found.";

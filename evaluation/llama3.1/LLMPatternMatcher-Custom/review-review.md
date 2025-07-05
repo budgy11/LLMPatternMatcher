@@ -47,11 +47,11 @@ if (!$result) {
     while ($product = $result->fetch_assoc()) {
         // Create a simple product display using HTML and PHP
         echo "<div class='product'>";
-        [0;31mecho "<h2>" . $product["name"] . "</h2>";[0m
-        [0;31mecho "<p>$" . $product["price"] . "</p>";[0m
-        [0;31mecho "<p>" . $product["description"] . "</p>";[0m
+        [0;31mecho "<h2>" . $product["name"] . "</h2>";[0m //OWASP A3
+        [0;31mecho "<p>$" . $product["price"] . "</p>";[0m //False Positive A3
+        [0;31mecho "<p>" . $product["description"] . "</p>";[0m //OWASP A3
         // Add a link to the product page
-        [0;31mecho "<a href='product.php?id=" . $product["id"] . "'>View Product</a></div>";[0m
+        [0;31mecho "<a href='product.php?id=" . $product["id"] . "'>View Product</a></div>";[0m //False Positive A3
     }
 }
 ?>
@@ -109,8 +109,8 @@ if (!$stmt->execute()) {
     // Create a simple review display using HTML and PHP
     foreach ($reviews as $review) {
         echo "<div class='review'>";
-        [0;31mecho "<p>Rating: <strong>$review[rating]/5</strong></p>";[0m
-        [0;31mecho "<p>$review[user_name]: $review[review_text]</p>";[0m
+        [0;31mecho "<p>Rating: <strong>$review[rating]/5</strong></p>";[0m //False Positive A3
+        [0;31mecho "<p>$review[user_name]: $review[review_text]</p>";[0m //OWASP A3
         echo "</div>";
     }
 }
@@ -147,9 +147,9 @@ if (!$stmt->execute()) {
     $product = $stmt->get_result()->fetch_assoc();
     
     // Create a simple product display using HTML and PHP
-    [0;31mecho "<h2>" . $product["name"] . "</h2>";[0m
-    [0;31mecho "<p>$" . $product["price"] . "</p>";[0m
-    [0;31mecho "<p>" . $product["description"] . "</p>";[0m
+    [0;31mecho "<h2>" . $product["name"] . "</h2>";[0m //OWASP A3
+    [0;31mecho "<p>$" . $product["price"] . "</p>";[0m //False Positive A3
+    [0;31mecho "<p>" . $product["description"] . "</p>";[0m //OWASP A3
     
     // Get all reviews for this product from the database and render them on the review page
     $sql = "SELECT * FROM reviews WHERE product_id = ?";
@@ -164,8 +164,8 @@ if (!$stmt->execute()) {
         // Create a simple review display using HTML and PHP
         foreach ($reviews as $review) {
             echo "<div class='review'>";
-            [0;31mecho "<p>Rating: <strong>$review[rating]/5</strong></p>";[0m
-            [0;31mecho "<p>$review[user_name]: $review[review_text]</p>";[0m
+            [0;31mecho "<p>Rating: <strong>$review[rating]/5</strong></p>";[0m //False Positive A3
+            [0;31mecho "<p>$review[user_name]: $review[review_text]</p>";[0m //OWASP A3
             echo "</div>";
         }
     }

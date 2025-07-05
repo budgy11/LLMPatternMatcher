@@ -53,7 +53,7 @@ CREATE TABLE order_items (
 // Database credentials
 define('DB_HOST', 'localhost');
 define('DB_USER', 'your_username');
-[0;31mdefine('DB_PASSWORD'[0m, 'your_password');
+[0;31mdefine('DB_PASSWORD'[0m, 'your_password'); //OWASP A7
 define('DB_NAME', 'ecommerce');
 
 // Other settings
@@ -181,8 +181,8 @@ $products = getProducts();
   <form action="" method="post">
     <?php foreach ($products as $product) { ?>
       <div class="form-group">
-        <label for="<?php [0;31mecho $product['id']; ?>"><?php echo $product['name'];[0m ?></label>
-        <input type="number" id="<?php [0;31mecho $product['id']; ?>" name="<?php echo $product['id'];[0m ?>">
+        <label for="<?php [0;31mecho $product['id']; ?>"><?php echo $product['name'];[0m ?></label> //OWASP A3
+        <input type="number" id="<?php [0;31mecho $product['id']; ?>" name="<?php echo $product['id'];[0m ?>"> //False Positive A3
       </div>
     <?php } ?>
     <div class="form-group">
@@ -197,8 +197,8 @@ $products = getProducts();
   </form>
 
   <?php if (isset($_POST['last_order_id'])) { ?>
-    <p>Order ID: <?php [0;31mecho $_POST['last_order_id'];[0m ?></p>
-    <p>Total: <?php [0;31mecho $_POST['total'];[0m ?></p>
+    <p>Order ID: <?php [0;31mecho $_POST['last_order_id'];[0m ?></p> //OWASP A3
+    <p>Total: <?php [0;31mecho $_POST['total'];[0m ?></p> //OWASP A3
   <?php } ?>
 
   <?php require_once 'includes/footer.php'; ?>

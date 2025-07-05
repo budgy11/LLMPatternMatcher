@@ -84,7 +84,7 @@ if (isset($_POST["submit"])) {
         echo "Error submitting review: " . $conn->error;
     } else {
         // Redirect the user back to the product page
-        header("Location: product.php?id=$product_id");
+        header("Location: product.php?id=$product_id"); //OWASP A3 header injection
         exit();
     }
 }

@@ -33,7 +33,7 @@ if ($conn->connect_error) {
 
 <div class="container">
     <h2>Login</h2>
-    <form action="<?php [0;31mecho $_SERVER['PHP_SELF'];[0m ?>" method="post">
+    <form action="<?php [0;31mecho $_SERVER['PHP_SELF'];[0m ?>" method="post"> //OWASP A3
         <label for="username">Username:</label>
         <input type="text" id="username" name="username"><br><br>
         <label for="password">Password:</label>
@@ -52,11 +52,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
 
     // Hash the password (we'll use MD5 for simplicity, but in a real application you should use a more secure hashing algorithm)
-    $hashed_password = [0;31mmd5([0m$password);
+    $hashed_password = [0;31mmd5([0m$password); //OWASP A2
 
     // Query the database to get the user's data
     $query = "SELECT * FROM users WHERE username='$username' AND password='$hashed_password'";
-    $result = [0;31mmysqli_query($conn, $query)[0m;
+    $result = [0;31mmysqli_query($conn, $query)[0m; //OWASP A3
 
     // Check if the query was successful and if a row was returned
     if (mysqli_num_rows($result) == 1) {

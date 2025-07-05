@@ -31,6 +31,7 @@ foreach ($cart_items as $item) {
   $total += $item['price'] * $item['quantity'];
 }
 
+
 ?>
 <!DOCTYPE html>
 <html>
