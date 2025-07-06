@@ -1,0 +1,352 @@
+[
+    {
+        "source_name": [
+            "$product_id"
+        ],
+        "source_line": [
+            4
+        ],
+        "source_column": [
+            52
+        ],
+        "source_file": [
+            "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/gemma3\/php-code\/cart\/remove_from_cart.php"
+        ],
+        "sink_name": "query",
+        "sink_line": 6,
+        "sink_column": 88,
+        "sink_file": "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/gemma3\/php-code\/cart\/remove_from_cart.php",
+        "vuln_name": "sql_injection",
+        "vuln_cwe": "CWE_89",
+        "vuln_id": "82e55b3148821d3c5d3466390062aaa8a536c2420f93eb481d87c61214ff1d9d",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$sql"
+        ],
+        "source_line": [
+            10
+        ],
+        "source_column": [
+            114
+        ],
+        "source_file": [
+            "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/gemma3\/php-code\/purchase\/product.php"
+        ],
+        "sink_name": "query",
+        "sink_line": 11,
+        "sink_column": 172,
+        "sink_file": "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/gemma3\/php-code\/purchase\/product.php",
+        "vuln_name": "sql_injection",
+        "vuln_cwe": "CWE_89",
+        "vuln_id": "f6a22e5b2bc8a346fb2050d7e9f7d51b86996f18c075f4390586ce86ba7c47cc",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$product[\"product_name\"]"
+        ],
+        "source_line": [
+            22
+        ],
+        "source_column": [
+            375
+        ],
+        "source_file": [
+            "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/gemma3\/php-code\/purchase\/product.php"
+        ],
+        "sink_name": "echo",
+        "sink_line": 22,
+        "sink_column": 366,
+        "sink_file": "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/gemma3\/php-code\/purchase\/product.php",
+        "vuln_name": "xss",
+        "vuln_cwe": "CWE_79",
+        "vuln_id": "ce1aec41397ffee64fd78606d220d217232cf2224bd4f812273ffe55b786556a",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$product[\"image_url\"]"
+        ],
+        "source_line": [
+            23
+        ],
+        "source_column": [
+            435
+        ],
+        "source_file": [
+            "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/gemma3\/php-code\/purchase\/product.php"
+        ],
+        "sink_name": "echo",
+        "sink_line": 23,
+        "sink_column": 420,
+        "sink_file": "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/gemma3\/php-code\/purchase\/product.php",
+        "vuln_name": "xss",
+        "vuln_cwe": "CWE_79",
+        "vuln_id": "bd0486cd09a0dd9ae1ba95b7e186f53ca2f68c53f66bfadd35605a57deb68126",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$product[\"description\"]"
+        ],
+        "source_line": [
+            24
+        ],
+        "source_column": [
+            502
+        ],
+        "source_file": [
+            "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/gemma3\/php-code\/purchase\/product.php"
+        ],
+        "sink_name": "echo",
+        "sink_line": 24,
+        "sink_column": 494,
+        "sink_file": "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/gemma3\/php-code\/purchase\/product.php",
+        "vuln_name": "xss",
+        "vuln_cwe": "CWE_79",
+        "vuln_id": "7ec2387d55335e6827196f3ea9149e3f2af901501eb65ad7deb6cb1b7b32d53c",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$product[\"price\"]"
+        ],
+        "source_line": [
+            25
+        ],
+        "source_column": [
+            561
+        ],
+        "source_file": [
+            "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/gemma3\/php-code\/purchase\/product.php"
+        ],
+        "sink_name": "echo",
+        "sink_line": 25,
+        "sink_column": 545,
+        "sink_file": "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/gemma3\/php-code\/purchase\/product.php",
+        "vuln_name": "xss",
+        "vuln_cwe": "CWE_79",
+        "vuln_id": "fa93f8224431010e164a750fde6bfa22c8584ebeb8dc3a01c5b583fc69670882",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$row[\"image_url\"]",
+            "$row[\"product_name\"]",
+            "$row[\"description\"]",
+            "$row[\"price\"]",
+            "$row[\"id\"]"
+        ],
+        "source_line": [
+            30,
+            31,
+            32,
+            33,
+            34
+        ],
+        "source_column": [
+            600,
+            665,
+            719,
+            773,
+            844
+        ],
+        "source_file": [
+            "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/gemma3\/php-code\/purchase\/products.php",
+            "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/gemma3\/php-code\/purchase\/products.php",
+            "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/gemma3\/php-code\/purchase\/products.php",
+            "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/gemma3\/php-code\/purchase\/products.php",
+            "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/gemma3\/php-code\/purchase\/products.php"
+        ],
+        "sink_name": "echo",
+        "sink_line": 29,
+        "sink_column": 560,
+        "sink_file": "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/gemma3\/php-code\/purchase\/products.php",
+        "vuln_name": "xss",
+        "vuln_cwe": "CWE_79",
+        "vuln_id": "0b8cf006c4fcecff64b585e0c0f24f444282cf9b3f12934457567fe9331ae776",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$row[\"product_name\"]"
+        ],
+        "source_line": [
+            19
+        ],
+        "source_column": [
+            407
+        ],
+        "source_file": [
+            "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/gemma3\/php-code\/review\/index.php"
+        ],
+        "sink_name": "echo",
+        "sink_line": 19,
+        "sink_column": 398,
+        "sink_file": "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/gemma3\/php-code\/review\/index.php",
+        "vuln_name": "xss",
+        "vuln_cwe": "CWE_79",
+        "vuln_id": "1b56add69396eceacaff985a34e7659db261a9f0463bdd6b735b45c7f642ade5",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$row[\"image_url\"]",
+            "$row[\"product_name\"]"
+        ],
+        "source_line": [
+            20,
+            20
+        ],
+        "source_column": [
+            471,
+            503
+        ],
+        "source_file": [
+            "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/gemma3\/php-code\/review\/index.php",
+            "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/gemma3\/php-code\/review\/index.php"
+        ],
+        "sink_name": "echo",
+        "sink_line": 20,
+        "sink_column": 456,
+        "sink_file": "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/gemma3\/php-code\/review\/index.php",
+        "vuln_name": "xss",
+        "vuln_cwe": "CWE_79",
+        "vuln_id": "0a732a4174e1ca652f83c232da8eb8603fa8da8aba05a6a5a1884699451936bc",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$row[\"product_id\"]"
+        ],
+        "source_line": [
+            21
+        ],
+        "source_column": [
+            586
+        ],
+        "source_file": [
+            "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/gemma3\/php-code\/review\/index.php"
+        ],
+        "sink_name": "echo",
+        "sink_line": 21,
+        "sink_column": 549,
+        "sink_file": "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/gemma3\/php-code\/review\/index.php",
+        "vuln_name": "xss",
+        "vuln_cwe": "CWE_79",
+        "vuln_id": "806b492986422facba6c75da4ffb383744e1420a84b0f86712f7fbdd7018f760",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$sql"
+        ],
+        "source_line": [
+            13
+        ],
+        "source_column": [
+            212
+        ],
+        "source_file": [
+            "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/gemma3\/php-code\/review\/product.php"
+        ],
+        "sink_name": "query",
+        "sink_line": 14,
+        "sink_column": 293,
+        "sink_file": "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/gemma3\/php-code\/review\/product.php",
+        "vuln_name": "sql_injection",
+        "vuln_cwe": "CWE_89",
+        "vuln_id": "b27675a4fe65a1e3d774b45ccfb0b6b54646a453e5cd3e2172e9ed117bf6b9f8",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$product[\"product_name\"]"
+        ],
+        "source_line": [
+            18
+        ],
+        "source_column": [
+            403
+        ],
+        "source_file": [
+            "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/gemma3\/php-code\/review\/product.php"
+        ],
+        "sink_name": "echo",
+        "sink_line": 18,
+        "sink_column": 403,
+        "sink_file": "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/gemma3\/php-code\/review\/product.php",
+        "vuln_name": "xss",
+        "vuln_cwe": "CWE_79",
+        "vuln_id": "f2796a5ad05880a3521cd0be1385570f0e508ed4e5daf4e48542cec654be35f4",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$sql"
+        ],
+        "source_line": [
+            10
+        ],
+        "source_column": [
+            217
+        ],
+        "source_file": [
+            "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/gemma3\/php-code\/review\/review.php"
+        ],
+        "sink_name": "query",
+        "sink_line": 12,
+        "sink_column": 385,
+        "sink_file": "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/gemma3\/php-code\/review\/review.php",
+        "vuln_name": "sql_injection",
+        "vuln_cwe": "CWE_89",
+        "vuln_id": "0ef5c21beb51d41d9da5f15b0ec137b7fe1c5ef6df3130f590e42e74a2636d3d",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$sql"
+        ],
+        "source_line": [
+            17
+        ],
+        "source_column": [
+            376
+        ],
+        "source_file": [
+            "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/gemma3\/php-code\/search\/database.php"
+        ],
+        "sink_name": "query",
+        "sink_line": 18,
+        "sink_column": 398,
+        "sink_file": "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/gemma3\/php-code\/search\/database.php",
+        "vuln_name": "sql_injection",
+        "vuln_cwe": "CWE_89",
+        "vuln_id": "1ed4830d709cc05b1b377c579c4929f167e41d4f5fb03d8a38c102c3e10b1be0",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$searchTerm"
+        ],
+        "source_line": [
+            7
+        ],
+        "source_column": [
+            172
+        ],
+        "source_file": [
+            "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/gemma3\/php-code\/search\/index.php"
+        ],
+        "sink_name": "echo",
+        "sink_line": 14,
+        "sink_column": 452,
+        "sink_file": "\/home\/victor\/CS6727\/LLMPatternMatcher\/evaluation\/gemma3\/php-code\/search\/index.php",
+        "vuln_name": "xss",
+        "vuln_cwe": "CWE_79",
+        "vuln_id": "0403ccb0375d0ae3561f6adbc6b053be0f4cd1a8262b37a5bcecb8d6c814d1cf",
+        "vuln_type": "taint-style"
+    }
+]

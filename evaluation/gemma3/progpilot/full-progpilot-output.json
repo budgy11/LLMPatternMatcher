@@ -1,0 +1,440 @@
+[
+    {
+        "source_name": [
+            "$product_id"
+        ],
+        "source_line": [
+            140
+        ],
+        "source_column": [
+            3900
+        ],
+        "source_file": [
+            "full-cart.php"
+        ],
+        "sink_name": "query",
+        "sink_line": 142,
+        "sink_column": 3936,
+        "sink_file": "full-cart.php",
+        "vuln_name": "sql_injection",
+        "vuln_cwe": "CWE_89",
+        "vuln_id": "7a450080d78d4cb6f9342727122be24918ba1662ded6b98f2860ca82227c1b2c",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$row[\"image_url\"]",
+            "$row[\"product_name\"]",
+            "$row[\"description\"]",
+            "$row[\"price\"]",
+            "$row[\"id\"]"
+        ],
+        "source_line": [
+            46,
+            47,
+            48,
+            49,
+            50
+        ],
+        "source_column": [
+            937,
+            1002,
+            1056,
+            1110,
+            1181
+        ],
+        "source_file": [
+            "full-purchase.php",
+            "full-purchase.php",
+            "full-purchase.php",
+            "full-purchase.php",
+            "full-purchase.php"
+        ],
+        "sink_name": "echo",
+        "sink_line": 45,
+        "sink_column": 897,
+        "sink_file": "full-purchase.php",
+        "vuln_name": "xss",
+        "vuln_cwe": "CWE_79",
+        "vuln_id": "a3e80056936c4956b70e8a80639543b58d9a04429458f0d1991d1a96bc4cb2f9",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$sql"
+        ],
+        "source_line": [
+            72
+        ],
+        "source_column": [
+            1463
+        ],
+        "source_file": [
+            "full-purchase.php"
+        ],
+        "sink_name": "query",
+        "sink_line": 73,
+        "sink_column": 1521,
+        "sink_file": "full-purchase.php",
+        "vuln_name": "sql_injection",
+        "vuln_cwe": "CWE_89",
+        "vuln_id": "d72bc7820f2701e79b0e5e351a63ded87460db90b30cc610bf9c177a139ce54c",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$product[\"product_name\"]"
+        ],
+        "source_line": [
+            84
+        ],
+        "source_column": [
+            1724
+        ],
+        "source_file": [
+            "full-purchase.php"
+        ],
+        "sink_name": "echo",
+        "sink_line": 84,
+        "sink_column": 1715,
+        "sink_file": "full-purchase.php",
+        "vuln_name": "xss",
+        "vuln_cwe": "CWE_79",
+        "vuln_id": "543d0f111e3f0f80a96083120355591f4bb9f308893ca73414206e9aeb3d0c9c",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$product[\"image_url\"]"
+        ],
+        "source_line": [
+            85
+        ],
+        "source_column": [
+            1784
+        ],
+        "source_file": [
+            "full-purchase.php"
+        ],
+        "sink_name": "echo",
+        "sink_line": 85,
+        "sink_column": 1769,
+        "sink_file": "full-purchase.php",
+        "vuln_name": "xss",
+        "vuln_cwe": "CWE_79",
+        "vuln_id": "39cdd20eb14b1687c024579ab6dac5bc7fd081941777117369069e86fe95fe20",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$product[\"description\"]"
+        ],
+        "source_line": [
+            86
+        ],
+        "source_column": [
+            1851
+        ],
+        "source_file": [
+            "full-purchase.php"
+        ],
+        "sink_name": "echo",
+        "sink_line": 86,
+        "sink_column": 1843,
+        "sink_file": "full-purchase.php",
+        "vuln_name": "xss",
+        "vuln_cwe": "CWE_79",
+        "vuln_id": "be2b49cdd0b8194a8e45e2d8e212dd206b4c822953163399220844f332e5fbde",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$product[\"price\"]"
+        ],
+        "source_line": [
+            87
+        ],
+        "source_column": [
+            1910
+        ],
+        "source_file": [
+            "full-purchase.php"
+        ],
+        "sink_name": "echo",
+        "sink_line": 87,
+        "sink_column": 1894,
+        "sink_file": "full-purchase.php",
+        "vuln_name": "xss",
+        "vuln_cwe": "CWE_79",
+        "vuln_id": "b3c9fec4e346f2398d8067f997995f827a54656c1523b8e2d976a39b7f7bf756",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$row[\"product_name\"]"
+        ],
+        "source_line": [
+            32
+        ],
+        "source_column": [
+            667
+        ],
+        "source_file": [
+            "full-review.php"
+        ],
+        "sink_name": "echo",
+        "sink_line": 32,
+        "sink_column": 658,
+        "sink_file": "full-review.php",
+        "vuln_name": "xss",
+        "vuln_cwe": "CWE_79",
+        "vuln_id": "c44124e7efbed03065be9594001d40906608aa874c58d9d430a439f9fc9a0e16",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$row[\"image_url\"]",
+            "$row[\"product_name\"]"
+        ],
+        "source_line": [
+            33,
+            33
+        ],
+        "source_column": [
+            731,
+            763
+        ],
+        "source_file": [
+            "full-review.php",
+            "full-review.php"
+        ],
+        "sink_name": "echo",
+        "sink_line": 33,
+        "sink_column": 716,
+        "sink_file": "full-review.php",
+        "vuln_name": "xss",
+        "vuln_cwe": "CWE_79",
+        "vuln_id": "688148cfc9b7d528b5ae713ee2a9cd3875a3695f971768e717ac0af3de8832f8",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$row[\"product_id\"]"
+        ],
+        "source_line": [
+            34
+        ],
+        "source_column": [
+            846
+        ],
+        "source_file": [
+            "full-review.php"
+        ],
+        "sink_name": "echo",
+        "sink_line": 34,
+        "sink_column": 809,
+        "sink_file": "full-review.php",
+        "vuln_name": "xss",
+        "vuln_cwe": "CWE_79",
+        "vuln_id": "9077854e659c99fbece76e00b7851eb9a9499f6fd0f45ba03fc50fcc739c4971",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$sql"
+        ],
+        "source_line": [
+            55
+        ],
+        "source_column": [
+            1216
+        ],
+        "source_file": [
+            "full-review.php"
+        ],
+        "sink_name": "query",
+        "sink_line": 56,
+        "sink_column": 1297,
+        "sink_file": "full-review.php",
+        "vuln_name": "sql_injection",
+        "vuln_cwe": "CWE_89",
+        "vuln_id": "467aef3e662e54439e0cb68e09ee3fdbceb88db3b825c078814dda88b87c265a",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$product[\"product_name\"]"
+        ],
+        "source_line": [
+            60
+        ],
+        "source_column": [
+            1407
+        ],
+        "source_file": [
+            "full-review.php"
+        ],
+        "sink_name": "echo",
+        "sink_line": 60,
+        "sink_column": 1407,
+        "sink_file": "full-review.php",
+        "vuln_name": "xss",
+        "vuln_cwe": "CWE_79",
+        "vuln_id": "e9d42eed48e5cb4d35fdcd4d2315f57513e10431a0b69136f155c46c52d7a587",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$sql"
+        ],
+        "source_line": [
+            86
+        ],
+        "source_column": [
+            2070
+        ],
+        "source_file": [
+            "full-review.php"
+        ],
+        "sink_name": "query",
+        "sink_line": 88,
+        "sink_column": 2238,
+        "sink_file": "full-review.php",
+        "vuln_name": "sql_injection",
+        "vuln_cwe": "CWE_89",
+        "vuln_id": "467aef3e662e54439e0cb68e09ee3fdbceb88db3b825c078814dda88b87c265a",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$row[\"product_id\"]"
+        ],
+        "source_line": [
+            37
+        ],
+        "source_column": [
+            835
+        ],
+        "source_file": [
+            "full-search.php"
+        ],
+        "sink_name": "echo",
+        "sink_line": 37,
+        "sink_column": 826,
+        "sink_file": "full-search.php",
+        "vuln_name": "xss",
+        "vuln_cwe": "CWE_79",
+        "vuln_id": "b43b1a39a9e3e512ece8623658335266f069a8e1a76693bb2a125dd6456e8766",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$row[\"product_name\"]"
+        ],
+        "source_line": [
+            38
+        ],
+        "source_column": [
+            887
+        ],
+        "source_file": [
+            "full-search.php"
+        ],
+        "sink_name": "echo",
+        "sink_line": 38,
+        "sink_column": 878,
+        "sink_file": "full-search.php",
+        "vuln_name": "xss",
+        "vuln_cwe": "CWE_79",
+        "vuln_id": "396cdba63e065e409a93af163e0a61a6f8597072869abb1bbafbc99f658ede0e",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$row[\"category\"]"
+        ],
+        "source_line": [
+            39
+        ],
+        "source_column": [
+            941
+        ],
+        "source_file": [
+            "full-search.php"
+        ],
+        "sink_name": "echo",
+        "sink_line": 39,
+        "sink_column": 932,
+        "sink_file": "full-search.php",
+        "vuln_name": "xss",
+        "vuln_cwe": "CWE_79",
+        "vuln_id": "2c9f1bfcb6ece5f83354b71b7ab64359a6687206db1acf2f2c793f769ef6c1ae",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$row[\"price\"]"
+        ],
+        "source_line": [
+            40
+        ],
+        "source_column": [
+            991
+        ],
+        "source_file": [
+            "full-search.php"
+        ],
+        "sink_name": "echo",
+        "sink_line": 40,
+        "sink_column": 982,
+        "sink_file": "full-search.php",
+        "vuln_name": "xss",
+        "vuln_cwe": "CWE_79",
+        "vuln_id": "e72db7fc024a3ab5bc6a181fba792a8990d0c9ee522813f1b259de65c6a6e6f2",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$sql"
+        ],
+        "source_line": [
+            17
+        ],
+        "source_column": [
+            376
+        ],
+        "source_file": [
+            "full-search.php"
+        ],
+        "sink_name": "query",
+        "sink_line": 18,
+        "sink_column": 398,
+        "sink_file": "full-search.php",
+        "vuln_name": "sql_injection",
+        "vuln_cwe": "CWE_89",
+        "vuln_id": "477b10b23ddcb8982a50c6382abb9b4f5980e0ddf0556eba7acf24e92b8274b2",
+        "vuln_type": "taint-style"
+    },
+    {
+        "source_name": [
+            "$searchTerm"
+        ],
+        "source_line": [
+            55
+        ],
+        "source_column": [
+            1278
+        ],
+        "source_file": [
+            "full-search.php"
+        ],
+        "sink_name": "echo",
+        "sink_line": 62,
+        "sink_column": 1558,
+        "sink_file": "full-search.php",
+        "vuln_name": "xss",
+        "vuln_cwe": "CWE_79",
+        "vuln_id": "a87d227074c0eba7fd8ff6206caae581c3e8f9fc0519f5ea6751087c212f35dd",
+        "vuln_type": "taint-style"
+    }
+]
