@@ -15,7 +15,7 @@ if (isset($_GET['token'])) {
     
     $token = $_GET['token'];
     
-    if (isset($_SESSION['token']) && $_SESSION['token'] == $token) {
+    if (isset($_SESSION['token']) && $_SESSION['token'] == $token) { 
         
         // Check if user exists
         $email = $_POST['email'];

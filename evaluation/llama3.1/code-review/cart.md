@@ -142,7 +142,7 @@ require_once 'db.php';
 
 // Get all items in cart for current user
 $cart_items = array();
-$sql = "SELECT * FROM cart WHERE user_id = $_SESSION[user_id]"; //OWASP A3
+$sql = "SELECT * FROM cart WHERE user_id = $_SESSION[user_id]"; //Not vulnerable, Session is not editable by user
 $result = mysqli_query($conn, $sql);
 while ($row = mysqli_fetch_assoc($result)) {
   $product_id = $row['product_id'];
@@ -160,7 +160,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 foreach ($_POST['cart_items'] as $item) {
   $product_id = $item['id'];
   $new_quantity = $item['quantity'];
-  $sql = "UPDATE cart SET quantity = '$new_quantity' WHERE user_id = $_SESSION[user_id] AND product_id = '$product_id'"; //OWASP A3 session var taken
+  $sql = "UPDATE cart SET quantity = '$new_quantity' WHERE user_id = $_SESSION[user_id] AND product_id = '$product_id'"; //OWASP A3 
   mysqli_query($conn, $sql);
 }
 

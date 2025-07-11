@@ -160,7 +160,7 @@ require_once 'db.php';
 // Get all items in cart for current user
 $cart_items = array();
 $sql = "SELECT * FROM cart WHERE user_id = $_SESSION[user_id]";
-$result = [0;31mmysqli_query($conn, $sql)[0m; //OWASP A3
+$result = [0;31mmysqli_query($conn, $sql)[0m; //False Positive A3
 while ($row = mysqli_fetch_assoc($result)) {
   $product_id = $row['product_id'];
   $item = get_product_info($product_id);
