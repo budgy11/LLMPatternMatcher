@@ -11,9 +11,9 @@ def calc_avg(file):
 
     return total/cnt
 
-print(calc_avg('ollama-time.txt'))
-print(calc_avg('LLMPM-times.txt'))
+print("Ollama Time: " + str(calc_avg('ollama-time.txt')))
+print("LLMPatternMatcher Time: " + str(calc_avg('LLMPM-times.txt')))
 
 
-print(calc_avg('LLMPM-times.txt') - calc_avg('ollama-time.txt'))
+print("LLMPatternMatcher Time - Ollama Time: " + str(calc_avg('LLMPM-times.txt') - calc_avg('ollama-time.txt')))
 
