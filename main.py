@@ -6,6 +6,7 @@ import json
 import datetime
 import time
 import os
+import sys
 
 #custom imports
 from LLM_gen import send_request
@@ -24,13 +25,12 @@ def main():
         )
 
     parser.add_argument('-u', '--url', default='http://localhost:11434/api/chat', help="The endpoint used to interact with the LLM model. Default http://localhost:11434/api/chat")
-    parser.add_argument('-m', '--model', required = True, help="The model used to generate output.")
-    parser.add_argument('-p', '--prompt', required = False, help="Prompt to send the model.")
-    parser.add_argument('-q', '--quiet', action="store_true", help="This variable will mute the alerts and can help cutdown on runtime.")
+    parser.add_argument('-p', '--prompt', required = False, help="Prompt to send the model")
+    parser.add_argument('-q', '--quiet', action="store_true", help="This variable will mute alert blocks")
     parser.add_argument('-o', '--output', help="Outputs text of matched code in markdown")
     parser.add_argument('-oj', '--output-json', help="Outputs json of matched code")
     parser.add_argument('-i', '--input', help="Markdown input file to parse")
-    parser.add_argument('-ip', '--input-php', help="php input file to parse (input treated as a large codeblock)")
+    parser.add_argument('-m', '--model', required ='--input' not in sys.argv and '-i' not in sys.argv, help="The model used to generate output")
 
     args = parser.parse_args()
     model = args.model
@@ -40,7 +40,6 @@ def main():
     out_text = args.output
     out_json = args.output_json
     input_file = args.input
-    input_php = args.input
 
 
     #One-Time Prompt from CLI
@@ -63,23 +62,6 @@ def main():
         start_time = time.time()
         with open(input_file, 'r') as fh:
             llm_output = fh.read()
-        final_output = parse_output(llm_output,quiet)
-        print(final_output)
-        if out_text:
-            timestamp = datetime.datetime.now().strftime("%Y%m%d%H%M%S%f") #to keep names unique
-            with open(out_text + "-" + timestamp + '.md', 'w') as wh:
-                wh.write(final_output)
-        if out_json:
-            total_time = time.time() - start_time
-            timestamp = datetime.datetime.now().strftime("%Y%m%d%H%M%S%f") #to keep names unique
-            with open(out_json + "-" + timestamp + '.json', 'w') as wh:
-                wh.write(gen_json_out(prompt,final_output,total_time))
-
-    elif input_php:
-        start_time = time.time()
-        with open(input_php, 'r') as fh:
-            llm_output = fh.read()
-            llm_output = "```php\n" + llm_output +"\n```\n" #to create a code block
         final_output = parse_output(llm_output,quiet)
         print(final_output)
         if out_text:
