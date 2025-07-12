@@ -3,7 +3,6 @@
 with open('./variables/sensitive_vars.txt') as fh:
     sensitive = fh.read().splitlines()
 
-
 #for variables that do not contain user input
 with open('./variables/safe_vars.txt') as fh:
 	safe = fh.read().splitlines()

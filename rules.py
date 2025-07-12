@@ -14,7 +14,7 @@ from var_gen import safe_vars_regex, dangerous_vars_regex, sensitive_vars_regex,
 #"find_password":   [
 #    rf'\${dangerous_vars_regex}',
 #    "There is a dangerous variable in use"
-#    ],:W
+#    ],
 # Note: Full matches must be placed higher in the dictionary to be alerted (i.e shell_exec must be placed before exec)
 
 # Use {safe_vars_regex} in locations where you are checking for user input specifically and change r' to rf' to use a formatted string
@@ -68,10 +68,6 @@ regex_rules = {
         ],
     #modified to have negative look behind for htmlspecialchars( based on gemma3 output
     "use_echo":   [
-        #r'echo\s+.*\$.*\n\`', 
-        #rf'echo\s+.*(?<!htmlspecialchars\()\s*{dangerous_vars_regex}.*;', 
-        #rf'echo.*(?<!htmlspecialchars\()\s*.*', 
-
         rf'echo\s+.*(?<!htmlspecialchars\()\s*\$(?!{safe_vars_regex}).*;', 
         "Echo may lead to XSS if passed unsanitized input"
         ],
