@@ -15,12 +15,10 @@ from var_gen import safe_vars_regex, dangerous_vars_regex, sensitive_vars_regex,
 #    rf'\${dangerous_vars_regex}',
 #    "There is a dangerous variable in use"
 #    ],:W
-# Note: there is currently a bug where using full matches must be placed higher in the dictionary to be alerted (i.e shell_exec must be placed before exec)
+# Note: Full matches must be placed higher in the dictionary to be alerted (i.e shell_exec must be placed before exec)
 
-# Use {dangerous_vars_regex} in locations where you are checking for user input specifically and change r' to rf' to use a formatted string
-# Note: using dangerous_vars_regex is not fullproof and may lead to false negatives but should provide less alerts. This is also not a replacement for code review/audits
+# Use {safe_vars_regex} in locations where you are checking for user input specifically and change r' to rf' to use a formatted string
 
-#May need to switch off of format strings and do substitution later in code_parser
 regex_rules = {
     # The following default rules are modified from graudit at https://github.com/wireghoul/graudit/blob/master/signatures/php/default.db
     # and https://github.com/FloeDesignTechnologies/phpcs-security-audit/tree/master/Security/Sniffs/BadFunctions 

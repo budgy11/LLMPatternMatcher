@@ -2,12 +2,6 @@ import re
 
 from rules import regex_rules 
 
-#TODO Added import below to move format string processing from rules.py to here
-#from var_gen import dangerous_vars_regex, sensitive_vars_regex, callback_func_regex, filesystem_func_regex,functionhandling_func_regex
-
-#TODO for analysis check how many echo statements use variables tainted at a depth more than 1
-#Showed that most vars go to a deep depth and it's not that useful. Likely something that should be implemented fully if at all and in replacement of dangerous vars
-
 def pull_code(output):
     #https://coderwall.com/p/r6b4xg/regex-to-match-github-s-markdown-code-blocks
     #modified for php specifically and added \s* due to inconsistent indentation in output

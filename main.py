@@ -27,7 +27,6 @@ def main():
     parser.add_argument('-m', '--model', required = True, help="The model used to generate output.")
     parser.add_argument('-p', '--prompt', required = False, help="Prompt to send the model.")
     parser.add_argument('-q', '--quiet', action="store_true", help="This variable will mute the alerts and can help cutdown on runtime.")
-    #parser.add_argument('-l', '--loud', action="store_true", help="This variable will replace dangerouse vars with $. meaning all variables will be considered dangerous.")
     parser.add_argument('-o', '--output', help="Outputs text of matched code")
     parser.add_argument('-oj', '--output-json', help="Outputs json of matched code")
     parser.add_argument('-i', '--input', help="Markdown input file to parse")
@@ -38,14 +37,11 @@ def main():
     url = args.url
     prompt = args.prompt
     quiet = args.quiet
-    #loud = args.loud
     out_text = args.output
     out_json = args.output_json
     input_file = args.input
     input_php = args.input
 
-
-    #TODO this can probably be better served making a single function for generating final output.
 
     #One-Time Prompt from CLI
     if prompt:
@@ -62,7 +58,7 @@ def main():
             with open(out_json + "-" + timestamp + '.json', 'w') as wh:
                 wh.write(gen_json_out(prompt,final_output,total_time))
 
-    #Markdown input file. Ignores any supplied prompt
+    #Input file. Ignores any supplied prompt
     elif input_file:
         start_time = time.time()
         with open(input_file, 'r') as fh:

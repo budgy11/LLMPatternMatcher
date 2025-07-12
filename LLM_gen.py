@@ -5,7 +5,6 @@ from code_parser import code_parse
 from code_parser import pull_code
 
 def send_request(url,model,prompt):
-    #For the ollama libraries currently - chatgpt will likely need to be separated
 
     r = requests.post(url, json={
         "model": model, 
@@ -44,7 +43,6 @@ def parse_output(llm_input,quiet):
     for line in llm_input.split('\n'):
         #lines in php blocks to parse
         if line.strip()[0:6] == '```php':
-            #print(line) #already printed from above branch
             try:
                 llm_output += code_parse(code_blocks[block_ctr],quiet)[0]
                 alert_string += code_parse(code_blocks[block_ctr],quiet)[1]
@@ -56,17 +54,16 @@ def parse_output(llm_input,quiet):
                     print(i)
                 print("End of Error Message\n####\n\n")
                 exit()
+
             if not quiet:
                 llm_output += "\n#####\nAlerts:\n" + alert_string + "#####\n"
             block_ctr += 1
             isCode = True
         elif isCode and line[0:3] == '```':
-            #print(line)
             print() #missing newline
             isCode = False
             alert_string = ""
         elif not isCode:
-            #print(line)
             llm_output += line + "\n"
         elif isCode:
             pass

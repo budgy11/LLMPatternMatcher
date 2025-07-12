@@ -3,12 +3,14 @@
 with open('./variables/sensitive_vars.txt') as fh:
     sensitive = fh.read().splitlines()
 
+
+#for variables that do not contain user input
+with open('./variables/safe_vars.txt') as fh:
+	safe = fh.read().splitlines()
+
 #for variables that usually take user input 
 with open('./variables/dangerous_vars.txt') as fh:
 	dangerous = fh.read().splitlines()
-
-with open('./variables/safe_vars.txt') as fh:
-	safe = fh.read().splitlines()
 
 #callbacks are bad - https://github.com/FloeDesignTechnologies/phpcs-security-audit/blob/master/Security/Sniffs/BadFunctions/CallbackFunctionsSniff.php#L32
 callback_function_list = [
