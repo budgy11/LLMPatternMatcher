@@ -8,7 +8,7 @@ def send_request(model,prompt):
 
     response = client.responses.create(
         model=model,
-        input=prompt,
+        input=prompt
     )
 
     return response.output_text
