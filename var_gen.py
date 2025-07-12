@@ -7,7 +7,7 @@ with open('./variables/sensitive_vars.txt') as fh:
 with open('./variables/safe_vars.txt') as fh:
 	safe = fh.read().splitlines()
 
-#for variables that usually take user input 
+#for variables that usually take user input but is not used by default 
 with open('./variables/dangerous_vars.txt') as fh:
 	dangerous = fh.read().splitlines()
 

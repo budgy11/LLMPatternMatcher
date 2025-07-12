@@ -6,17 +6,7 @@ from var_gen import safe_vars_regex, dangerous_vars_regex, sensitive_vars_regex,
 #"description"
 #]
 
-#Examples
-#"find_username":   [
-#    r'\$username',
-#    "There is a username variable in use"
-#    ],
-#"find_password":   [
-#    rf'\${dangerous_vars_regex}',
-#    "There is a dangerous variable in use"
-#    ],
 # Note: Full matches must be placed higher in the dictionary to be alerted (i.e shell_exec must be placed before exec)
-
 # Use {safe_vars_regex} in locations where you are checking for user input specifically and change r' to rf' to use a formatted string
 
 regex_rules = {
