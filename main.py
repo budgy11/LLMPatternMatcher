@@ -27,7 +27,7 @@ def main():
     parser.add_argument('-m', '--model', required = True, help="The model used to generate output.")
     parser.add_argument('-p', '--prompt', required = False, help="Prompt to send the model.")
     parser.add_argument('-q', '--quiet', action="store_true", help="This variable will mute the alerts and can help cutdown on runtime.")
-    parser.add_argument('-o', '--output', help="Outputs text of matched code")
+    parser.add_argument('-o', '--output', help="Outputs text of matched code in markdown")
     parser.add_argument('-oj', '--output-json', help="Outputs json of matched code")
     parser.add_argument('-i', '--input', help="Markdown input file to parse")
     parser.add_argument('-ip', '--input-php', help="php input file to parse (input treated as a large codeblock)")
@@ -52,7 +52,7 @@ def main():
             timestamp = datetime.datetime.now().strftime("%Y%m%d%H%M%S%f") #to keep names unique
             with open(out_text + "-" + timestamp + '.md', 'w') as wh:
                 wh.write(final_output)
-        elif out_json:
+        if out_json:
             total_time = time.time() - start_time
             timestamp = datetime.datetime.now().strftime("%Y%m%d%H%M%S%f") #to keep names unique
             with open(out_json + "-" + timestamp + '.json', 'w') as wh:
@@ -69,7 +69,7 @@ def main():
             timestamp = datetime.datetime.now().strftime("%Y%m%d%H%M%S%f") #to keep names unique
             with open(out_text + "-" + timestamp + '.md', 'w') as wh:
                 wh.write(final_output)
-        elif out_json:
+        if out_json:
             total_time = time.time() - start_time
             timestamp = datetime.datetime.now().strftime("%Y%m%d%H%M%S%f") #to keep names unique
             with open(out_json + "-" + timestamp + '.json', 'w') as wh:
@@ -86,7 +86,7 @@ def main():
             timestamp = datetime.datetime.now().strftime("%Y%m%d%H%M%S%f") #to keep names unique
             with open(out_text + "-" + timestamp + '.md', 'w') as wh:
                 wh.write(final_output)
-        elif out_json:
+        if out_json:
             total_time = time.time() - start_time
             timestamp = datetime.datetime.now().strftime("%Y%m%d%H%M%S%f") #to keep names unique
             with open(out_json + "-" + timestamp + '.json', 'w') as wh:
@@ -106,7 +106,7 @@ def main():
                 timestamp = datetime.datetime.now().strftime("%Y%m%d%H%M%S%f") #to keep names unique
                 with open(out_text + "-" + timestamp + '.md', 'w') as wh:
                     wh.write(final_output)
-            elif out_json:
+            if out_json:
                 total_time = time.time() - start_time
                 timestamp = datetime.datetime.now().strftime("%Y%m%d%H%M%S%f") #to keep names unique
                 with open(out_json + "-" + timestamp + '.json', 'w') as wh:
