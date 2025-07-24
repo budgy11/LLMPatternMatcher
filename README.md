@@ -20,3 +20,5 @@ The `-o <file_prefix>` flag can be used to output the processed LLM Outputs to t
 
 #### Dangerous Variables - Deprecated please consider safe vars
 The `variables/dangerous_vars.txt` file by default contains `\$.` to match everything. There is also an ecommerce version available in the `variables` folder with some default variable names discovered during testing on gemma3. The file can be swapped in by renaming it to `variables/dangerous_vars.txt`. The rules file will use safe_vars.txt by default and needs modification to use dangerous_vars.txt
+
+Link to Evaluation Spreadsheet - https://docs.google.com/spreadsheets/d/1sAq3zXslkg_jj31A3D3UOuTLdut9orWdnoQ70CtwX40/edit?gid=1559353361#gid=1559353361
